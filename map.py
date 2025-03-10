@@ -74,11 +74,41 @@ def evaluate_single(image_path, annotation_path):
     print(f"Ground Truth: {ground_truth_detections}")
 
     map_metric.update(detections, ground_truth_detections)
-
     eval_metric = map_metric.compute()
     print(f"Mean Average Precision for single image: {eval_metric.map50_95}")
 
+    # Annotate and display the image
+    annotate_and_display(image, detections, ground_truth_detections)
+
+
     return eval_metric.map50_95
+
+
+def annotate_and_display(image, detections, ground_truth_detections):
+    box_annotator = sv.BoxAnnotator()
+    label_annotator = sv.LabelAnnotator()
+
+    labels_model = [f"Model: {class_id}" for class_id in detections.class_id]
+    labels_gt = [f"GT: {class_id}" for class_id in ground_truth_detections.class_id]
+
+    annotated_image_model = image.copy()
+    annotated_image_model = box_annotator.annotate(annotated_image_model, detections)
+    annotated_image_model = label_annotator.annotate(annotated_image_model, detections, labels_model)
+
+    annotated_image_gt = image.copy()
+    annotated_image_gt = box_annotator.annotate(annotated_image_gt, ground_truth_detections)
+    annotated_image_gt = label_annotator.annotate(annotated_image_gt, ground_truth_detections, labels_gt)
+
+    # Create a side-by-side comparison
+    comparison_image = sv.create_tiles(
+        [annotated_image_model, annotated_image_gt],
+        grid_size=(1, 2),
+        single_tile_size=(image.width, image.height),
+        tile_padding_color=sv.Color.WHITE,
+        tile_margin_color=sv.Color.WHITE
+    )
+
+    comparison_image.show()
 
 # Uncomment the following lines to evaluate a batch of images
 #batch_folder = "batch_images/test_set"
