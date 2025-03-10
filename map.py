@@ -24,11 +24,13 @@ def evaluate_single(image_file, label_file):
     detections = sv.Detections.from_inference(results)
 
     ground_truth = read_ground_truth(label_file)
-    map_n_metric = MeanAveragePrecision().update([detections], [ground_truth]).compute()
+    eval_metric = MeanAveragePrecision().update([detections], [ground_truth]).compute()
     print(f"Detections: {detections}")
-    print(f"Mean Average Precision: {map_n_metric.map50_95}")
+    print(f"Mean Average Precision: {eval_metric.map50_95}")
+    print(f"Precision: {eval_metric.precision}")
+    print(f"Recall: {eval_metric.recall}")
 
-    return map_n_metric.map50_95
+    return eval_metric.map50_95, eval_metric.recall
 
 def evaluate_batch(images_path, labels_path):
     model = get_model(model_id="beverage-containers-3atxb/3", api_key="r5e027ZfsLmnqRVzqpYa")
@@ -47,12 +49,21 @@ def evaluate_batch(images_path, labels_path):
                 ground_truth = read_ground_truth(label_file)
                 map_metric.update([detections], [ground_truth])
 
-    map_n_metric = map_metric.compute()
-    print(f"Mean Average Precision for batch: {map_n_metric.map50_95}")
+    eval_metric = map_metric.compute()
+    print(f"Mean Average Precision for batch: {eval_metric.map50_95}")
+    print(f"Precision for batch: {eval_metric.precision}")
+    print(f"Recall for batch: {eval_metric.recall}")
 
-    return map_n_metric.map50_95
+    return eval_metric.map50_95, eval_metric.recall
 
-batch_images_folder = "batch_images/test_set/images"
-labels_folder = "batch_images/test_set/labels"
-evaluate_batch(batch_images_folder, labels_folder)
+
+
+
+single_image = "batch_images/test_set/images/0a20baf628fa9be7_jpg.rf.6ce55e30ca2cac3c5e01b3dacedc7b11.jpg"
+single_label = "batch_images/test_set/labels/0a20baf628fa9be7_jpg.rf.6ce55e30ca2cac3c5e01b3dacedc7b11.txt"
+evaluate_single(single_image, single_label)
+
+test_images_folder = "batch_images/test_set/images"
+test_labels_folder = "batch_images/test_set/labels"
+evaluate_batch(test_images_folder, test_labels_folder)
 
