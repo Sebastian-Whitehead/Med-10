@@ -27,9 +27,9 @@ def evaluate_batch(batch_path):
         map_metric.update(detections, [annotations])
 
     eval_metric = map_metric.compute()
-    print(f"Mean Average Precision for batch: {eval_metric.map50_95}")
+    print(f"Mean Average Precision for batch: {eval_metric.map50}")
 
-    return eval_metric.map50_95
+    return eval_metric.map50
 
 def evaluate_single(image_path, annotation_path):
     model = get_model(model_id="beverage-containers-3atxb/3", api_key="r5e027ZfsLmnqRVzqpYa")
@@ -83,7 +83,6 @@ def evaluate_single(image_path, annotation_path):
 
     return eval_metric.map50_95
 
-
 def annotate_and_display(image, detections, ground_truth_detections):
     box_annotator = sv.BoxAnnotator()
     label_annotator = sv.LabelAnnotator()
@@ -111,10 +110,10 @@ def annotate_and_display(image, detections, ground_truth_detections):
     comparison_image.show()
 
 # Uncomment the following lines to evaluate a batch of images
-#batch_folder = "batch_images/test_set"
-#evaluate_batch(batch_folder)
+batch_folder = "batch_images/test_set"
+evaluate_batch(batch_folder)
 
 # Uncomment the following lines to evaluate a single image
-single_image_path = "batch_images/test_set/images/0a20baf628fa9be7_jpg.rf.6ce55e30ca2cac3c5e01b3dacedc7b11.jpg"
-single_annotation_path = "batch_images/test_set/labels/0a20baf628fa9be7_jpg.rf.6ce55e30ca2cac3c5e01b3dacedc7b11.txt"
-evaluate_single(single_image_path, single_annotation_path)
+#single_image_path = "batch_images/test_set/images/0a20baf628fa9be7_jpg.rf.6ce55e30ca2cac3c5e01b3dacedc7b11.jpg"
+#single_annotation_path = "batch_images/test_set/labels/0a20baf628fa9be7_jpg.rf.6ce55e30ca2cac3c5e01b3dacedc7b11.txt"
+#evaluate_single(single_image_path, single_annotation_path)
