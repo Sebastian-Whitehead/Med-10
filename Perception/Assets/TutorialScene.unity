@@ -176,7 +176,7 @@ MonoBehaviour:
         asm: Unity.Perception.Runtime}
       data:
         m_Enabled: 1
-        collapsed: 1
+        collapsed: 0
         <enabledStateCanBeSwitchedByUser>k__BackingField: 1
         depth: 0
         layerCount: 2
@@ -212,7 +212,7 @@ MonoBehaviour:
         asm: Unity.Perception.Runtime}
       data:
         m_Enabled: 1
-        collapsed: 1
+        collapsed: 0
         <enabledStateCanBeSwitchedByUser>k__BackingField: 1
         texture:
           collapsed: 0
@@ -504,7 +504,7 @@ MonoBehaviour:
         asm: Unity.Perception.Runtime}
       data:
         m_Enabled: 1
-        collapsed: 1
+        collapsed: 0
         <enabledStateCanBeSwitchedByUser>k__BackingField: 1
         rotation:
           collapsed: 0
@@ -549,7 +549,7 @@ MonoBehaviour:
         asm: Unity.Perception.Runtime}
       data:
         m_Enabled: 1
-        collapsed: 1
+        collapsed: 0
         <enabledStateCanBeSwitchedByUser>k__BackingField: 1
         hueOffset:
           collapsed: 0
@@ -570,7 +570,7 @@ MonoBehaviour:
         asm: Unity.Perception.Runtime}
       data:
         m_Enabled: 1
-        collapsed: 1
+        collapsed: 0
         <enabledStateCanBeSwitchedByUser>k__BackingField: 1
         depth: -3
         separationDistance: 1.5
@@ -578,17 +578,17 @@ MonoBehaviour:
         prefabs:
           collapsed: 0
           probabilities:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          uniform: 0
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          uniform: 1
           m_Categories:
           - {fileID: 2773633367666246751, guid: f8c81fac8af13448ab26bdb5ce582c9b, type: 3}
           - {fileID: 2400950709556236671, guid: 04ab9ebb2655c44ae9e9edebd2c9d32c, type: 3}
