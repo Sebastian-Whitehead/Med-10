@@ -70,3 +70,30 @@ process_image(image_single)
 
 
 
+
+
+
+
+
+
+
+
+
+def evaluate_single(image_file, label_file):
+    model = get_model(model_id="beverage-containers-3atxb/3", api_key="r5e027ZfsLmnqRVzqpYa")
+
+    results = model.infer(image_file)[0]
+    detections = sv.Detections.from_inference(results)
+
+    print(f"Detections: {detections}")
+
+    
+    ground_truth = read_ground_truth(label_file)
+    print(f"Ground Truth: {ground_truth}")
+    
+    eval_metric = MeanAveragePrecision().update(detections, [ground_truth]).compute()
+    print(f"Mean Average Precision: {eval_metric.map50_95}")
+    print(f"Precision: {eval_metric.precision}")
+    print(f"Recall: {eval_metric.recall}")
+
+    return eval_metric.map50_95, eval_metric.precision, eval_metric.recall
