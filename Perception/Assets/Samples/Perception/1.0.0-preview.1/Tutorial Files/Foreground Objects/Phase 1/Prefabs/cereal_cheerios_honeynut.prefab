@@ -91,6 +91,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 265387739136733916}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: d8ed6236e81cb4e9196174483facc924,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5504186311965510678}
   m_SourcePrefab: {fileID: 100100000, guid: d8ed6236e81cb4e9196174483facc924, type: 3}
 --- !u!1 &2400950709556236671 stripped
 GameObject:
@@ -114,3 +118,15 @@ MonoBehaviour:
   - cereal_cheerios_honeynut
   useAutoLabeling: 1
   autoLabelingSchemeType: AssetNameLabelingScheme
+--- !u!114 &-5504186311965510678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400950709556236671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85e54e30bb74162b2d6bca9b68f5482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

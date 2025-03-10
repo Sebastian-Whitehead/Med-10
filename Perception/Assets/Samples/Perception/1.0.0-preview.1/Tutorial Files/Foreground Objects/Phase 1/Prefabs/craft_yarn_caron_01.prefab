@@ -91,6 +91,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2880557401673334831}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 9297f66ee242a4e7f8911400b6703c57,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -599706609229274800}
   m_SourcePrefab: {fileID: 100100000, guid: 9297f66ee242a4e7f8911400b6703c57, type: 3}
 --- !u!1 &866966809272873950 stripped
 GameObject:
@@ -114,3 +118,15 @@ MonoBehaviour:
   - craft_yarn_caron_01
   useAutoLabeling: 1
   autoLabelingSchemeType: AssetNameLabelingScheme
+--- !u!114 &-599706609229274800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866966809272873950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85e54e30bb74162b2d6bca9b68f5482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

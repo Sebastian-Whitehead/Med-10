@@ -91,6 +91,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7776001040275154214}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: fb5b2d9b3f05b4e9c85ebb64e9be29b6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5969185980341109476}
   m_SourcePrefab: {fileID: 100100000, guid: fb5b2d9b3f05b4e9c85ebb64e9be29b6, type: 3}
 --- !u!1 &7372355771327797137 stripped
 GameObject:
@@ -114,3 +118,15 @@ MonoBehaviour:
   - snack_biscotti_ghiott_01
   useAutoLabeling: 1
   autoLabelingSchemeType: AssetNameLabelingScheme
+--- !u!114 &5969185980341109476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7372355771327797137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85e54e30bb74162b2d6bca9b68f5482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -91,6 +91,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5228690255104508153}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: c87e9d4bea5624bd5a7a8ed6953b730e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4335531878338652731}
   m_SourcePrefab: {fileID: 100100000, guid: c87e9d4bea5624bd5a7a8ed6953b730e, type: 3}
 --- !u!1 &2773633367666246751 stripped
 GameObject:
@@ -114,3 +118,15 @@ MonoBehaviour:
   - candy_minipralines_lindt
   useAutoLabeling: 1
   autoLabelingSchemeType: AssetNameLabelingScheme
+--- !u!114 &-4335531878338652731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773633367666246751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85e54e30bb74162b2d6bca9b68f5482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
