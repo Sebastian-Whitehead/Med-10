@@ -125,7 +125,7 @@ def annotate_and_display(image, detections, ground_truth_detections):
     comparison_image.show()
 
 #Uncomment the following lines to evaluate a batch of images
-batch_id = datetime.now().strftime("%Y%m%d%H%M%S")
+batch_id = datetime.now().strftime("%m%d%H%M%S")
 
 batch_folder = "batch_images/test_set"
 evaluate_batch(batch_folder)
