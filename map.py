@@ -1,12 +1,16 @@
+from datetime import datetime
 import supervision as sv
-from supervision.metrics import MeanAveragePrecision
+from supervision.metrics import MeanAveragePrecision, Precision, Recall
 from inference import get_model
 import numpy as np
 import os
 from PIL import Image
+from logger import log_results_to_json
 
 def evaluate_batch(batch_path):
     model = get_model(model_id="beverage-containers-3atxb/3", api_key="r5e027ZfsLmnqRVzqpYa")
+    precision_metric = Precision()
+    recall_metric = Recall()
     map_metric = MeanAveragePrecision()
 
     data_set = sv.DetectionDataset.from_yolo(
@@ -25,9 +29,18 @@ def evaluate_batch(batch_path):
         detections = sv.Detections.from_inference(result)
         annotations = annotations_list[idx]
         map_metric.update(detections, [annotations])
+        precision_metric.update(detections, [annotations])
+        recall_metric.update(detections, [annotations])
 
     eval_metric = map_metric.compute()
+    pre = precision_metric.compute()
+    rec = recall_metric.compute()
+    print(f"Precision: {pre.precision_at_50}")
+    print(f"Recall: {rec.recall_at_50}")
     print(f"Mean Average Precision for batch: {eval_metric.map50}")
+
+    # Log results to JSON file
+    log_results_to_json(batch_id, batch_path, eval_metric.map50, eval_metric.map50_95, pre.precision_at_50, rec.recall_at_50)
 
     return eval_metric.map50
 
@@ -80,6 +93,8 @@ def evaluate_single(image_path, annotation_path):
     # Annotate and display the image
     annotate_and_display(image, detections, ground_truth_detections)
 
+    # Log results to JSON file
+    log_results_to_json(batch_id, os.path.dirname(image_path), eval_metric.map50, eval_metric.map50_95, None, None)
 
     return eval_metric.map50_95
 
@@ -109,7 +124,9 @@ def annotate_and_display(image, detections, ground_truth_detections):
 
     comparison_image.show()
 
-# Uncomment the following lines to evaluate a batch of images
+#Uncomment the following lines to evaluate a batch of images
+batch_id = datetime.now().strftime("%Y%m%d%H%M%S")
+
 batch_folder = "batch_images/test_set"
 evaluate_batch(batch_folder)
 
