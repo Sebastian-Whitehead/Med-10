@@ -7,6 +7,8 @@ import os
 from PIL import Image
 from logger import log_results_to_json
 
+batch_id = datetime.now().strftime("%m%d%H%M%S")
+
 def evaluate_batch(batch_path):
     model = get_model(model_id="beverage-containers-3atxb/3", api_key="r5e027ZfsLmnqRVzqpYa")
     precision_metric = Precision()
@@ -44,7 +46,7 @@ def evaluate_batch(batch_path):
 
     return eval_metric.map50
 
-def evaluate_single(image_path, annotation_path):
+def evaluate_single(image_path, annotation_path, show_results = False):
     model = get_model(model_id="beverage-containers-3atxb/3", api_key="r5e027ZfsLmnqRVzqpYa")
     map_metric = MeanAveragePrecision()
 
@@ -91,7 +93,8 @@ def evaluate_single(image_path, annotation_path):
     print(f"Mean Average Precision for single image: {eval_metric.map50_95}")
 
     # Annotate and display the image
-    annotate_and_display(image, detections, ground_truth_detections)
+    if show_results:
+        annotate_and_display(image, detections, ground_truth_detections)
 
     # Log results to JSON file
     log_results_to_json(batch_id, os.path.dirname(image_path), eval_metric.map50, eval_metric.map50_95, None, None)
@@ -124,13 +127,6 @@ def annotate_and_display(image, detections, ground_truth_detections):
 
     comparison_image.show()
 
-#Uncomment the following lines to evaluate a batch of images
-batch_id = datetime.now().strftime("%m%d%H%M%S")
-
-batch_folder = "batch_images/test_set"
-evaluate_batch(batch_folder)
-
-# Uncomment the following lines to evaluate a single image
-#single_image_path = "batch_images/test_set/images/0a20baf628fa9be7_jpg.rf.6ce55e30ca2cac3c5e01b3dacedc7b11.jpg"
-#single_annotation_path = "batch_images/test_set/labels/0a20baf628fa9be7_jpg.rf.6ce55e30ca2cac3c5e01b3dacedc7b11.txt"
-#evaluate_single(single_image_path, single_annotation_path)
+def update_batch_id():
+    global batch_id
+    batch_id = datetime.now().strftime("%m%d%H%M%S")
