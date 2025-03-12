@@ -95,6 +95,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -9164657240971240603}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 330cfa10f0861444ab2a9661fbd35f5b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -9201448107638593784}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 330cfa10f0861444ab2a9661fbd35f5b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4797066728577684928}
   m_SourcePrefab: {fileID: 100100000, guid: 330cfa10f0861444ab2a9661fbd35f5b, type: 3}
 --- !u!1 &1802650044563462002 stripped
 GameObject:
@@ -130,3 +138,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85e54e30bb74162b2d6bca9b68f5482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &-9201448107638593784
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802650044563462002}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.07048924, y: 0.07074502, z: 0.1332805}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &-4797066728577684928
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802650044563462002}
+  serializedVersion: 4
+  m_Mass: 5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 2

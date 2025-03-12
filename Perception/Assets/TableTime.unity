@@ -123,6 +123,100 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &61139196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 61139198}
+  - component: {fileID: 61139197}
+  m_Layer: 0
+  m_Name: Simulation Scenario
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &61139197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61139196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50076aff0af4515b4422166496fdd5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Randomizers:
+  - rid: 3714955401079554048
+  configuration: {fileID: 0}
+  constants:
+    randomSeed: 539662031
+    startIteration: 0
+    iterationCount: 10
+    totalIterations: 100
+    instanceCount: 1
+    instanceIndex: 0
+  framesPerIteration: 1
+  m_ProgressPercentage: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3714955401079554048
+      type: {class: ForegroundObjectPlacementRandomizer, ns: UnityEngine.Perception.Randomization.Randomizers,
+        asm: Unity.Perception.Runtime}
+      data:
+        m_Enabled: 1
+        collapsed: 0
+        <enabledStateCanBeSwitchedByUser>k__BackingField: 1
+        depth: 0
+        separationDistance: 2
+        placementArea: {x: 5, y: 5}
+        prefabs:
+          collapsed: 0
+          probabilities:
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          - 0.1
+          uniform: 1
+          m_Categories:
+          - {fileID: 2773633367666246751, guid: f8c81fac8af13448ab26bdb5ce582c9b, type: 3}
+          - {fileID: 2400950709556236671, guid: 04ab9ebb2655c44ae9e9edebd2c9d32c, type: 3}
+          - {fileID: 6412728006855290542, guid: df26f25c7e2e84c0b977b2b3c2efefee, type: 3}
+          - {fileID: 866966809272873950, guid: 12285089570ca4f6c8bc7b2358caf57f, type: 3}
+          - {fileID: 6137753057435845323, guid: 6d2179d3da6ff400c84fe0464ebff935, type: 3}
+          - {fileID: 1802650044563462002, guid: 514fd8bc80a18436f8b85ea96011911c, type: 3}
+          - {fileID: 5556524163090864896, guid: 1235a6a7e60bd4fb49f7fe43925b064d, type: 3}
+          - {fileID: 2397180601860837402, guid: 5a29edd6a97d9479da063ac4c4eb8611, type: 3}
+          - {fileID: 7372355771327797137, guid: 9ef2f11fc3a4d451489a43733d1b68fc, type: 3}
+          - {fileID: 8529758173120915318, guid: 7ec41c4e5b2be4230b44e141f423c881, type: 3}
+--- !u!4 &61139198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61139196}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &239542628
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,3 +855,4 @@ SceneRoots:
   - {fileID: 239542630}
   - {fileID: 813208081}
   - {fileID: 1687923053}
+  - {fileID: 61139198}
