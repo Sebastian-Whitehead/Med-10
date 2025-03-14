@@ -169,3 +169,18 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Unity Perception package
+Logs/
+.perception/
+
+# Unity-specific ignores
+Temp/
+Library/
+obj/
+Build/
+Builds/
+Assets/StreamingAssets/*.recorder/
+Assets/StreamingAssets/*.dataset/
+UserSettings/
+MemoryCaptures/
