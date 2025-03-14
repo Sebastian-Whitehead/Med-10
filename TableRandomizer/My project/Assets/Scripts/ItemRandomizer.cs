@@ -42,8 +42,7 @@ public class ItemRandomizer : MonoBehaviour
                 transform.position.y + Random.Range(-spawnRange.y, spawnRange.y),
                 transform.position.z + Random.Range(-spawnRange.z, spawnRange.z)
             );
-            Quaternion spawnRotation = Random.rotation;
-            GameObject spawnedObject = Instantiate(prefab, spawnPosition, spawnRotation);
+            GameObject spawnedObject = Instantiate(prefab, spawnPosition, Quaternion.Euler(-90, 0, 0));
             spawnedObjects.Add(spawnedObject);
         }
     }
