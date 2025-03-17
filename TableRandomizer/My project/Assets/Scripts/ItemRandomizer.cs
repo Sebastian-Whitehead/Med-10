@@ -30,6 +30,7 @@ public class ItemRandomizer : MonoBehaviour
             SpawnRandomObjects();
         }
         CheckSpeedOfSpawnedObjects();
+        respawnObjects();
     }
 
     public void SpawnRandomObjects()
@@ -70,12 +71,13 @@ public class ItemRandomizer : MonoBehaviour
 
     // Delay the respawn of objects to ensure the capture is complete before spawning new objects
     private int respawnFrameCount = 0;
+    bool respawn = false;
     private void respawnObjects()
     {
         if (!respawn) return;
 
         respawnFrameCount++;
-        if (respawnFrameCount > 5)
+        if (respawnFrameCount > 100)
         {
             SpawnRandomObjects();
             respawnFrameCount = 0;
@@ -84,32 +86,34 @@ public class ItemRandomizer : MonoBehaviour
     }
 
 
-    bool respawn = false;
+    
+    bool hasMoved = false;
+    bool hasCaptured = true;
     private void CheckSpeedOfSpawnedObjects()
     {
-        bool hasMoved = false;
+        totalSpeed = 0;
         foreach (GameObject obj in spawnedObjects)
-        {
-            
+        {    
             Rigidbody rb = obj.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 totalSpeed += rb.velocity.magnitude;
             }
-            Debug.Log(totalSpeed);
-            Debug.Log(hasMoved);
-            if (totalSpeed > speedThreshold)
-            {
-                hasMoved = true;
-            } else if (totalSpeed < speedThreshold && hasMoved)
-            {
-                Debug.Log("capp");
-                perceptionCamera.RequestCapture();
-                Debug.Log("cap");
-                captureCount++;
-                respawn = true;
-            }
         }
-        totalSpeed = 0;
+
+        if (totalSpeed > speedThreshold)
+        {
+            hasMoved = true;
+            hasCaptured = false;
+        }
+        else if (totalSpeed < speedThreshold && hasMoved && !hasCaptured)
+        {
+            hasCaptured = true;
+            hasMoved = false;
+
+            perceptionCamera.RequestCapture();
+            captureCount++;
+            respawn = true;
+        }
     }
 }
