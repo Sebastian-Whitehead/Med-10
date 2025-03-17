@@ -72,34 +72,42 @@ public class ItemRandomizer : MonoBehaviour
     private int respawnFrameCount = 0;
     private void respawnObjects()
     {
+        if (!respawn) return;
+
         respawnFrameCount++;
         if (respawnFrameCount > 5)
         {
             SpawnRandomObjects();
             respawnFrameCount = 0;
+            respawn = false;
         }
     }
 
+
+    bool respawn = false;
     private void CheckSpeedOfSpawnedObjects()
     {
         bool hasMoved = false;
         foreach (GameObject obj in spawnedObjects)
         {
+            
             Rigidbody rb = obj.GetComponent<Rigidbody>();
             if (rb != null)
             {
                 totalSpeed += rb.velocity.magnitude;
             }
-
+            Debug.Log(totalSpeed);
+            Debug.Log(hasMoved);
             if (totalSpeed > speedThreshold)
             {
                 hasMoved = true;
-            } else if(totalSpeed < speedThreshold && hasMoved)
+            } else if (totalSpeed < speedThreshold && hasMoved)
             {
-                Debug.Log("Objects have stopped, capturing");
+                Debug.Log("capp");
                 perceptionCamera.RequestCapture();
+                Debug.Log("cap");
                 captureCount++;
-                respawnObjects();
+                respawn = true;
             }
         }
         totalSpeed = 0;

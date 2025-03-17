@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.38358, g: 325.10843, b: 430.30963, a: 1}
+  m_IndirectSpecularColor: {r: 261.80212, g: 324.32928, b: 429.2493, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -155,9 +155,12 @@ MonoBehaviour:
   spawnList:
   - {fileID: 3278354428802492537, guid: 2351161029b891e42a09c222f400264d, type: 3}
   - {fileID: 246384502539187056, guid: b44f3fb714b9be349aadf0a1ec31a144, type: 3}
+  - {fileID: 1010683641689863444, guid: c58fce9f2cec308418d9cddea8287dfc, type: 3}
   min_spawn_count: 2
   max_spawn_count: 5
   spawnRange: {x: 4, y: 1, z: 2.5}
+  perceptionCamera: {fileID: 1839657937}
+  captureCount: 0
   speedThreshold: 0.1
   totalSpeed: 0
 --- !u!4 &52999656
