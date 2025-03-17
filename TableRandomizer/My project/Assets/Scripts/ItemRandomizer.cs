@@ -42,7 +42,8 @@ public class ItemRandomizer : MonoBehaviour
                 transform.position.y + Random.Range(-spawnRange.y, spawnRange.y),
                 transform.position.z + Random.Range(-spawnRange.z, spawnRange.z)
             );
-            GameObject spawnedObject = Instantiate(prefab, spawnPosition, Quaternion.Euler(-90, 0, 0));
+            GameObject spawnedObject = Instantiate(prefab);
+            spawnedObject.transform.position = spawnPosition;
             spawnedObjects.Add(spawnedObject);
         }
     }
@@ -65,6 +66,7 @@ public class ItemRandomizer : MonoBehaviour
 
     private void CheckSpeedOfSpawnedObjects()
     {
+        bool hasMoved = false;
         foreach (GameObject obj in spawnedObjects)
         {
             Rigidbody rb = obj.GetComponent<Rigidbody>();
@@ -73,11 +75,15 @@ public class ItemRandomizer : MonoBehaviour
                 totalSpeed += rb.velocity.magnitude;
             }
 
-            if(totalSpeed < speedThreshold)
+            if (totalSpeed > speedThreshold)
+            {
+                hasMoved = true;
+            } else if(totalSpeed < speedThreshold && hasMoved)
             {
                 Debug.Log("Objects have stopped");
+                // Take screen cap
             }
         }
+        totalSpeed = 0;
     }
 }
-

@@ -155,6 +155,7 @@ MonoBehaviour:
   spawnList:
   - {fileID: 3278354428802492537, guid: 2351161029b891e42a09c222f400264d, type: 3}
   - {fileID: 4846751670006768382, guid: 155a4ca7fad924448a19edac5f937ba8, type: 3}
+  - {fileID: 1010683641689863444, guid: c58fce9f2cec308418d9cddea8287dfc, type: 3}
   min_spawn_count: 2
   max_spawn_count: 5
   spawnRange: {x: 4, y: 1, z: 2.5}
@@ -636,7 +637,7 @@ Transform:
   m_GameObject: {fileID: 1256110472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24, y: 0, z: 0.87}
+  m_LocalPosition: {x: 0.24, y: 0.3, z: 0.87}
   m_LocalScale: {x: 8.09933, y: 1, z: 5.2885447}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -768,7 +769,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CameraSensor:
     rid: 3714955405385007104
-  m_Labelers: []
+  m_Labelers:
+  - rid: 3714955514814136321
+  - rid: 3714955514814136322
+  - rid: 3714955514814136323
+  - rid: 3714955514814136324
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -792,6 +797,37 @@ MonoBehaviour:
         asm: Unity.Perception.Runtime}
       data:
         superSamplingFactor: 1
+    - rid: 3714955514814136321
+      type: {class: BoundingBox3DLabeler, ns: UnityEngine.Perception.GroundTruth.Labelers,
+        asm: Unity.Perception.Runtime}
+      data:
+        enabled: 1
+        annotationId: bounding box 3D
+        idLabelConfig: {fileID: 11400000, guid: 25145c0865ba0ec47b61b9d788a8bbf2,
+          type: 2}
+        visualizationColor: {r: 0.18900163, g: 0.8792453, b: 0.10451402, a: 1}
+    - rid: 3714955514814136322
+      type: {class: SemanticSegmentationLabeler, ns: UnityEngine.Perception.GroundTruth.Labelers,
+        asm: Unity.Perception.Runtime}
+      data:
+        enabled: 1
+        annotationId: semantic segmentation
+        labelConfig: {fileID: 11400000, guid: 883c7703f298995479ac56408b2ae614, type: 2}
+    - rid: 3714955514814136323
+      type: {class: RenderedObjectInfoLabeler, ns: UnityEngine.Perception.GroundTruth.Labelers,
+        asm: Unity.Perception.Runtime}
+      data:
+        enabled: 1
+        objectInfoMetricId: RenderedObjectInfo
+        idLabelConfig: {fileID: 11400000, guid: 25145c0865ba0ec47b61b9d788a8bbf2,
+          type: 2}
+    - rid: 3714955514814136324
+      type: {class: ObjectCountLabeler, ns: UnityEngine.Perception.GroundTruth.Labelers,
+        asm: Unity.Perception.Runtime}
+      data:
+        enabled: 1
+        objectCountMetricId: ObjectCount
+        labelConfig: {fileID: 11400000, guid: 25145c0865ba0ec47b61b9d788a8bbf2, type: 2}
 --- !u!114 &1839657938
 MonoBehaviour:
   m_ObjectHideFlags: 0

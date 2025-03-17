@@ -125,6 +125,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -677737169685362349}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 884125d5b5fd84d44a11645e47ab3277,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3185578914123667946}
   m_SourcePrefab: {fileID: 100100000, guid: 884125d5b5fd84d44a11645e47ab3277, type: 3}
 --- !u!1 &4846751670006768382 stripped
 GameObject:
@@ -180,3 +184,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.01992982, y: 0.01992982, z: 0.0623571}
   m_Center: {x: 0.0000000013976017, y: 4.662779e-10, z: 0.0312707}
+--- !u!114 &-3185578914123667946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4846751670006768382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b33f0bc2b78db642a758f07826d0dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  labels:
+  - Plastic Bottle
+  useAutoLabeling: 1
+  autoLabelingSchemeType: CurrentOrParentsFolderNameLabelingScheme
