@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Perception.GroundTruth;
 
 public class ItemRandomizer : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class ItemRandomizer : MonoBehaviour
     public int min_spawn_count, max_spawn_count;
     private List<GameObject> spawnedObjects = new List<GameObject>();
     public Vector3 spawnRange = new Vector3(10, 0, 10);
+    public PerceptionCamera perceptionCamera;
+    public int captureCount = 0;
 
 
     public float speedThreshold = 0.1f;
@@ -64,6 +67,19 @@ public class ItemRandomizer : MonoBehaviour
         Gizmos.DrawWireCube(transform.position, new Vector3(spawnRange.x * 2, spawnRange.y * 2, spawnRange.z * 2));
     }
 
+
+    // Delay the respawn of objects to ensure the capture is complete before spawning new objects
+    private int respawnFrameCount = 0;
+    private void respawnObjects()
+    {
+        respawnFrameCount++;
+        if (respawnFrameCount > 5)
+        {
+            SpawnRandomObjects();
+            respawnFrameCount = 0;
+        }
+    }
+
     private void CheckSpeedOfSpawnedObjects()
     {
         bool hasMoved = false;
@@ -80,8 +96,10 @@ public class ItemRandomizer : MonoBehaviour
                 hasMoved = true;
             } else if(totalSpeed < speedThreshold && hasMoved)
             {
-                Debug.Log("Objects have stopped");
-                // Take screen cap
+                Debug.Log("Objects have stopped, capturing");
+                perceptionCamera.RequestCapture();
+                captureCount++;
+                respawnObjects();
             }
         }
         totalSpeed = 0;
