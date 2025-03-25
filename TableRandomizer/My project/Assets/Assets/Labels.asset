@@ -19,5 +19,17 @@ MonoBehaviour:
   - label: Plastic Bottle
     id: 2
     hierarchyRelation: 0
+  - label: Tin Can
+    id: 3
+    hierarchyRelation: 0
+  - label: Glass Bottle
+    id: 4
+    hierarchyRelation: 0
+  - label: Glass Cup
+    id: 5
+    hierarchyRelation: 0
+  - label: Glass Wine
+    id: 6
+    hierarchyRelation: 0
   autoAssignIds: 1
   startingLabelId: 1

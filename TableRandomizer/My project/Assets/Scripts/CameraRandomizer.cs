@@ -28,10 +28,16 @@ public class CameraRandomizer : MonoBehaviour
         
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(transform.position, new Vector3(c_x * 2, c_y * 2, c_z * 2));
+    }
+
     void CameraPosition()
     {
-        var position_c = new Vector3(Random.Range(0, c_x), Random.Range(0, c_y), Random.Range(0, c_z));
-        Cam.transform.position = position_c;
+        var position_c = new Vector3(Random.Range(-c_x, c_x), Random.Range(-c_y, c_y), Random.Range(-c_z, c_z));
+        Cam.transform.position += position_c;
         Debug.Log(position_c);
     }
 

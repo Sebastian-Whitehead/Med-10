@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\rebec\\Documents\\GitHub\\Med-10\\TableRandomizer\\My project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|c:\\users\\rebec\\documents\\github\\med-10\\tablerandomizer\\my project\\assets\\scripts\\camerarandomizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\camerarandomizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|C:\\Users\\rebec\\Documents\\GitHub\\Med-10\\TableRandomizer\\My project\\assets\\scripts\\itemrandomizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\itemrandomizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CameraRandomizer.cs",
+              "DocumentMoniker": "C:\\Users\\rebec\\Documents\\GitHub\\Med-10\\TableRandomizer\\My project\\Assets\\Scripts\\CameraRandomizer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CameraRandomizer.cs",
+              "ToolTip": "C:\\Users\\rebec\\Documents\\GitHub\\Med-10\\TableRandomizer\\My project\\Assets\\Scripts\\CameraRandomizer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CameraRandomizer.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAQwCYAAABoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T10:36:08.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ItemRandomizer.cs",
+              "DocumentMoniker": "C:\\Users\\rebec\\Documents\\GitHub\\Med-10\\TableRandomizer\\My project\\Assets\\Scripts\\ItemRandomizer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ItemRandomizer.cs",
+              "ToolTip": "C:\\Users\\rebec\\Documents\\GitHub\\Med-10\\TableRandomizer\\My project\\Assets\\Scripts\\ItemRandomizer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ItemRandomizer.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAwwEYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T10:35:09.359Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
