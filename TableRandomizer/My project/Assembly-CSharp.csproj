@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraRandomizer.cs" />
+    <Compile Include="Assets\Scripts\Lighting Level Control.cs" />
     <Compile Include="Assets\Scripts\ItemRandomizer.cs" />
   </ItemGroup>
   <ItemGroup>
