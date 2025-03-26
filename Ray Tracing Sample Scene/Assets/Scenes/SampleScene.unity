@@ -13649,7 +13649,8 @@ PrefabInstance:
       value: Testing Assembly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -5668285632251165819, guid: 15f62b526a60d0249acace5e39bc7e4a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15f62b526a60d0249acace5e39bc7e4a, type: 3}
@@ -15513,7 +15514,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -559.47894, z: -0}
+    textureOffset: {x: -0, y: -36.753994, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
