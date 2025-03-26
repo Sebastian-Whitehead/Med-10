@@ -13648,6 +13648,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Testing Assembly
       objectReference: {fileID: 0}
+    - target: {fileID: 6682357392757230820, guid: 15f62b526a60d0249acace5e39bc7e4a, type: 3}
+      propertyPath: hdrpAssets.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682357392757230820, guid: 15f62b526a60d0249acace5e39bc7e4a, type: 3}
+      propertyPath: hdrpAssets.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: c78d399b0e7111b4eacf5caaae574939, type: 2}
+    - target: {fileID: 6682357392757230820, guid: 15f62b526a60d0249acace5e39bc7e4a, type: 3}
+      propertyPath: hdrpAssets.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 36dd385e759c96147b6463dcd1149c11, type: 2}
+    - target: {fileID: 6682357392757230820, guid: 15f62b526a60d0249acace5e39bc7e4a, type: 3}
+      propertyPath: hdrpAssets.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3e2e6bfc59709614ab90c0cd7d755e48, type: 2}
+    - target: {fileID: 6682357392757230820, guid: 15f62b526a60d0249acace5e39bc7e4a, type: 3}
+      propertyPath: hdrpAssets.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 168a2336534e4e043b2a210b6f8d379a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -5668285632251165819, guid: 15f62b526a60d0249acace5e39bc7e4a, type: 3}
@@ -15514,7 +15534,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -36.753994, z: -0}
+    textureOffset: {x: -0, y: -44.304726, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
