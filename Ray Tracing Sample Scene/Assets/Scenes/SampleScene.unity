@@ -15456,7 +15456,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -0.28348, z: -0}
+    textureOffset: {x: -0, y: -1.4898741, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -27566,7 +27566,7 @@ GameObject:
   - component: {fileID: 2885279511824415907}
   - component: {fileID: 7154314504878919172}
   m_Layer: 0
-  m_Name: SpawnArea
+  m_Name: TargetSpawnArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27849,9 +27849,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 36dd385e759c96147b6463dcd1149c11, type: 2}
   - {fileID: 11400000, guid: 3e2e6bfc59709614ab90c0cd7d755e48, type: 2}
   - {fileID: 11400000, guid: 168a2336534e4e043b2a210b6f8d379a, type: 2}
-  currentHDRPAssetIndex: 1
-  currentMipMap: 5
-  currentDecimateStrength: 0.75
+  currentHDRPAssetIndex: 3
+  currentMipMap: 8
+  currentDecimateStrength: 0.3
 --- !u!1001 &6810675360476704166
 PrefabInstance:
   m_ObjectHideFlags: 0
