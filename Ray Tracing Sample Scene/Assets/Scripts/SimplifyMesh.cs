@@ -5,6 +5,7 @@ using UnityEngine;
 public class SimplifyMesh : MonoBehaviour
 {
     public float currentQuality = 0.5f;
+    public float minimumQuality = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class SimplifyMesh : MonoBehaviour
         {
             // Use the currentDecimateStrength value to determine the quality
             float quality = Mathf.Clamp01(lightingControl.currentDecimateStrength);
+            quality = Mathf.Max(quality, minimumQuality);
             decimate(quality);
         }
         else

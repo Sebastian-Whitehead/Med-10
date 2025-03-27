@@ -163,3 +163,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619803d28081eed49ac9372498fa0009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentQuality: 0.5
+  minimumQuality: 0.3

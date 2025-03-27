@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6065099602789955612}
   - component: {fileID: 1073918971897145278}
   - component: {fileID: 7590187475756127092}
+  - component: {fileID: 4432713856556716140}
   m_Layer: 0
   m_Name: 7up
   m_TagString: Untagged
@@ -88,6 +89,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4432713856556716140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858792706146484609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619803d28081eed49ac9372498fa0009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentQuality: 0.5
+  minimumQuality: 0.1
 --- !u!1 &2567480250836735258
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,6 +114,7 @@ GameObject:
   - component: {fileID: 6253648534889857732}
   - component: {fileID: 4603771313952337917}
   - component: {fileID: 6806710780939248844}
+  - component: {fileID: 466108905434916745}
   m_Layer: 0
   m_Name: cap2
   m_TagString: Untagged
@@ -171,6 +187,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &466108905434916745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2567480250836735258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619803d28081eed49ac9372498fa0009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentQuality: 0.5
+  minimumQuality: 0.1
 --- !u!1 &3302181272903369064
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +212,7 @@ GameObject:
   - component: {fileID: 8109381144083176815}
   - component: {fileID: 6455115489104193037}
   - component: {fileID: 1332119979948665941}
+  - component: {fileID: 6735282265441952289}
   m_Layer: 0
   m_Name: Liquid
   m_TagString: Untagged
@@ -254,6 +285,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6735282265441952289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3302181272903369064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619803d28081eed49ac9372498fa0009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentQuality: 0.5
+  minimumQuality: 0.1
 --- !u!1 &5286841594618203611
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +393,7 @@ GameObject:
   - component: {fileID: 3620839764193439764}
   - component: {fileID: 8670589616246035517}
   - component: {fileID: 8722970512434111251}
+  - component: {fileID: 2690205373424020394}
   m_Layer: 0
   m_Name: cap1
   m_TagString: Untagged
@@ -420,6 +466,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2690205373424020394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6584226031856977138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619803d28081eed49ac9372498fa0009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentQuality: 0.5
+  minimumQuality: 0.1
 --- !u!1 &7708846539797280112
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +491,7 @@ GameObject:
   - component: {fileID: 6691475399251175679}
   - component: {fileID: 284349535484458334}
   - component: {fileID: 7301826364767598177}
+  - component: {fileID: 4299383120620216783}
   m_Layer: 0
   m_Name: cap3
   m_TagString: Untagged
@@ -503,3 +564,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4299383120620216783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7708846539797280112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619803d28081eed49ac9372498fa0009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentQuality: 0.5
+  minimumQuality: 0.1

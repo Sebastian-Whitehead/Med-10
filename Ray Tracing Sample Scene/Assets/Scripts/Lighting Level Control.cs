@@ -18,7 +18,7 @@ public class HDRPAssetSwitcher : MonoBehaviour
         }
 
         GraphicsSettings.renderPipelineAsset = hdrpAssets[index];
-        Debug.Log($"Switched HDRP Asset to: {hdrpAssets[index].name}");
+        Debug.Log($"Switched HDRP Asset to: {GraphicsSettings.currentRenderPipeline.name}");
     }
 
     void Start()
