@@ -33,12 +33,6 @@ public class ItemRandomizer : MonoBehaviour
     private bool hasMoved = false;
     private bool hasCaptured = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Initialization logic if needed
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -46,8 +40,7 @@ public class ItemRandomizer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SpawnRandomObjects();
-            
+            HandleRandomization();
         }
 
         CheckSpeedOfSpawnedObjects();
@@ -79,10 +72,7 @@ public class ItemRandomizer : MonoBehaviour
     public void SpawnRandomObjects()
     {
         DestroySpawnedObjects();
-        randomTeleport?.Teleport();
-        tableChanger?.RandomModel();
-        perceptionCamera.GetComponent<CameraRandomizer>()?.MoveCameraRandomly();
-
+        
         int spawnCount = Random.Range(min_spawn_count, max_spawn_count + 1);
         for (int i = 0; i < spawnCount; i++)
         {
@@ -122,7 +112,7 @@ public class ItemRandomizer : MonoBehaviour
         respawnFrameCount++;
         if (respawnFrameCount > 100)
         {
-            SpawnRandomObjects();
+            HandleRandomization();
             respawnFrameCount = 0;
             respawn = false;
         }
@@ -169,7 +159,15 @@ public class ItemRandomizer : MonoBehaviour
     /// </summary>
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(transform.position, new Vector3(spawnRange.x * 2, spawnRange.y * 2, spawnRange.z * 2));
+    }
+
+    private void HandleRandomization()
+    {
+        randomTeleport?.Teleport();
+        tableChanger?.RandomModel();
+        perceptionCamera.GetComponent<CameraRandomizer>()?.MoveCameraRandomly();
+        SpawnRandomObjects();
     }
 }
