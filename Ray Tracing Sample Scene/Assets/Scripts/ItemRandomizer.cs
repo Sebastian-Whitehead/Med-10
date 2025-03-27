@@ -1,80 +1,99 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Perception.GroundTruth;
 
 public class ItemRandomizer : MonoBehaviour
 {
+    [Header("Spawn Settings")]
     public List<GameObject> spawnList = new List<GameObject>();
-    public int min_spawn_count, max_spawn_count;
-    private List<GameObject> spawnedObjects = new List<GameObject>();
+    public int min_spawn_count = 1;
+    public int max_spawn_count = 5;
     public Vector3 spawnRange = new Vector3(10, 0, 10);
+
+    [Header("Capture Settings")]
     public PerceptionCamera perceptionCamera;
     public int captureCount = 0;
     public int captureLimit = 100;
-
     public bool triggerCapture = false;
 
-
+    [Header("Speed Settings")]
     public float speedThreshold = 0.1f;
-    public float totalSpeed;
+    private float totalSpeed;
+
+    private List<GameObject> spawnedObjects = new List<GameObject>();
+    private int respawnFrameCount = 0;
+    private bool respawn = false;
+    private bool hasMoved = false;
+    private bool hasCaptured = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Initialization logic if needed
     }
 
     // Update is called once per frame
     void Update()
     {
-        checkCaptureCount();
+        CheckCaptureCount();
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SpawnRandomObjects();
-            perceptionCamera.GetComponent<CameraRandomizer>().MoveCameraRandomly();
+            perceptionCamera.GetComponent<CameraRandomizer>()?.MoveCameraRandomly();
         }
-        CheckSpeedOfSpawnedObjects();
-        respawnObjects();
 
+        CheckSpeedOfSpawnedObjects();
+        HandleRespawn();
     }
 
-    private void checkCaptureCount()
+    /// <summary>
+    /// Checks if the capture count has reached the limit and exits if necessary.
+    /// </summary>
+    private void CheckCaptureCount()
     {
         if (captureCount == -1) return;
-        else if (captureCount >= captureLimit)
+
+        if (captureCount >= captureLimit)
         {
             Debug.Log("Capture limit reached. Exiting...");
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false; // Stops play mode in the Editor
-        #else
+#else
             Application.Quit(); // Quits the application in a standalone build
-        #endif
-
+#endif
         }
     }
+
+    /// <summary>
+    /// Spawns a random number of objects within the defined spawn range.
+    /// </summary>
     public void SpawnRandomObjects()
     {
         DestroySpawnedObjects();
-        checkCaptureCount();
+
         int spawnCount = Random.Range(min_spawn_count, max_spawn_count + 1);
         for (int i = 0; i < spawnCount; i++)
         {
             int randomIndex = Random.Range(0, spawnList.Count);
             GameObject prefab = spawnList[randomIndex];
+
             Vector3 spawnPosition = new Vector3(
                 transform.position.x + Random.Range(-spawnRange.x, spawnRange.x),
                 transform.position.y + Random.Range(-spawnRange.y, spawnRange.y),
                 transform.position.z + Random.Range(-spawnRange.z, spawnRange.z)
             );
-            GameObject spawnedObject = Instantiate(prefab);
-            spawnedObject.transform.position = spawnPosition;
+
+            GameObject spawnedObject = Instantiate(prefab, spawnPosition, Quaternion.identity);
             spawnedObjects.Add(spawnedObject);
         }
     }
 
+    /// <summary>
+    /// Destroys all currently spawned objects.
+    /// </summary>
     public void DestroySpawnedObjects()
     {
         foreach (GameObject obj in spawnedObjects)
@@ -84,18 +103,10 @@ public class ItemRandomizer : MonoBehaviour
         spawnedObjects.Clear();
     }
 
-    // Draw the spawn area in the editor
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position, new Vector3(spawnRange.x * 2, spawnRange.y * 2, spawnRange.z * 2));
-    }
-
-
-    // Delay the respawn of objects to ensure the capture is complete before spawning new objects
-    private int respawnFrameCount = 0;
-    bool respawn = false;
-    private void respawnObjects()
+    /// <summary>
+    /// Handles the respawn logic with a delay.
+    /// </summary>
+    private void HandleRespawn()
     {
         if (!respawn) return;
 
@@ -107,14 +118,16 @@ public class ItemRandomizer : MonoBehaviour
             respawn = false;
         }
     }
-    
-    bool hasMoved = false;
-    bool hasCaptured = true;
+
+    /// <summary>
+    /// Checks the speed of spawned objects and triggers capture if conditions are met.
+    /// </summary>
     private void CheckSpeedOfSpawnedObjects()
     {
         totalSpeed = 0;
+
         foreach (GameObject obj in spawnedObjects)
-        {    
+        {
             Rigidbody rb = obj.GetComponent<Rigidbody>();
             if (rb != null)
             {
@@ -137,7 +150,17 @@ public class ItemRandomizer : MonoBehaviour
                 perceptionCamera.RequestCapture();
                 captureCount++;
             }
+
             respawn = true;
         }
+    }
+
+    /// <summary>
+    /// Draws the spawn area in the Unity Editor for visualization.
+    /// </summary>
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(transform.position, new Vector3(spawnRange.x * 2, spawnRange.y * 2, spawnRange.z * 2));
     }
 }
