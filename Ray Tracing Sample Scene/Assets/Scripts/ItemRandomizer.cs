@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Perception.GroundTruth;
 
@@ -11,6 +12,9 @@ public class ItemRandomizer : MonoBehaviour
     public Vector3 spawnRange = new Vector3(10, 0, 10);
     public PerceptionCamera perceptionCamera;
     public int captureCount = 0;
+    public int captureLimit = 100;
+
+    public bool triggerCapture = false;
 
 
     public float speedThreshold = 0.1f;
@@ -25,17 +29,36 @@ public class ItemRandomizer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        checkCaptureCount();
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SpawnRandomObjects();
+            perceptionCamera.GetComponent<CameraRandomizer>().MoveCameraRandomly();
         }
         CheckSpeedOfSpawnedObjects();
         respawnObjects();
+
     }
 
+    private void checkCaptureCount()
+    {
+        if (captureCount == -1) return;
+        else if (captureCount >= captureLimit)
+        {
+            Debug.Log("Capture limit reached. Exiting...");
+
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false; // Stops play mode in the Editor
+        #else
+            Application.Quit(); // Quits the application in a standalone build
+        #endif
+
+        }
+    }
     public void SpawnRandomObjects()
     {
         DestroySpawnedObjects();
+        checkCaptureCount();
         int spawnCount = Random.Range(min_spawn_count, max_spawn_count + 1);
         for (int i = 0; i < spawnCount; i++)
         {
@@ -84,8 +107,6 @@ public class ItemRandomizer : MonoBehaviour
             respawn = false;
         }
     }
-
-
     
     bool hasMoved = false;
     bool hasCaptured = true;
@@ -111,8 +132,11 @@ public class ItemRandomizer : MonoBehaviour
             hasCaptured = true;
             hasMoved = false;
 
-            perceptionCamera.RequestCapture();
-            captureCount++;
+            if (triggerCapture)
+            {
+                perceptionCamera.RequestCapture();
+                captureCount++;
+            }
             respawn = true;
         }
     }

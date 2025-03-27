@@ -17,27 +17,26 @@ public class CameraRandomizer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MoveCameraRandomly();
+    }
+
+    public void MoveCameraRandomly()
+    {
         CameraPosition();
         Vector3 point = ObjectPosition();
         CameraLookAt(point);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position, new Vector3(c_x * 2, c_y * 2, c_z * 2));
+        Gizmos.DrawWireCube(Lookie.transform.position, new Vector3(c_x * 2, c_y * 2, c_z * 2));
     }
 
     void CameraPosition()
     {
         var position_c = new Vector3(Random.Range(-c_x, c_x), Random.Range(-c_y, c_y), Random.Range(-c_z, c_z));
-        Cam.transform.position += position_c;
+        Cam.transform.position = Lookie.transform.position + position_c;
         Debug.Log(position_c);
     }
 

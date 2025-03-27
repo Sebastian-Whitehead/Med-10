@@ -21,9 +21,20 @@ public class HDRPAssetSwitcher : MonoBehaviour
         Debug.Log($"Switched HDRP Asset to: {GraphicsSettings.currentRenderPipeline.name}");
     }
 
+    public void SetTextureQuality(int mipMap)
+    {
+        QualitySettings.globalTextureMipmapLimit = currentMipMap;
+    }
+
+    public void SetCurrentDecimateStrength(float strength)
+    {
+        currentDecimateStrength = strength;
+    }
+
     void Start()
     {
         SetHDRPAsset(currentHDRPAssetIndex);
-        QualitySettings.globalTextureMipmapLimit = currentMipMap;
+        SetTextureQuality(currentMipMap);
+        SetCurrentDecimateStrength(currentDecimateStrength);
     }
 }
