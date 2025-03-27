@@ -5,11 +5,17 @@ using UnityEngine.Perception.GroundTruth;
 
 public class ItemRandomizer : MonoBehaviour
 {
+
+    [Header("Randomizer Settings")]
+    public RandomTeleport randomTeleport;
+    public ModelChanger tableChanger;
+
     [Header("Spawn Settings")]
     public List<GameObject> spawnList = new List<GameObject>();
     public int min_spawn_count = 1;
     public int max_spawn_count = 5;
     public Vector3 spawnRange = new Vector3(10, 0, 10);
+    
 
     [Header("Capture Settings")]
     public PerceptionCamera perceptionCamera;
@@ -41,7 +47,7 @@ public class ItemRandomizer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SpawnRandomObjects();
-            perceptionCamera.GetComponent<CameraRandomizer>()?.MoveCameraRandomly();
+            
         }
 
         CheckSpeedOfSpawnedObjects();
@@ -73,6 +79,9 @@ public class ItemRandomizer : MonoBehaviour
     public void SpawnRandomObjects()
     {
         DestroySpawnedObjects();
+        randomTeleport?.Teleport();
+        tableChanger?.RandomModel();
+        perceptionCamera.GetComponent<CameraRandomizer>()?.MoveCameraRandomly();
 
         int spawnCount = Random.Range(min_spawn_count, max_spawn_count + 1);
         for (int i = 0; i < spawnCount; i++)
@@ -86,7 +95,7 @@ public class ItemRandomizer : MonoBehaviour
                 transform.position.z + Random.Range(-spawnRange.z, spawnRange.z)
             );
 
-            GameObject spawnedObject = Instantiate(prefab, spawnPosition, Quaternion.identity);
+            GameObject spawnedObject = Instantiate(prefab, spawnPosition, prefab.transform.rotation);
             spawnedObjects.Add(spawnedObject);
         }
     }
