@@ -6,6 +6,8 @@ public class HDRPAssetSwitcher : MonoBehaviour
 {
     public HDRenderPipelineAsset[] hdrpAssets; // Assign different HDRP Assets in the Inspector
     public int currentHDRPAssetIndex = 0;
+    public int currentMipMap = 0;
+    public float currentDecimateStrength = 1;
 
     public void SetHDRPAsset(int index)
     {
@@ -21,7 +23,7 @@ public class HDRPAssetSwitcher : MonoBehaviour
 
     void Start()
     {
-        // Example: Switch to the second HDRP asset (index 1)
         SetHDRPAsset(currentHDRPAssetIndex);
+        QualitySettings.globalTextureMipmapLimit = currentMipMap;
     }
 }

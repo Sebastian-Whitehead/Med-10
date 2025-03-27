@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 375816465626603792}
   - component: {fileID: -1891535739123581551}
   - component: {fileID: -9180180235659412894}
+  - component: {fileID: -2149189274173774427}
   m_Layer: 0
   m_Name: RushBottle
   m_TagString: Untagged
@@ -153,6 +154,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.673524, y: 2.2686079, z: 0.67132604}
   m_Center: {x: -0.00012999773, y: 1.1135241, z: 0.0001900047}
+--- !u!114 &-2149189274173774427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010683641689863444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619803d28081eed49ac9372498fa0009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentQuality: 0.5
 --- !u!1 &1472976414865488418
 GameObject:
   m_ObjectHideFlags: 0

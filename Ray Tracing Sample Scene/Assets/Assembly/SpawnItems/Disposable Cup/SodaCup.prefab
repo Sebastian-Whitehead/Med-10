@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7585875362405712866}
   - component: {fileID: -1412768290771522989}
   - component: {fileID: -1487577390078263595}
+  - component: {fileID: -8452805138274100078}
   m_Layer: 0
   m_Name: SodaCup
   m_TagString: Untagged
@@ -150,3 +151,15 @@ MonoBehaviour:
   - Disposable Cup
   useAutoLabeling: 1
   autoLabelingSchemeType: CurrentOrParentsFolderNameLabelingScheme
+--- !u!114 &-8452805138274100078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278354428802492537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619803d28081eed49ac9372498fa0009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

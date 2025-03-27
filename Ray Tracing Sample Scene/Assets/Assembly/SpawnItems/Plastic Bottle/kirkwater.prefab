@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8422154509338124264}
   - component: {fileID: 1333157453564822582}
   - component: {fileID: 8789647982635628621}
+  - component: {fileID: 6017950807579641877}
   m_Layer: 0
   m_Name: kirkwater
   m_TagString: Untagged
@@ -151,3 +152,16 @@ MonoBehaviour:
   - Plastic Bottle
   useAutoLabeling: 1
   autoLabelingSchemeType: CurrentOrParentsFolderNameLabelingScheme
+--- !u!114 &6017950807579641877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246384502539187056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619803d28081eed49ac9372498fa0009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentQuality: 0.5
