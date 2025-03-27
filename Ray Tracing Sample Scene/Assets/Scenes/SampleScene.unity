@@ -15637,7 +15637,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -94.690285, z: -0}
+    textureOffset: {x: -0, y: -115.23089, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -27249,7 +27249,7 @@ Transform:
   m_GameObject: {fileID: 3883750303834532080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8.13, z: -33.44}
+  m_LocalPosition: {x: 0, y: 8.13, z: -33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27338,7 +27338,7 @@ GameObject:
   m_Layer: 0
   m_Name: Testing Assembly
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -29490,7 +29490,7 @@ Transform:
   m_GameObject: {fileID: 5128136614355732896}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.62, z: -10.32}
+  m_LocalPosition: {x: 0, y: 1.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29540,7 +29540,7 @@ SceneRoots:
   - {fileID: 1766869843}
   - {fileID: 813244426881364469}
   - {fileID: 1951656773}
+  - {fileID: 1920302208}
   - {fileID: 1046469887}
   - {fileID: 967737517}
   - {fileID: 3406224473461193319}
-  - {fileID: 1920302208}
