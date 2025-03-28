@@ -37,7 +37,7 @@ public class RandomTeleport : MonoBehaviour
         // Move the target object to the selected position
         targetObject.transform.position = randomReference.transform.position;
 
-        // Debug.Log($"Teleported {targetObject.name} to {randomReference.name}'s position.");
+        Debug.Log($"Teleported to {randomReference.name}'s position.");
     }
 }
 

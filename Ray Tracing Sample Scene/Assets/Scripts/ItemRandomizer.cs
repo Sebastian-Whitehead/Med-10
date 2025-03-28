@@ -54,7 +54,7 @@ public class ItemRandomizer : MonoBehaviour
     {
         if (captureCount == -1) return;
 
-        if (captureCount >= captureLimit)
+        if (captureCount > captureLimit)
         {
             Debug.Log("Capture limit reached. Exiting...");
 
@@ -166,8 +166,8 @@ public class ItemRandomizer : MonoBehaviour
     private void HandleRandomization()
     {
         randomTeleport?.Teleport();
-        tableChanger?.RandomModel();
         perceptionCamera.GetComponent<CameraRandomizer>()?.MoveCameraRandomly();
+        tableChanger?.RandomModel();
         SpawnRandomObjects();
     }
 }
