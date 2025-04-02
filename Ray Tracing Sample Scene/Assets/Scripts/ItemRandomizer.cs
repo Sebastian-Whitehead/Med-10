@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.Perception.GroundTruth;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.HighDefinition;
 
 public class ItemRandomizer : MonoBehaviour
 {
@@ -19,9 +22,12 @@ public class ItemRandomizer : MonoBehaviour
 
     [Header("Capture Settings")]
     public PerceptionCamera perceptionCamera;
+
+    public Volume PTvolume;
+    [Tooltip("Ensure to adjust the corresponding variable in the PathTracing camera as well.")] public int sample = 512;
+    private bool PT_Enabled = false;
     public int captureCount = 0;
     public int captureLimit = 100;
-    public bool triggerCapture = false;
 
     [Header("Speed Settings")]
     public float speedThreshold = 0.1f;
@@ -32,6 +38,18 @@ public class ItemRandomizer : MonoBehaviour
     private bool respawn = false;
     private bool hasMoved = false;
     private bool hasCaptured = true;
+
+    public void Start()
+    {
+        PTvolume.profile.TryGet(out PathTracing pathTracingVolume);
+
+        PT_Enabled = sample != -1;
+        
+        pathTracingVolume.maximumSamples.Override(sample);
+        PTvolume.gameObject.SetActive(PT_Enabled );
+        perceptionCamera.useAccumulation = PT_Enabled;
+        print($"Path Tracing Enabled: {PT_Enabled}");
+    }
 
     // Update is called once per frame
     void Update()
@@ -108,9 +126,16 @@ public class ItemRandomizer : MonoBehaviour
     private void HandleRespawn()
     {
         if (!respawn) return;
+        print($"Rendering frame {captureCount}");
+        // Wait until the path tracing frame is complete
 
         respawnFrameCount++;
-        if (respawnFrameCount > 100)
+        if (PT_Enabled && respawnFrameCount > sample + 1)
+        {
+            HandleRandomization();
+            respawnFrameCount = 0;
+            respawn = false;
+        }else if (!PT_Enabled && respawnFrameCount > 10)
         {
             HandleRandomization();
             respawnFrameCount = 0;
@@ -118,41 +143,54 @@ public class ItemRandomizer : MonoBehaviour
         }
     }
 
+    public int GetAccumulationSamples()
+{
+    // Access the active volume stack
+    var volumeStack = VolumeManager.instance.stack;
+
+    // Retrieve the PathTracing component from the volume stack
+    PathTracing pathTracing = volumeStack.GetComponent<PathTracing>();
+    if (pathTracing != null && pathTracing.active)
+    {
+        return pathTracing.maximumSamples.value; // Access the maximum samples value
+    }
+
+    Debug.LogWarning("PathTracing component not found or not active in the volume stack.");
+    return 0; // Default value if not found
+}
+
     /// <summary>
     /// Checks the speed of spawned objects and triggers capture if conditions are met.
     /// </summary>
     private void CheckSpeedOfSpawnedObjects()
+{
+    totalSpeed = 0;
+
+    foreach (GameObject obj in spawnedObjects)
     {
-        totalSpeed = 0;
-
-        foreach (GameObject obj in spawnedObjects)
+        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        if (rb != null)
         {
-            Rigidbody rb = obj.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                totalSpeed += rb.velocity.magnitude;
-            }
-        }
-
-        if (totalSpeed > speedThreshold)
-        {
-            hasMoved = true;
-            hasCaptured = false;
-        }
-        else if (totalSpeed < speedThreshold && hasMoved && !hasCaptured)
-        {
-            hasCaptured = true;
-            hasMoved = false;
-
-            if (triggerCapture)
-            {
-                perceptionCamera.RequestCapture();
-                captureCount++;
-            }
-
-            respawn = true;
+            totalSpeed += rb.velocity.magnitude;
         }
     }
+
+    if (totalSpeed > speedThreshold)
+    {
+        hasMoved = true;
+        hasCaptured = false;
+    }
+    else if (totalSpeed < speedThreshold && hasMoved && !hasCaptured)
+    {
+        hasCaptured = true;
+        hasMoved = false;
+        
+        perceptionCamera.RequestCapture(); // Request a capture from the PerceptionCamera
+        captureCount++;
+        
+        respawn = true;
+    }
+}
 
     /// <summary>
     /// Draws the spawn area in the Unity Editor for visualization.

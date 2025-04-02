@@ -160,6 +160,55 @@ Transform:
   - {fileID: 720476594}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &17585286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 17585287}
+  - component: {fileID: 17585288}
+  m_Layer: 0
+  m_Name: Path Tracing Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &17585287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17585286}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1924871439}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &17585288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17585286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 11d5fc331eeb9db4cb1e3340011bf595, type: 2}
 --- !u!1001 &29459326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15637,7 +15686,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -12.206524, z: -0}
+    textureOffset: {x: -0, y: -3.6724782, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -23010,6 +23059,7 @@ Transform:
   - {fileID: 812970923}
   - {fileID: 2582144458996412158}
   - {fileID: 758571036}
+  - {fileID: 17585287}
   m_Father: {fileID: 1377783}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1942720866
@@ -25232,7 +25282,7 @@ Transform:
   m_GameObject: {fileID: 2035957474}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.57, z: 0}
+  m_LocalPosition: {x: 0, y: 1.126, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27090,7 +27140,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 20.78461
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -27105,7 +27155,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -28314,7 +28364,7 @@ Transform:
   m_GameObject: {fileID: 5262143219479300593}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.8680004, z: 0}
+  m_LocalPosition: {x: 0, y: -0.534, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28550,7 +28600,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3e2e6bfc59709614ab90c0cd7d755e48, type: 2}
   - {fileID: 11400000, guid: 168a2336534e4e043b2a210b6f8d379a, type: 2}
   currentHDRPAssetIndex: 0
-  currentMipMap: 8
+  currentMipMap: 0
   currentDecimateStrength: 1
 --- !u!1001 &6810675360476704166
 PrefabInstance:
@@ -28699,13 +28749,26 @@ MonoBehaviour:
   - {fileID: 3278354428802492537, guid: 2351161029b891e42a09c222f400264d, type: 3}
   - {fileID: 246384502539187056, guid: b44f3fb714b9be349aadf0a1ec31a144, type: 3}
   - {fileID: 1010683641689863444, guid: c58fce9f2cec308418d9cddea8287dfc, type: 3}
+  - {fileID: 470090243147159812, guid: f6dc2ee5dacc67c4591d1075fb9c0895, type: 3}
+  - {fileID: 470090243147159812, guid: 572ef7a843aa92447b43dcfd48330d6c, type: 3}
+  - {fileID: 470090243147159812, guid: d92883c4fbfe27a44ae56b89b6406307, type: 3}
+  - {fileID: 2398732786415033854, guid: 80fea9bb1b2021747b8593daa688c251, type: 3}
+  - {fileID: 2398732786415033854, guid: 575bfabf889a63946ba0eba9784f9555, type: 3}
+  - {fileID: 2796279251759944005, guid: 770bbb234c3c42744a35d2900626ed2b, type: 3}
+  - {fileID: 2796279251759944005, guid: 47d493430a42e7047ae8847bf971ca6d, type: 3}
+  - {fileID: 2796279251759944005, guid: b656913c714cf004c8feae525b5fb70c, type: 3}
+  - {fileID: 2796279251759944005, guid: ee351267acefbf94585065e4d2ec0d09, type: 3}
+  - {fileID: 2796279251759944005, guid: f693f9aa12b6e274b9f5b90238fb9dad, type: 3}
+  - {fileID: 3909915745807830721, guid: 4bcb2c7b3ce015c47a3f8fa2a75e667f, type: 3}
+  - {fileID: 4152589728726622281, guid: 10aceb472c5f47d40a8793bb608ab405, type: 3}
   min_spawn_count: 2
   max_spawn_count: 5
   spawnRange: {x: 1.41, y: 0.5, z: 1}
   perceptionCamera: {fileID: 233823489490824954}
+  PTvolume: {fileID: 17585288}
+  sample: 256
   captureCount: 0
-  captureLimit: 100
-  triggerCapture: 1
+  captureLimit: 10
   speedThreshold: 1e-10
 --- !u!4 &7210509970297696232 stripped
 Transform:
@@ -29504,8 +29567,8 @@ MonoBehaviour:
   Cam: {fileID: 5128136614355732896}
   Lookie: {fileID: 5262143219479300593}
   Zone: {fileID: 2035957474}
-  c: {x: 3, y: 1, z: 3}
-  l: {x: 0.9, y: 0.1, z: 0.8}
+  c: {x: 2, y: 0.5, z: 1.5}
+  l: {x: 0.4, y: 0.1, z: 0.4}
 --- !u!4 &8285608693600406297
 Transform:
   m_ObjectHideFlags: 0

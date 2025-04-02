@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7139169431794650158}
   - component: {fileID: -5417551475057918138}
   - component: {fileID: -7669099453914936520}
+  - component: {fileID: -4554055298915731271}
   m_Layer: 0
   m_Name: Bottle2
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 20.2197, y: -0.56139886, z: -8.486323}
-  m_LocalScale: {x: 54.921997, y: 54.921997, z: 54.921997}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -151,3 +152,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.016121037, y: 0.016121035, z: 0.043632288}
   m_Center: {x: -0.0000000088475645, y: 0.00006963824, z: -0.0076547703}
+--- !u!114 &-4554055298915731271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470090243147159812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619803d28081eed49ac9372498fa0009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentQuality: 0.5
+  minimumQuality: 0.1
