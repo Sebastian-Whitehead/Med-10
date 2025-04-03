@@ -18,6 +18,7 @@ public class ItemRandomizer : MonoBehaviour
     public int min_spawn_count = 1;
     public int max_spawn_count = 5;
     public Vector3 spawnRange = new Vector3(10, 0, 10);
+    public List<ClientSpawner> clientSpawners = new List<ClientSpawner>();
     
 
     [Header("Capture Settings")]
@@ -175,6 +176,11 @@ public class ItemRandomizer : MonoBehaviour
         }
     }
 
+    foreach (ClientSpawner clientSpawner in clientSpawners)
+    {
+        totalSpeed += clientSpawner.CheckSpeedOfSpawnedObjects();
+    }
+
     if (totalSpeed > speedThreshold)
     {
         hasMoved = true;
@@ -185,7 +191,7 @@ public class ItemRandomizer : MonoBehaviour
         hasCaptured = true;
         hasMoved = false;
         
-        perceptionCamera.RequestCapture(); // Request a capture from the PerceptionCamera
+        perceptionCamera?.RequestCapture(); // Request a capture from the PerceptionCamera
         captureCount++;
         
         respawn = true;
@@ -207,5 +213,9 @@ public class ItemRandomizer : MonoBehaviour
         perceptionCamera.GetComponent<CameraRandomizer>()?.MoveCameraRandomly();
         tableChanger?.RandomModel();
         SpawnRandomObjects();
+        foreach (ClientSpawner clientSpawner in clientSpawners)
+        {
+            clientSpawner?.SpawnRandomObjects();
+        }
     }
 }
