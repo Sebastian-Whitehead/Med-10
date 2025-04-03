@@ -7,9 +7,15 @@ import os
 from PIL import Image
 from logger import log_results_to_json
 
+from captum.attr import Saliency
+from captum.attr import visualization as viz
+
 batch_id = datetime.now().strftime("%m%d%H%M%S")
 
-def evaluate_batch(batch_path):
+def evaluate_batch_8(batch_path):
+    print("")
+    print("YOLO v8")
+    print("")
     model = get_model(model_id="beverage-containers-3atxb/3", api_key="r5e027ZfsLmnqRVzqpYa")
     precision_metric = Precision()
     recall_metric = Recall()
@@ -47,17 +53,39 @@ def evaluate_batch(batch_path):
     return eval_metric.map50
 
 def evaluate_single(image_path, annotation_path, show_results = False):
-    model = get_model(model_id="beverage-containers-3atxb/3", api_key="r5e027ZfsLmnqRVzqpYa")
+    #model = get_model(model_id="beverage-containers-3atxb/3", api_key="r5e027ZfsLmnqRVzqpYa")
+    #import roboflow
+    #rf = roboflow.Roboflow(api_key="r5e027ZfsLmnqRVzqpYa")
+
+    #project = rf.workspace().project("beverage-containers-3atxb/3")
+
+    #model = project.version("1").mode
+    #model.download(format='pt', location='.')
+    from ultralytics import YOLO
+    #CLIENT = InferenceHTTPClient(
+    #    api_url="https://detect.roboflow.com",
+    #    api_key="r5e027ZfsLmnqRVzqpYa"
+    #)
+    print("loading weights")
+    model_path = "weights.pt"  # Replace with the actual path
+    print("weights loaded")
+    CLIENT = YOLO(model_path)
+    print("client loaded")
     map_metric = MeanAveragePrecision()
 
     print(f"Evaluating single image: {image_path}")
-    result = model.infer([image_path])[0]
+    #result = model.infer([image_path])[0]
+    
 
-    detections = sv.Detections.from_inference(result)
-    print(f"Detections: {detections}")
+    
 
     # Load the image to get its dimensions
     image = Image.open(image_path)
+    result = CLIENT(image)
+    #result = CLIENT.infer(image, model_id="beverage-containers-3atxb/3")
+    detections = sv.Detections.from_inference(result)
+    print(f"Detections: {detections}")
+
     image_width, image_height = image.size
 
     # Manually parse the YOLOv8 annotation file
@@ -86,8 +114,8 @@ def evaluate_single(image_path, annotation_path, show_results = False):
         data={'class_name': np.array(['class_name_placeholder'] * len(class_id))},  # Replace with actual class names if available
         metadata={}
     )
-    print(f"Ground Truth: {ground_truth_detections}")
-
+    #print(f"Ground Truth: {ground_truth_detections}")
+    
     map_metric.update(detections, ground_truth_detections)
     eval_metric = map_metric.compute()
     print(f"Mean Average Precision for single image: {eval_metric.map50_95}")
@@ -95,10 +123,8 @@ def evaluate_single(image_path, annotation_path, show_results = False):
     # Annotate and display the image
     if show_results:
         annotate_and_display(image, detections, ground_truth_detections)
-
-    # Log results to JSON file
     log_results_to_json(batch_id, os.path.dirname(image_path), eval_metric.map50, eval_metric.map50_95, None, None)
-
+    sali(CLIENT, image)
     return eval_metric.map50_95
 
 def annotate_and_display(image, detections, ground_truth_detections):
@@ -130,3 +156,38 @@ def annotate_and_display(image, detections, ground_truth_detections):
 def update_batch_id():
     global batch_id
     batch_id = datetime.now().strftime("%m%d%H%M%S")
+
+def sali(model_pt, image):
+    print("sali")
+    
+
+    import cv2
+    import matplotlib.pyplot as plt
+    import numpy as np
+    from ultralytics import YOLO
+    from yolo.yolo_cam.eigen_cam import EigenCAM
+    from yolo.yolo_cam.utils.image import show_cam_on_image
+
+    
+
+    plt.rcParams["figure.figsize"] = [3.0, 3.0]
+
+
+    img = cv2.imread(image)
+    img = cv2.resize(img, (640, 640))
+    rgb_img = img.copy()
+    img = np.float32(img) / 255
+
+    model = YOLO(model_pt) 
+    model = model.cpu()
+
+    target_layers = [model.model.model[-2]]
+    model = model.cpu()
+
+    cam = EigenCAM(model, target_layers,task='cls')
+
+    grayscale_cam = cam(rgb_img)[0, :, :]
+    cam_image = show_cam_on_image(img, grayscale_cam, use_rgb=True)
+    plt.imshow(cam_image)
+    plt.show()
+
