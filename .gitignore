@@ -173,3 +173,4 @@ cython_debug/
 
 /results/*
 .idea/*
+.vs

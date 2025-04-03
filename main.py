@@ -1,4 +1,4 @@
-from map import evaluate_batch_8, evaluate_single, update_batch_id
+#from map import evaluate_batch_8, evaluate_single, update_batch_id
 from map11 import evaluate_batch_11
 from sali import evaluate_single
 
@@ -11,7 +11,7 @@ batch_folder = "batch_images/test_set"
 #Mean Average Precision for batch: 0.8772768020901894  
 
 
-evaluate_batch_11(batch_folder)
+#evaluate_batch_11(batch_folder)
 import os
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -34,7 +34,7 @@ txt_image = f"{base_name}.txt"
 single_image_path = os.path.join("batch_images", "test_set", "images", image)
 single_annotation_path = os.path.join("batch_images", "test_set", "labels", txt_image)
 
-print(single_annotation_path)
-print(single_image_path)
+#print(single_annotation_path)
+#print(single_image_path)
 
-#evaluate_single(single_image_path, single_annotation_path, True, False)
+evaluate_single(single_image_path, single_annotation_path, True, False)

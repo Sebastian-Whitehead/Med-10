@@ -8,7 +8,7 @@ from PIL import Image
 from logger import log_results_to_json
 from ultralytics import YOLO
 import cv2
-from map import log_results_to_json
+#from map import log_results_to_json
 
 batch_id = datetime.now().strftime("%m%d%H%M%S")
 
@@ -74,7 +74,7 @@ def evaluate_batch_11(batch_path):
     print(f"Mean Average Precision for batch: {eval_metric.map50}")
 
     # Log results to JSON file
-    log_results_to_json(batch_id, batch_path, eval_metric.map50, eval_metric.map50_95, pre.precision_at_50, rec.recall_at_50)
+    #log_results_to_json(batch_id, batch_path, eval_metric.map50, eval_metric.map50_95, pre.precision_at_50, rec.recall_at_50)
 
     return eval_metric.map50
 
