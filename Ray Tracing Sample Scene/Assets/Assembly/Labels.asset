@@ -31,5 +31,8 @@ MonoBehaviour:
   - label: Glass Wine
     id: 6
     hierarchyRelation: 0
+  - label: cup-handle
+    id: 7
+    hierarchyRelation: 0
   autoAssignIds: 1
   startingLabelId: 1

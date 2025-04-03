@@ -1,0 +1,11 @@
+Model Information:
+* title:	Drink Cup
+* source:	https://sketchfab.com/3d-models/drink-cup-05be969a565c4327b306c24126577203
+* author:	endbored (https://sketchfab.com/endbored)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Drink Cup" (https://sketchfab.com/3d-models/drink-cup-05be969a565c4327b306c24126577203) by endbored (https://sketchfab.com/endbored) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

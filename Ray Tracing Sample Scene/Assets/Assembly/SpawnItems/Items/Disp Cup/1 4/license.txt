@@ -1,0 +1,11 @@
+Model Information:
+* title:	Ridged Plastic Cup
+* source:	https://sketchfab.com/3d-models/ridged-plastic-cup-9770e5a091e94eee9636b5284f8d3e4f
+* author:	cdcruz (https://sketchfab.com/cdcruz)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ridged Plastic Cup" (https://sketchfab.com/3d-models/ridged-plastic-cup-9770e5a091e94eee9636b5284f8d3e4f) by cdcruz (https://sketchfab.com/cdcruz) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

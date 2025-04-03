@@ -25,4 +25,6 @@ MonoBehaviour:
     color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   - label: Glass Wine
     color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - label: cup-handle
+    color: {r: 1, g: 0.82143986, b: 0.32643968, a: 1}
   skyColor: {r: 0, g: 0, b: 0, a: 1}

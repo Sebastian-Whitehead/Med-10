@@ -1,0 +1,11 @@
+Model Information:
+* title:	Water Bottle
+* source:	https://sketchfab.com/3d-models/water-bottle-885543a7679c4026abbd6499185caf08
+* author:	Igrium (https://sketchfab.com/Sam54123)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Water Bottle" (https://sketchfab.com/3d-models/water-bottle-885543a7679c4026abbd6499185caf08) by Igrium (https://sketchfab.com/Sam54123) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

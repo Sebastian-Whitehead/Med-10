@@ -176,7 +176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &17585287
 Transform:
   m_ObjectHideFlags: 0
@@ -15902,7 +15902,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -0.43483883, z: -0}
+    textureOffset: {x: -0, y: -237.82332, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -23277,6 +23277,63 @@ Transform:
   - {fileID: 758571036}
   m_Father: {fileID: 1377783}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1942572636
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1476763972198307973, guid: 2351161029b891e42a09c222f400264d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.8256238
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476763972198307973, guid: 2351161029b891e42a09c222f400264d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.636975
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476763972198307973, guid: 2351161029b891e42a09c222f400264d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -32.200294
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476763972198307973, guid: 2351161029b891e42a09c222f400264d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476763972198307973, guid: 2351161029b891e42a09c222f400264d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476763972198307973, guid: 2351161029b891e42a09c222f400264d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476763972198307973, guid: 2351161029b891e42a09c222f400264d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476763972198307973, guid: 2351161029b891e42a09c222f400264d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476763972198307973, guid: 2351161029b891e42a09c222f400264d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476763972198307973, guid: 2351161029b891e42a09c222f400264d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3278354428802492537, guid: 2351161029b891e42a09c222f400264d, type: 3}
+      propertyPath: m_Name
+      value: SodaCup
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2351161029b891e42a09c222f400264d, type: 3}
 --- !u!1001 &1942720866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28872,7 +28929,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 168a2336534e4e043b2a210b6f8d379a, type: 2}
   currentHDRPAssetIndex: 0
   currentMipMap: 0
-  currentDecimateStrength: 1
+  currentDecimateStrength: 0.005
 --- !u!1001 &6810675360476704166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29895,3 +29952,4 @@ SceneRoots:
   - {fileID: 1046469887}
   - {fileID: 967737517}
   - {fileID: 3406224473461193319}
+  - {fileID: 1942572636}
