@@ -1,0 +1,11 @@
+Model Information:
+* title:	POLYCARBONATE MUG
+* source:	https://sketchfab.com/3d-models/polycarbonate-mug-5ee4647f7994413d80652e10090d380d
+* author:	fancyikzero (https://sketchfab.com/fancyikzero)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "POLYCARBONATE MUG" (https://sketchfab.com/3d-models/polycarbonate-mug-5ee4647f7994413d80652e10090d380d) by fancyikzero (https://sketchfab.com/fancyikzero) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

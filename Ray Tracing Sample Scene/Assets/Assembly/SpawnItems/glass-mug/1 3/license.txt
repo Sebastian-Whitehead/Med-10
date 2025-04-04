@@ -1,0 +1,11 @@
+Model Information:
+* title:	Beer Mug Glass
+* source:	https://sketchfab.com/3d-models/beer-mug-glass-52bd46f46979445a8092e35c36a9c4fb
+* author:	Bob (https://sketchfab.com/MeBob)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Beer Mug Glass" (https://sketchfab.com/3d-models/beer-mug-glass-52bd46f46979445a8092e35c36a9c4fb) by Bob (https://sketchfab.com/MeBob) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
