@@ -1,40 +1,34 @@
-#from map import evaluate_batch_8, evaluate_single, update_batch_id
-from map11 import evaluate_batch_11
-from sali import evaluate_single
+import argparse
+from test_scripts.test_batch_8 import evaluate_batch_8
+from test_scripts.test_batch_11 import evaluate_batch_11    
+from test_scripts.test_single_8 import evaluate_single_8
+from test_scripts.test_single_11 import evaluate_single_11
 
-# Evaluate a batch of images
-batch_folder = "batch_images/test_set"
-#evaluate_batch_8(batch_folder)
+def parse_arguments():
+    """Create and parse command-line arguments."""
+    parser = argparse.ArgumentParser(description="Run evaluation scripts based on input arguments.")
+    parser.add_argument("version", choices=["8", "11"], help="Specify the version: '8' or '11'.")
+    parser.add_argument("type", choices=["batch", "single"], help="Specify the type: 'batch' or 'single'.")
+    return parser.parse_args()
 
-#Precision: 0.8864187348978007
-#Recall: 0.8950617283950617
-#Mean Average Precision for batch: 0.8772768020901894  
+def main(args, image=None, batch_folder=None):
+    """Run the appropriate evaluation script based on parsed arguments."""
+    if args.version == "8" and args.type == "batch":
+        evaluate_batch_8(batch_path=batch_folder, log=True)
+    elif args.version == "8" and args.type == "single":
+        evaluate_single_8(image_name=image, show_results=True, log=False)
+    elif args.version == "11" and args.type == "batch":
+        evaluate_batch_11(batch_path=batch_folder, log=True)
+    elif args.version == "11" and args.type == "single":
+        evaluate_single_11(image_name=image, show_results=True, log=False)
+    else:
+        print("Invalid combination of arguments.")
 
+if __name__ == "__main__":
+    image = "2dark5_jpg.rf.195ff3de514bdb9771d4100d2e00f7ce.jpg"
+    image = "09a245b6-498e-4169-9acd-73f09ac4e04b_jpeg_jpg.rf.4a1a07dc1571709c7e7995f48ac6804e.jpg"
+    batch_folder = "batch_images/test_set"
 
-#evaluate_batch_11(batch_folder)
-import os
+    args = parse_arguments()
+    main(args, image=image, batch_folder=batch_folder)
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
-#print(os.getcwd())
-# Uncomment the following lines to evaluate a single image
-#single_image_path = "batch_images/test_set/images/0a20baf628fa9be7_jpg.rf.6ce55e30ca2cac3c5e01b3dacedc7b11.jpg"
-#single_annotation_path = "batch_images/test_set/labels/0a20baf628fa9be7_jpg.rf.6ce55e30ca2cac3c5e01b3dacedc7b11.txt"
-
-image = "2dark5_jpg.rf.195ff3de514bdb9771d4100d2e00f7ce.jpg"
-#image = "000000253834_jpg.rf.c0bb81a9ec8fa4c6a3eecc34235e50f0.jpg"
-#image = "uc-352-_jpg.rf.cc0da01a3bd0eac428567cc344cf0dac.jpg"
-
-
-#image = "2dark5_jpg.rf.195ff3de514bdb9771d4100d2e00f7ce.jpg"
-
-base_name, extension = image.rsplit(".", 1)
-
-txt_image = f"{base_name}.txt"
-
-single_image_path = os.path.join("batch_images", "test_set", "images", image)
-single_annotation_path = os.path.join("batch_images", "test_set", "labels", txt_image)
-
-#print(single_annotation_path)
-#print(single_image_path)
-
-evaluate_single(single_image_path, single_annotation_path, True, False)

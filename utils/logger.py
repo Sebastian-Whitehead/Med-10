@@ -1,6 +1,6 @@
 import json
 import os
-from datetime import datetime
+from utils.utilities import get_root_dir
 
 def log_results_to_json(batch_id, batch_path, map50, map50_95, precision, recall):
     log_data = {
@@ -13,7 +13,7 @@ def log_results_to_json(batch_id, batch_path, map50, map50_95, precision, recall
     }
 
     # Create the results directory if it doesn't exist
-    results_dir = os.path.join(os.path.dirname(__file__), "results")
+    results_dir = os.path.join(get_root_dir, "results")
     os.makedirs(results_dir, exist_ok=True)
 
     log_file = os.path.join(results_dir, f"ev_{batch_id}.json")

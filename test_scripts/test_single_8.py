@@ -4,27 +4,22 @@ from PIL import Image
 import roboflow
 from inference import get_model
 from supervision.metrics import MeanAveragePrecision
+from utils.utilities import annotate_and_display8
+from utils.utilities import update_batch_id
+from utils.utilities import get_root_dir
+from utils.utilities import get_image_anno_path
 import supervision as sv
-from logger import log_results_to_json
+from utils.logger import log_results_to_json
 
-def evaluate_single(image_path, annotation_path, show_results = False, log=False):
+def evaluate_single_8(image_name, show_results = False, log=False):
     model = get_model(model_id="beverage-containers-3atxb/3", api_key="r5e027ZfsLmnqRVzqpYa")
     
-    rf = roboflow.Roboflow(api_key="r5e027ZfsLmnqRVzqpYa")
-
-    project = rf.workspace().project("beverage-containers-3atxb/3")
-
-    CLIENT = InferenceHTTPClient(
-        api_url="https://detect.roboflow.com",
-        api_key="r5e027ZfsLmnqRVzqpYa"
-    )
     map_metric = MeanAveragePrecision()
+    image_path, annotation_path = get_image_anno_path(image_name)
 
-    print(f"Evaluating single image: {image_path}")
-
-    # Load the image to get its dimensions
     image = Image.open(image_path)
-    result = CLIENT.infer(image, model_id="beverage-containers-3atxb/3")
+    result = model.infer([image_path])[0]
+    print(f"Result: {result}")
     detections = sv.Detections.from_inference(result)
     print(f"Detections: {detections}")
 
@@ -64,22 +59,13 @@ def evaluate_single(image_path, annotation_path, show_results = False, log=False
 
     # Annotate and display the image
     if show_results:
-        annotate_and_display(image, detections, ground_truth_detections)
+        annotate_and_display8(image, detections, ground_truth_detections)
     if log:
-        log_results_to_json(batch_id, os.path.dirname(image_path), eval_metric.map50, eval_metric.map50_95, None, None)
+        log_results_to_json(update_batch_id, image_name, eval_metric.map50, eval_metric.map50_95, None, None)
     return eval_metric.map50_95
 
-
 if __name__ == "__main__":
-    import os
-
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
     image = "2dark5_jpg.rf.195ff3de514bdb9771d4100d2e00f7ce.jpg"
+    image = "09a245b6-498e-4169-9acd-73f09ac4e04b_jpeg_jpg.rf.4a1a07dc1571709c7e7995f48ac6804e.jpg"
 
-    base_name, extension = image.rsplit(".", 1)
-    txt_image = f"{base_name}.txt"
-
-    single_image_path = os.path.join("batch_images", "test_set", "images", image)
-    single_annotation_path = os.path.join("batch_images", "test_set", "labels", txt_image)
-
-    evaluate_single(single_image_path, single_annotation_path, True, False)
+    evaluate_single_8(image, True, False)
