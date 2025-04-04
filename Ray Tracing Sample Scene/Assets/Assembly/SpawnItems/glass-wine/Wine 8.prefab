@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   labels:
-  - Glass Wine
+  - glass-wine
   useAutoLabeling: 1
   autoLabelingSchemeType: CurrentOrParentsFolderNameLabelingScheme
 --- !u!114 &575303865447564263

@@ -15902,7 +15902,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -352.22845, z: -0}
+    textureOffset: {x: -0, y: -383.5142, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -26687,63 +26687,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &486331937586771760
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6339667809224530800, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6339667809224530800, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.714
-      objectReference: {fileID: 0}
-    - target: {fileID: 6339667809224530800, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -32.2194
-      objectReference: {fileID: 0}
-    - target: {fileID: 6339667809224530800, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 6339667809224530800, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 6339667809224530800, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6339667809224530800, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6339667809224530800, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6339667809224530800, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6339667809224530800, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6895636263720620717, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
-      propertyPath: m_Name
-      value: Glass beer mug empty
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
 --- !u!114 &583591924348315139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27306,63 +27249,6 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
---- !u!1001 &1754505836858938031
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1942565223385096156, guid: 9c431d74ce6572b47aaafa7abb6ce1b7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0051471815
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942565223385096156, guid: 9c431d74ce6572b47aaafa7abb6ce1b7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.77086
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942565223385096156, guid: 9c431d74ce6572b47aaafa7abb6ce1b7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -32.357
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942565223385096156, guid: 9c431d74ce6572b47aaafa7abb6ce1b7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942565223385096156, guid: 9c431d74ce6572b47aaafa7abb6ce1b7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942565223385096156, guid: 9c431d74ce6572b47aaafa7abb6ce1b7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942565223385096156, guid: 9c431d74ce6572b47aaafa7abb6ce1b7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942565223385096156, guid: 9c431d74ce6572b47aaafa7abb6ce1b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942565223385096156, guid: 9c431d74ce6572b47aaafa7abb6ce1b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942565223385096156, guid: 9c431d74ce6572b47aaafa7abb6ce1b7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2367224965036533587, guid: 9c431d74ce6572b47aaafa7abb6ce1b7, type: 3}
-      propertyPath: m_Name
-      value: Beer Mug Bumpy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9c431d74ce6572b47aaafa7abb6ce1b7, type: 3}
 --- !u!1001 &2160523312602731897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27812,63 +27698,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544250036496490201}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &3750811687074496509
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3526565508721863633, guid: 362fa07dde0a639499e973f5248706de, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.179
-      objectReference: {fileID: 0}
-    - target: {fileID: 3526565508721863633, guid: 362fa07dde0a639499e973f5248706de, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.682
-      objectReference: {fileID: 0}
-    - target: {fileID: 3526565508721863633, guid: 362fa07dde0a639499e973f5248706de, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -32.613
-      objectReference: {fileID: 0}
-    - target: {fileID: 3526565508721863633, guid: 362fa07dde0a639499e973f5248706de, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3526565508721863633, guid: 362fa07dde0a639499e973f5248706de, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3526565508721863633, guid: 362fa07dde0a639499e973f5248706de, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3526565508721863633, guid: 362fa07dde0a639499e973f5248706de, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3526565508721863633, guid: 362fa07dde0a639499e973f5248706de, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3526565508721863633, guid: 362fa07dde0a639499e973f5248706de, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3526565508721863633, guid: 362fa07dde0a639499e973f5248706de, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6529286815740845490, guid: 362fa07dde0a639499e973f5248706de, type: 3}
-      propertyPath: m_Name
-      value: Glass mug with open handle
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 362fa07dde0a639499e973f5248706de, type: 3}
 --- !u!1 &3883750303834532080
 GameObject:
   m_ObjectHideFlags: 0
@@ -29269,7 +29098,7 @@ MonoBehaviour:
   - {fileID: 6895636263720620717, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
   - {fileID: 2770528205327174140, guid: 96883df89558ad74da1e10affc419254, type: 3}
   - {fileID: 6529286815740845490, guid: 362fa07dde0a639499e973f5248706de, type: 3}
-  - {fileID: 0}
+  - {fileID: 9202407051532156183, guid: 99886feb8aa676348ae14bf449bf7a4d, type: 3}
   - {fileID: 2398732786415033854, guid: 80fea9bb1b2021747b8593daa688c251, type: 3}
   - {fileID: 2398732786415033854, guid: 575bfabf889a63946ba0eba9784f9555, type: 3}
   - {fileID: 2938489485310294372, guid: 84fc26593c9e3384cabf72f57bcb3543, type: 3}
@@ -30104,63 +29933,6 @@ MonoBehaviour:
   Zone: {fileID: 2035957474}
   c: {x: 2, y: 0.5, z: 1.5}
   l: {x: 0.4, y: 0.1, z: 0.4}
---- !u!1001 &7976967791248147689
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2770528205327174140, guid: 96883df89558ad74da1e10affc419254, type: 3}
-      propertyPath: m_Name
-      value: Glass mug
-      objectReference: {fileID: 0}
-    - target: {fileID: 4573358914109353464, guid: 96883df89558ad74da1e10affc419254, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0602
-      objectReference: {fileID: 0}
-    - target: {fileID: 4573358914109353464, guid: 96883df89558ad74da1e10affc419254, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.6817
-      objectReference: {fileID: 0}
-    - target: {fileID: 4573358914109353464, guid: 96883df89558ad74da1e10affc419254, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -32.0978
-      objectReference: {fileID: 0}
-    - target: {fileID: 4573358914109353464, guid: 96883df89558ad74da1e10affc419254, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.48784903
-      objectReference: {fileID: 0}
-    - target: {fileID: 4573358914109353464, guid: 96883df89558ad74da1e10affc419254, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4573358914109353464, guid: 96883df89558ad74da1e10affc419254, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.872928
-      objectReference: {fileID: 0}
-    - target: {fileID: 4573358914109353464, guid: 96883df89558ad74da1e10affc419254, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4573358914109353464, guid: 96883df89558ad74da1e10affc419254, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4573358914109353464, guid: 96883df89558ad74da1e10affc419254, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4573358914109353464, guid: 96883df89558ad74da1e10affc419254, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 96883df89558ad74da1e10affc419254, type: 3}
 --- !u!4 &8285608693600406297
 Transform:
   m_ObjectHideFlags: 0
@@ -30211,7 +29983,3 @@ SceneRoots:
   - {fileID: 967737517}
   - {fileID: 3406224473461193319}
   - {fileID: 1942572636}
-  - {fileID: 7976967791248147689}
-  - {fileID: 3750811687074496509}
-  - {fileID: 486331937586771760}
-  - {fileID: 1754505836858938031}

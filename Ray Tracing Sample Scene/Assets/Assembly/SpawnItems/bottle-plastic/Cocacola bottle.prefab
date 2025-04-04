@@ -411,9 +411,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b33f0bc2b78db642a758f07826d0dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  labels: []
-  useAutoLabeling: 0
-  autoLabelingSchemeType: 
+  labels:
+  - bottle-plastic
+  useAutoLabeling: 1
+  autoLabelingSchemeType: CurrentOrParentsFolderNameLabelingScheme
 --- !u!54 &6070619578508173437
 Rigidbody:
   m_ObjectHideFlags: 0
