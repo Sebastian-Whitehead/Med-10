@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   labels:
-  - Tin Can
+  - tin can
   useAutoLabeling: 1
   autoLabelingSchemeType: CurrentOrParentsFolderNameLabelingScheme
 --- !u!114 &3535596708026302939
