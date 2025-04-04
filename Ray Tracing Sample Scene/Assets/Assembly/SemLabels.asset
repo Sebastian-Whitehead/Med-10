@@ -13,18 +13,22 @@ MonoBehaviour:
   m_Name: SemLabels
   m_EditorClassIdentifier: 
   m_LabelEntries:
-  - label: Disposable Cup
-    color: {r: 0, g: 0, b: 1, a: 1}
-  - label: Plastic Bottle
-    color: {r: 0, g: 1, b: 0, a: 1}
-  - label: Tin Can
-    color: {r: 1, g: 0, b: 0, a: 1}
-  - label: Glass Bottle
-    color: {r: 1, g: 1, b: 1, a: 1}
-  - label: Glass Cup
-    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  - label: Glass Wine
-    color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   - label: cup-handle
     color: {r: 1, g: 0.82143986, b: 0.32643968, a: 1}
+  - label: bottle-glass
+    color: {r: 0.86639994, g: 1, b: 0.36637682, a: 1}
+  - label: bottle-plastic
+    color: {r: 0.34653166, g: 1, b: 0.051822066, a: 1}
+  - label: cup-disposable
+    color: {r: 1, g: 0.87879014, b: 0.18173504, a: 1}
+  - label: glass-mug
+    color: {r: 0.49805394, g: 1, b: 0.4824736, a: 1}
+  - label: glass-normal
+    color: {r: 1, g: 0.4690555, b: 0.4212572, a: 1}
+  - label: glass-wine
+    color: {r: 0.6348462, g: 1, b: 0.39704645, a: 1}
+  - label: gym bottle
+    color: {r: 0.34750813, g: 1, b: 0.8727609, a: 1}
+  - label: tin can
+    color: {r: 1, g: 0.46855333, b: 0.2520045, a: 1}
   skyColor: {r: 0, g: 0, b: 0, a: 1}

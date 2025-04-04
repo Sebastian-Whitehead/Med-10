@@ -13,26 +13,32 @@ MonoBehaviour:
   m_Name: Labels
   m_EditorClassIdentifier: 
   m_LabelEntries:
-  - label: Disposable Cup
+  - label: bottle-glass
     id: 1
     hierarchyRelation: 0
-  - label: Plastic Bottle
+  - label: bottle-plastic
     id: 2
     hierarchyRelation: 0
-  - label: Tin Can
+  - label: cup-disposable
     id: 3
     hierarchyRelation: 0
-  - label: Glass Bottle
+  - label: cup-handle
     id: 4
     hierarchyRelation: 0
-  - label: Glass Cup
+  - label: glass-mug
     id: 5
     hierarchyRelation: 0
-  - label: Glass Wine
+  - label: glass-normal
     id: 6
     hierarchyRelation: 0
-  - label: cup-handle
+  - label: glass-wine
     id: 7
+    hierarchyRelation: 0
+  - label: gym bottle
+    id: 8
+    hierarchyRelation: 0
+  - label: tin can
+    id: 9
     hierarchyRelation: 0
   autoAssignIds: 1
   startingLabelId: 1
