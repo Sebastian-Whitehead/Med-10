@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1846801890682253122}
   - component: {fileID: 8282243594334571816}
   - component: {fileID: 7450253655963460907}
+  - component: {fileID: 6938835814070817806}
   m_Layer: 0
   m_Name: mug 2
   m_TagString: Untagged
@@ -150,3 +151,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0886632, y: 0.118890814, z: 0.08304716}
   m_Center: {x: 0, y: 0, z: 0.04152358}
+--- !u!114 &6938835814070817806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202407051532156183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619803d28081eed49ac9372498fa0009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentQuality: 0.5
+  minimumQuality: 0.1
+  meshFilter: {fileID: 0}

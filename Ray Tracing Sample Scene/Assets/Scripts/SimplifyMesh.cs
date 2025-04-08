@@ -1,23 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class SimplifyMesh : MonoBehaviour
 {
     public float currentQuality = 0.5f;
-    public float minimumQuality = 0.1f;
+    public MeshFilter meshFilter;
+    public int triCount = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        meshFilter = this.GetComponent<MeshFilter>();
+        triCount = meshFilter.sharedMesh.triangles.Length / 3;
+    }
+
+    void Start()
+    {   
+        if (meshFilter == null)
+        {
+            Debug.LogError($"MeshFilter is missing on this GameObject: {this.gameObject.name}");
+            return;
+        }
+
         // Find the single instance of LightingLevelControl in the scene
         HDRPAssetSwitcher lightingControl = FindObjectOfType<HDRPAssetSwitcher>();
         if (lightingControl != null)
         {
-            // Use the currentDecimateStrength value to determine the quality
-            float quality = Mathf.Clamp01(lightingControl.currentDecimateStrength);
-            quality = Mathf.Max(quality, minimumQuality);
-            decimate(quality);
+            // Use the currentDecimateStrength value to determine the base quality
+            float baseQuality = Mathf.Clamp01(lightingControl.currentDecimateStrength);
+            
+            if (baseQuality == 1f) {
+                currentQuality = 1f;
+                return; // No decimation needed if quality is 1
+            }
+
+            // Adjust quality based on mesh complexity
+            float adjustedQuality = AdjustQualityBasedOnComplexity(baseQuality);
+            //adjustedQuality = Mathf.Max(adjustedQuality, minimumQuality);
+            
+            decimate(adjustedQuality);
         }
         else
         {
@@ -25,10 +45,37 @@ public class SimplifyMesh : MonoBehaviour
         }
     }
 
+    private float AdjustQualityBasedOnComplexity(float baseQuality)
+    {
+        var mesh = meshFilter.sharedMesh;
+        if (mesh == null)
+        {
+            Debug.LogError($"MeshFilter or sharedMesh is missing on {this.gameObject.name}");
+            return baseQuality;
+        }
+
+        // Use the triangle count as a measure of complexity
+        int triangleCount = mesh.triangles.Length / 3;
+
+        // Log the starting complexity of the model
+        //Debug.Log($"Model '{this.gameObject.name}' has {triangleCount} triangles.");
+
+        // Get the dynamic threshold from the MeshManager
+        float threshold = MeshManager.Instance.GetComplexityThreshold();
+
+        float k = 1.2f;
+        float c = ((float)triangleCount / threshold) / baseQuality;
+        float x0 = 4f;
+
+        float adjustedQuality = 1f / (1f + Mathf.Exp(k * (c - x0)));
+
+        return adjustedQuality;
+    }
+
     public void decimate(float quality)
     {
         currentQuality = quality;
-        var originalMesh = GetComponent<MeshFilter>().sharedMesh;
+        var originalMesh = meshFilter.sharedMesh;
         var meshSimplifier = new UnityMeshSimplifier.MeshSimplifier();
 
         meshSimplifier.Initialize(originalMesh);

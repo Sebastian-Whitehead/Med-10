@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6257997186069567139}
   - component: {fileID: 7903967826569240324}
   - component: {fileID: 7706834938084100472}
+  - component: {fileID: 738651774658974005}
   m_Layer: 0
   m_Name: Mug
   m_TagString: Untagged
@@ -152,6 +153,21 @@ MonoBehaviour:
   - cup-handle
   useAutoLabeling: 1
   autoLabelingSchemeType: CurrentOrParentsFolderNameLabelingScheme
+--- !u!114 &738651774658974005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3719050504549017263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619803d28081eed49ac9372498fa0009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentQuality: 0.5
+  minimumQuality: 0.1
+  meshFilter: {fileID: 0}
 --- !u!1 &4759480922091129684
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,3 +266,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentQuality: 0.5
   minimumQuality: 0.1
+  meshFilter: {fileID: 0}
