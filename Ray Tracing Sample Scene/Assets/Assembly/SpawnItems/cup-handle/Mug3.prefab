@@ -164,5 +164,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentQuality: 0.5
-  minimumQuality: 0.1
   meshFilter: {fileID: 0}
+  triCount: 0

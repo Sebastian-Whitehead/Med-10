@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentQuality: 0.5
-  minimumQuality: 0.1
+  meshFilter: {fileID: 0}
+  triCount: 0
 --- !u!114 &7078314566793161824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentQuality: 0.5
-  minimumQuality: 0.1
+  meshFilter: {fileID: 0}
+  triCount: 0
 --- !u!1 &3302181272903369064
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentQuality: 0.5
-  minimumQuality: 0.1
+  meshFilter: {fileID: 0}
+  triCount: 0
 --- !u!1 &5286841594618203611
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +549,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentQuality: 0.5
-  minimumQuality: 0.1
+  meshFilter: {fileID: 0}
+  triCount: 0
 --- !u!1 &7708846539797280112
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,4 +648,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentQuality: 0.5
-  minimumQuality: 0.1
+  meshFilter: {fileID: 0}
+  triCount: 0

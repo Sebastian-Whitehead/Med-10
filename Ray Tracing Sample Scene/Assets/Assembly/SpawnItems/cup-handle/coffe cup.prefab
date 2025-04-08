@@ -97,7 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentQuality: 0.5
-  minimumQuality: 0
+  meshFilter: {fileID: 0}
+  triCount: 0
 --- !u!1 &7092898046548456872
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentQuality: 0.5
-  minimumQuality: 0.1
+  meshFilter: {fileID: 0}
+  triCount: 0
 --- !u!54 &8974588504756237610
 Rigidbody:
   m_ObjectHideFlags: 0

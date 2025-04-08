@@ -102,7 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentQuality: 0.5
-  minimumQuality: 0.1
+  meshFilter: {fileID: 0}
+  triCount: 0
 --- !u!54 &8641466147794044692
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -129,7 +130,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &6579337209320561334
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -264,7 +265,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentQuality: 0.5
-  minimumQuality: 0.1
+  meshFilter: {fileID: 0}
+  triCount: 0
 --- !u!1 &6748985473762721491
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,4 +364,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentQuality: 0.5
-  minimumQuality: 0.1
+  meshFilter: {fileID: 0}
+  triCount: 0

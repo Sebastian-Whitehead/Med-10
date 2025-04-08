@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentQuality: 0.5
-  minimumQuality: 0
+  meshFilter: {fileID: 0}
+  triCount: 0
 --- !u!65 &5604313892219776281
 BoxCollider:
   m_ObjectHideFlags: 0
