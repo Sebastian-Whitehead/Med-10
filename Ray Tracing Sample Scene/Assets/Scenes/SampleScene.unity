@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -178,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2938424993433875295, guid: 47d493430a42e7047ae8847bf971ca6d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.0087
       objectReference: {fileID: 0}
     - target: {fileID: 2938424993433875295, guid: 47d493430a42e7047ae8847bf971ca6d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8571,7 +8571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2938424993433875295, guid: f693f9aa12b6e274b9f5b90238fb9dad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.0561
       objectReference: {fileID: 0}
     - target: {fileID: 2938424993433875295, guid: f693f9aa12b6e274b9f5b90238fb9dad, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8925,7 +8925,6 @@ Transform:
   - {fileID: 1706795895}
   - {fileID: 788852517}
   - {fileID: 868350581}
-  - {fileID: 1303545010}
   - {fileID: 1150409887}
   m_Father: {fileID: 1383593055}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10353,6 +10352,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4888866536454433834, guid: d59e4394ea34cd44d86914ef887d7db8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a2e91b0e54ebf5c42b783921b598921c, type: 2}
+    - target: {fileID: 5407011069171860415, guid: d59e4394ea34cd44d86914ef887d7db8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 178d0624ef66fc048964399a07acd357, type: 2}
+    - target: {fileID: 6250340826677211006, guid: d59e4394ea34cd44d86914ef887d7db8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a2e91b0e54ebf5c42b783921b598921c, type: 2}
     m_RemovedComponents:
     - {fileID: 8641466147794044692, guid: d59e4394ea34cd44d86914ef887d7db8, type: 3}
     - {fileID: 6579337209320561334, guid: d59e4394ea34cd44d86914ef887d7db8, type: 3}
@@ -10662,7 +10673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2938424993433875295, guid: ee351267acefbf94585065e4d2ec0d09, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.0204
       objectReference: {fileID: 0}
     - target: {fileID: 2938424993433875295, guid: ee351267acefbf94585065e4d2ec0d09, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11203,6 +11214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Simple Gym Bottle
       objectReference: {fileID: 0}
+    - target: {fileID: 7980963406233323753, guid: 20a949bf61c932a498da729f61f42513, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5ed7dcf32c6beec41894a598709e7095, type: 2}
     m_RemovedComponents:
     - {fileID: 1034604963037007304, guid: 20a949bf61c932a498da729f61f42513, type: 3}
     - {fileID: 7612014279294407711, guid: 20a949bf61c932a498da729f61f42513, type: 3}
@@ -11897,6 +11912,63 @@ MonoBehaviour:
   m_Size: {x: 8, y: 8, z: 2}
   m_FadeFactor: 0.18
   m_Version: 3
+--- !u!1001 &918740583
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.8414426
+      objectReference: {fileID: 0}
+    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.630723
+      objectReference: {fileID: 0}
+    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -32.95571
+      objectReference: {fileID: 0}
+    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420187928197211053, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
+      propertyPath: m_Name
+      value: Hydro Flask
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
 --- !u!1001 &928954645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16896,70 +16968,6 @@ MonoBehaviour:
   m_Size: {x: 5, y: 5, z: 0.5}
   m_FadeFactor: 0.92
   m_Version: 3
---- !u!1001 &1303545009
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 671287961}
-    m_Modifications:
-    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.607
-      objectReference: {fileID: 0}
-    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7420187928197211053, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-      propertyPath: m_Name
-      value: Hydro Flask
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5530515985889206595, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-    - {fileID: 2557948490119679412, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
---- !u!4 &1303545010 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 117041197543198583, guid: 380d99500436df9429ee0e55e9421f23, type: 3}
-  m_PrefabInstance: {fileID: 1303545009}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1317689954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18846,7 +18854,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -0.20333917, z: -0}
+    textureOffset: {x: -0, y: -37.451015, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -29687,7 +29695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1708415265014695443, guid: fb39c4280b45a0845b3866149546c6db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.56
+      value: 0.5061
       objectReference: {fileID: 0}
     - target: {fileID: 1708415265014695443, guid: fb39c4280b45a0845b3866149546c6db, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33883,3 +33891,4 @@ SceneRoots:
   - {fileID: 3406224473461193319}
   - {fileID: 168507542}
   - {fileID: 1383593055}
+  - {fileID: 918740583}
