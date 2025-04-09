@@ -18838,7 +18838,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -6.1475177, z: -0}
+    textureOffset: {x: -0, y: -19.929424, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -24019,12 +24019,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 57550299}
     m_Modifications:
     - target: {fileID: 6784391350370373556, guid: ffc3616150b5ed046a93716c4ac7d59d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.041666668
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784391350370373556, guid: ffc3616150b5ed046a93716c4ac7d59d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.050000004
+      value: 0.041666668
       objectReference: {fileID: 0}
     - target: {fileID: 6784391350370373556, guid: ffc3616150b5ed046a93716c4ac7d59d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.050000004
+      value: 0.041666668
       objectReference: {fileID: 0}
     - target: {fileID: 6784391350370373556, guid: ffc3616150b5ed046a93716c4ac7d59d, type: 3}
       propertyPath: m_LocalPosition.x
