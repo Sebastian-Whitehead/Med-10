@@ -3797,6 +3797,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1973203768}
     m_Modifications:
+    - target: {fileID: 2908646995058877399, guid: b471a8567291d924b8017ca5b20221b8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 45c0c64d3953b08479411abb42e3ea83, type: 2}
     - target: {fileID: 5765758570908111802, guid: b471a8567291d924b8017ca5b20221b8, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13333336
@@ -9298,6 +9302,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 420385014}
     m_Modifications:
+    - target: {fileID: 2469448815266091145, guid: dbd810cd84823954c99b994353bce70e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: de881acae81540340a6506c3e43e808b, type: 2}
     - target: {fileID: 3478167976431475712, guid: dbd810cd84823954c99b994353bce70e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.007936508
@@ -16966,7 +16974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3669069167012608755, guid: 10aceb472c5f47d40a8793bb608ab405, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0034
       objectReference: {fileID: 0}
     - target: {fileID: 3669069167012608755, guid: 10aceb472c5f47d40a8793bb608ab405, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18838,7 +18846,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -19.929424, z: -0}
+    textureOffset: {x: -0, y: -87.778244, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
