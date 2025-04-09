@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1626.6604, g: 1809.6467, b: 2261.5432, a: 1}
+  m_IndirectSpecularColor: {r: 1626.801, g: 1809.7991, b: 2261.6487, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -527,18 +527,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 410518006}
     m_Modifications:
-    - target: {fileID: 5309242100287774566, guid: 58b5dee2aa848224189300d0646cb59a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1370845b29fb8bc4c872f457bddc1f23, type: 2}
     - target: {fileID: 6160241302365384419, guid: 58b5dee2aa848224189300d0646cb59a, type: 3}
       propertyPath: m_Name
       value: Atomic Cup
       objectReference: {fileID: 0}
-    - target: {fileID: 7001301162875053824, guid: 58b5dee2aa848224189300d0646cb59a, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1370845b29fb8bc4c872f457bddc1f23, type: 2}
     - target: {fileID: 7920243648660501877, guid: 58b5dee2aa848224189300d0646cb59a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10360,18 +10352,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4888866536454433834, guid: d59e4394ea34cd44d86914ef887d7db8, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a2e91b0e54ebf5c42b783921b598921c, type: 2}
-    - target: {fileID: 5407011069171860415, guid: d59e4394ea34cd44d86914ef887d7db8, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 178d0624ef66fc048964399a07acd357, type: 2}
-    - target: {fileID: 6250340826677211006, guid: d59e4394ea34cd44d86914ef887d7db8, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a2e91b0e54ebf5c42b783921b598921c, type: 2}
     m_RemovedComponents:
     - {fileID: 8641466147794044692, guid: d59e4394ea34cd44d86914ef887d7db8, type: 3}
     - {fileID: 6579337209320561334, guid: d59e4394ea34cd44d86914ef887d7db8, type: 3}
@@ -11222,10 +11202,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Simple Gym Bottle
       objectReference: {fileID: 0}
-    - target: {fileID: 7980963406233323753, guid: 20a949bf61c932a498da729f61f42513, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5ed7dcf32c6beec41894a598709e7095, type: 2}
     m_RemovedComponents:
     - {fileID: 1034604963037007304, guid: 20a949bf61c932a498da729f61f42513, type: 3}
     - {fileID: 7612014279294407711, guid: 20a949bf61c932a498da729f61f42513, type: 3}
@@ -18862,7 +18838,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -113.024185, z: -0}
+    textureOffset: {x: -0, y: -6.1475177, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
