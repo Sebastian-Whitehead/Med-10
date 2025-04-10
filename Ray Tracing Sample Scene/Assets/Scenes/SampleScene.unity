@@ -173,18 +173,6 @@ PrefabInstance:
       value: Wine 2
       objectReference: {fileID: 0}
     - target: {fileID: 2938424993433875295, guid: 47d493430a42e7047ae8847bf971ca6d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938424993433875295, guid: 47d493430a42e7047ae8847bf971ca6d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938424993433875295, guid: 47d493430a42e7047ae8847bf971ca6d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938424993433875295, guid: 47d493430a42e7047ae8847bf971ca6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2137,18 +2125,6 @@ PrefabInstance:
       value: Wine 3
       objectReference: {fileID: 0}
     - target: {fileID: 2938424993433875295, guid: b656913c714cf004c8feae525b5fb70c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938424993433875295, guid: b656913c714cf004c8feae525b5fb70c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938424993433875295, guid: b656913c714cf004c8feae525b5fb70c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938424993433875295, guid: b656913c714cf004c8feae525b5fb70c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2255,14 +2231,6 @@ PrefabInstance:
     - target: {fileID: 340118313120593369, guid: 81776239d3bc44e43b8960e56b993dbb, type: 3}
       propertyPath: m_Name
       value: Mt Dew
-      objectReference: {fileID: 0}
-    - target: {fileID: 3808801897562684970, guid: 81776239d3bc44e43b8960e56b993dbb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.00065497326
-      objectReference: {fileID: 0}
-    - target: {fileID: 3808801897562684970, guid: 81776239d3bc44e43b8960e56b993dbb, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.0008000001
       objectReference: {fileID: 0}
     - target: {fileID: 3808801897562684970, guid: 81776239d3bc44e43b8960e56b993dbb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11987,14 +11955,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1835595950}
     m_Modifications:
     - target: {fileID: 3338072774903021358, guid: ef13e760a180d1944a2155b15a262a83, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.00065497315
-      objectReference: {fileID: 0}
-    - target: {fileID: 3338072774903021358, guid: ef13e760a180d1944a2155b15a262a83, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.0008000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3338072774903021358, guid: ef13e760a180d1944a2155b15a262a83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -13252,18 +13212,6 @@ PrefabInstance:
     - target: {fileID: 2796279251759944005, guid: 770bbb234c3c42744a35d2900626ed2b, type: 3}
       propertyPath: m_Name
       value: Wine 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938424993433875295, guid: 770bbb234c3c42744a35d2900626ed2b, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938424993433875295, guid: 770bbb234c3c42744a35d2900626ed2b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2938424993433875295, guid: 770bbb234c3c42744a35d2900626ed2b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 2938424993433875295, guid: 770bbb234c3c42744a35d2900626ed2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17484,14 +17432,6 @@ PrefabInstance:
       value: Pepsi
       objectReference: {fileID: 0}
     - target: {fileID: 3273103010324255228, guid: 34136dadfc4e1604592f6ac6913aec8e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.00065497315
-      objectReference: {fileID: 0}
-    - target: {fileID: 3273103010324255228, guid: 34136dadfc4e1604592f6ac6913aec8e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.0008000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3273103010324255228, guid: 34136dadfc4e1604592f6ac6913aec8e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -18803,7 +18743,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -64.98504, z: -0}
+    textureOffset: {x: -0, y: -180.01578, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -30979,10 +30919,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monner
       objectReference: {fileID: 0}
-    - target: {fileID: 9033067555858126616, guid: 5239dbfdc6489a841a1231376bf1c959, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: df8ec6b0c5d645847a10c608fd492f17, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
