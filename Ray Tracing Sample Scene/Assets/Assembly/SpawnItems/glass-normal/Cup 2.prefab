@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6734477193827767427}
   - component: {fileID: 3978172382264447686}
   - component: {fileID: -7371247617780296910}
-  - component: {fileID: 2325189528124234674}
   - component: {fileID: 7523087062082656386}
   - component: {fileID: -5842836356760112788}
+  - component: {fileID: -7043205818214941490}
   m_Layer: 0
   m_Name: Cup 2
   m_TagString: Untagged
@@ -103,27 +103,6 @@ MonoBehaviour:
   - glass-normal
   useAutoLabeling: 1
   autoLabelingSchemeType: CurrentOrParentsFolderNameLabelingScheme
---- !u!65 &2325189528124234674
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2398732786415033854}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.0095257005, y: 0.009525698, z: 0.01519019}
-  m_Center: {x: 0, y: 4.6566123e-10, z: 0.001070721}
 --- !u!54 &7523087062082656386
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -166,3 +145,24 @@ MonoBehaviour:
   currentQuality: 0.5
   meshFilter: {fileID: 0}
   triCount: 0
+--- !u!65 &-7043205818214941490
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2398732786415033854}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9525701, y: 0.9525698, z: 1.519019}
+  m_Center: {x: 0, y: 0.000000059604638, z: 0.1070721}

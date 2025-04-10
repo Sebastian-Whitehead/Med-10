@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8034686133065462414}
   - component: {fileID: 7799804637975820826}
   - component: {fileID: -1710114392581006256}
-  - component: {fileID: -1836638475152198436}
   - component: {fileID: -7804655448921702905}
   - component: {fileID: -4803518527342159271}
+  - component: {fileID: -9162842574986974416}
   m_Layer: 0
   m_Name: Wine 4
   m_TagString: Untagged
@@ -114,27 +114,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &-1836638475152198436
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2796279251759944005}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.007985719, y: 0.007985718, z: 0.01731793}
-  m_Center: {x: 0.000000110128894, y: -0.000000024447214, z: 0.0010512475}
 --- !u!114 &-7804655448921702905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,3 +145,24 @@ MonoBehaviour:
   currentQuality: 0.5
   meshFilter: {fileID: 0}
   triCount: 0
+--- !u!65 &-9162842574986974416
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2796279251759944005}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7985718, y: 0.7985717, z: 1.7317928}
+  m_Center: {x: 0.000011026859, y: -0.00000244379, z: 0.10512475}
