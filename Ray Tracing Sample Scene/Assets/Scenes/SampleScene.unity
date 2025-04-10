@@ -2367,9 +2367,9 @@ Transform:
   m_GameObject: {fileID: 186393995}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 1, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.78, y: 0, z: 0.449}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1105234394}
   - {fileID: 1875938341}
@@ -12468,7 +12468,7 @@ MonoBehaviour:
     - rid: 6553695732111245320
       type: {class: AccumulationSettings, ns: UnityEngine.Perception.Settings, asm: Unity.Perception.Runtime}
       data:
-        accumulationSamples: 512
+        accumulationSamples: 256
         shutterInterval: 0
         shutterFullyOpen: 0
         shutterBeginsClosing: 1
@@ -14445,7 +14445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1153158563062221595, guid: d92883c4fbfe27a44ae56b89b6406307, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.20009995
+      value: -0.094
       objectReference: {fileID: 0}
     - target: {fileID: 1153158563062221595, guid: d92883c4fbfe27a44ae56b89b6406307, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17087,22 +17087,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2654897001331166463, guid: 5ecf5659fa2b20f48be563cbaee11450, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654897001331166463, guid: 5ecf5659fa2b20f48be563cbaee11450, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654897001331166463, guid: 5ecf5659fa2b20f48be563cbaee11450, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 2654897001331166463, guid: 5ecf5659fa2b20f48be563cbaee11450, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3655081758596632672, guid: 5ecf5659fa2b20f48be563cbaee11450, type: 3}
       propertyPath: m_Name
       value: Blender Bottle
@@ -18743,7 +18727,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -180.01578, z: -0}
+    textureOffset: {x: -0, y: -1.635788, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -25724,7 +25708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1153158563062221595, guid: 572ef7a843aa92447b43dcfd48330d6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.30870056
+      value: 0.133
       objectReference: {fileID: 0}
     - target: {fileID: 1153158563062221595, guid: 572ef7a843aa92447b43dcfd48330d6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29572,14 +29556,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 186393996}
     m_Modifications:
     - target: {fileID: 1708415265014695443, guid: fb39c4280b45a0845b3866149546c6db, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.0148148155
-      objectReference: {fileID: 0}
-    - target: {fileID: 1708415265014695443, guid: fb39c4280b45a0845b3866149546c6db, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.022222223
-      objectReference: {fileID: 0}
-    - target: {fileID: 1708415265014695443, guid: fb39c4280b45a0845b3866149546c6db, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4230067
       objectReference: {fileID: 0}
@@ -29589,7 +29565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1708415265014695443, guid: fb39c4280b45a0845b3866149546c6db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.077999115
+      value: -0.599
       objectReference: {fileID: 0}
     - target: {fileID: 1708415265014695443, guid: fb39c4280b45a0845b3866149546c6db, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29828,14 +29804,6 @@ PrefabInstance:
       value: Cola bottle
       objectReference: {fileID: 0}
     - target: {fileID: 8504826911334579480, guid: bbcb8597a659c9044bce73e3a305cf8f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.0050560655
-      objectReference: {fileID: 0}
-    - target: {fileID: 8504826911334579480, guid: bbcb8597a659c9044bce73e3a305cf8f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.0075840973
-      objectReference: {fileID: 0}
-    - target: {fileID: 8504826911334579480, guid: bbcb8597a659c9044bce73e3a305cf8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.41600007
       objectReference: {fileID: 0}
@@ -29845,7 +29813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8504826911334579480, guid: bbcb8597a659c9044bce73e3a305cf8f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.047100067
+      value: -0.366
       objectReference: {fileID: 0}
     - target: {fileID: 8504826911334579480, guid: bbcb8597a659c9044bce73e3a305cf8f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30301,7 +30269,7 @@ MonoBehaviour:
   showVisualizations: 1
   alphaThreshold: 0.1
   overrideLayerMask: 0
-  useAccumulation: 0
+  useAccumulation: 1
   references:
     version: 2
     RefIds:
@@ -31314,7 +31282,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.577, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2113165885}
@@ -32922,9 +32890,9 @@ MonoBehaviour:
   - {fileID: 2113165886}
   perceptionCamera: {fileID: 233823489490824954}
   PTvolume: {fileID: 17585288}
-  sample: 512
+  sample: 256
   captureCount: 0
-  captureLimit: 10
+  captureLimit: 200
   speedThreshold: 1e-10
 --- !u!4 &7210509970297696232 stripped
 Transform:

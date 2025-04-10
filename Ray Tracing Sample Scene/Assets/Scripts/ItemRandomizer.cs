@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.Perception.GroundTruth;
@@ -59,6 +60,10 @@ public class ItemRandomizer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (captureCount > 0){
+                captureCount --;
+            }
+            
             HandleRandomization();
         }
 
@@ -195,6 +200,29 @@ public class ItemRandomizer : MonoBehaviour
         captureCount++;
         
         respawn = true;
+    }
+    
+    //if arrowkey down is pressed force capture frame
+    if (Input.GetKeyDown(KeyCode.DownArrow))
+    {
+        hasCaptured = true;
+        hasMoved = false;
+        
+        perceptionCamera?.RequestCapture(); // Request a capture from the PerceptionCamera
+        captureCount++;
+        
+        respawn = true;
+    }
+
+    // if arrowkey right is placed add 1 to capture count
+    if (Input.GetKeyDown(KeyCode.RightArrow))
+    {
+        captureCount++;
+    }
+    // if arrowkey left is placed subtract 1 to capture count
+    if (Input.GetKeyDown(KeyCode.LeftArrow))
+    {
+        captureCount--;
     }
 }
 

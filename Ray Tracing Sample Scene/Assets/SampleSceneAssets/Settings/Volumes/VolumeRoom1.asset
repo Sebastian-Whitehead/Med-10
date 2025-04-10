@@ -46,10 +46,10 @@ MonoBehaviour:
     m_Value: 1
   limitMin:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 7
   limitMax:
     m_OverrideState: 1
-    m_Value: 13
+    m_Value: 15
   curveMap:
     m_OverrideState: 0
     m_Value:
@@ -181,6 +181,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   rayBias:
+    m_OverrideState: 0
+    m_Value: 0.001
+  distantRayBias:
     m_OverrideState: 0
     m_Value: 0.001
   extendShadowCulling:
