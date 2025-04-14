@@ -7,6 +7,8 @@ public class SimplifyMesh : MonoBehaviour
     public MeshFilter meshFilter;
     public int triCount = 0;
 
+    public bool useSigmoid = true;
+
     void Awake()
     {
         meshFilter = this.GetComponent<MeshFilter>();
@@ -54,6 +56,10 @@ public class SimplifyMesh : MonoBehaviour
             return baseQuality;
         }
 
+        if (!useSigmoid) { // if sigmoid is not to be used, return the base quality
+            return baseQuality;
+        }
+
         // Use the triangle count as a measure of complexity
         int triangleCount = mesh.triangles.Length / 3;
 
@@ -68,6 +74,8 @@ public class SimplifyMesh : MonoBehaviour
         float x0 = 4f;
 
         float adjustedQuality = 1f / (1f + Mathf.Exp(k * (c - x0)));
+
+        
 
         return adjustedQuality;
     }

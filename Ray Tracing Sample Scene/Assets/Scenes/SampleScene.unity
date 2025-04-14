@@ -380,7 +380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &17585287
 Transform:
   m_ObjectHideFlags: 0
@@ -18727,7 +18727,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -1.635788, z: -0}
+    textureOffset: {x: -0, y: -2.5336618, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -30269,7 +30269,7 @@ MonoBehaviour:
   showVisualizations: 1
   alphaThreshold: 0.1
   overrideLayerMask: 0
-  useAccumulation: 1
+  useAccumulation: 0
   references:
     version: 2
     RefIds:
@@ -32689,7 +32689,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 168a2336534e4e043b2a210b6f8d379a, type: 2}
   currentHDRPAssetIndex: 0
   currentMipMap: 0
-  currentDecimateStrength: 1
+  currentDecimateStrength: 0.2
 --- !u!1001 &6810675360476704166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32890,7 +32890,7 @@ MonoBehaviour:
   - {fileID: 2113165886}
   perceptionCamera: {fileID: 233823489490824954}
   PTvolume: {fileID: 17585288}
-  sample: 256
+  sample: -1
   captureCount: 0
   captureLimit: 200
   speedThreshold: 1e-10
