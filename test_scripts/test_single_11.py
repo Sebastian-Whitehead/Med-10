@@ -8,7 +8,7 @@ from utils.utilities import annotate_and_display11
 from utils.utilities import get_image_anno_path
 from utils.utilities import update_batch_id
 from utils.utilities import get_root_dir
-from utils.saliance_image import saliance
+from utils.saliency import saliance
 from ultralytics import YOLO
 
 #Only works with EigenCAM imported

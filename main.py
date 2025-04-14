@@ -20,13 +20,13 @@ def main(args, image=None, batch_folder=None):
     elif args.version == "11" and args.type == "batch":
         evaluate_batch_11(batch_path=batch_folder, log=True)
     elif args.version == "11" and args.type == "single":
-        evaluate_single_11(image_name=image, show_results=True, log=False)
+        evaluate_single_11(image_name=image, show_results=False, log=False, sali=True)
     else:
         print("Invalid combination of arguments.")
 
 if __name__ == "__main__":
     image = "2dark5_jpg.rf.195ff3de514bdb9771d4100d2e00f7ce.jpg"
-    image = "09a245b6-498e-4169-9acd-73f09ac4e04b_jpeg_jpg.rf.4a1a07dc1571709c7e7995f48ac6804e.jpg"
+    #image = "09a245b6-498e-4169-9acd-73f09ac4e04b_jpeg_jpg.rf.4a1a07dc1571709c7e7995f48ac6804e.jpg"
     batch_folder = "batch_images/test_set"
 
     args = parse_arguments()
