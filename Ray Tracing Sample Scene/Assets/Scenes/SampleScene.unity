@@ -18438,7 +18438,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -143.02, z: -0}
+    textureOffset: {x: -0, y: -8.094409, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -32574,16 +32574,11 @@ MonoBehaviour:
   - {fileID: 6274871113749695868, guid: bbb15d984d79fef478405458fc8b1dde, type: 3}
   - {fileID: 3719050504549017263, guid: ea5641e39eedfef40bf332282ed3975e, type: 3}
   - {fileID: 6505313177307664322, guid: 011c35670c4158a44b614e545a378a19, type: 3}
-  - {fileID: 2367224965036533587, guid: 9c431d74ce6572b47aaafa7abb6ce1b7, type: 3}
-  - {fileID: 6895636263720620717, guid: 63894b9c9487b7c4e817634ffdb3c035, type: 3}
-  - {fileID: 2770528205327174140, guid: 96883df89558ad74da1e10affc419254, type: 3}
-  - {fileID: 6529286815740845490, guid: 362fa07dde0a639499e973f5248706de, type: 3}
   - {fileID: 9202407051532156183, guid: 99886feb8aa676348ae14bf449bf7a4d, type: 3}
   - {fileID: 2398732786415033854, guid: 80fea9bb1b2021747b8593daa688c251, type: 3}
   - {fileID: 2398732786415033854, guid: 575bfabf889a63946ba0eba9784f9555, type: 3}
   - {fileID: 2938489485310294372, guid: 84fc26593c9e3384cabf72f57bcb3543, type: 3}
   - {fileID: 910061398096194090, guid: 81fa45a3ff91049478c4cbe60493fe49, type: 3}
-  - {fileID: 9202407051532156183, guid: 99886feb8aa676348ae14bf449bf7a4d, type: 3}
   - {fileID: 2796279251759944005, guid: 770bbb234c3c42744a35d2900626ed2b, type: 3}
   - {fileID: 2796279251759944005, guid: 47d493430a42e7047ae8847bf971ca6d, type: 3}
   - {fileID: 2796279251759944005, guid: b656913c714cf004c8feae525b5fb70c, type: 3}
