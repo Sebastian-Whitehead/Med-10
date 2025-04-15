@@ -7,7 +7,7 @@ public class SimplifyMesh : MonoBehaviour
     public MeshFilter meshFilter;
     public int triCount = 0;
 
-    public bool useSigmoid = true;
+    private bool useSigmoid = true;
 
     void Awake()
     {
@@ -22,9 +22,10 @@ public class SimplifyMesh : MonoBehaviour
             Debug.LogError($"MeshFilter is missing on this GameObject: {this.gameObject.name}");
             return;
         }
-
         // Find the single instance of LightingLevelControl in the scene
         HDRPAssetSwitcher lightingControl = FindObjectOfType<HDRPAssetSwitcher>();
+        useSigmoid = lightingControl.useSigmoid;
+
         if (lightingControl != null)
         {
             // Use the currentDecimateStrength value to determine the base quality

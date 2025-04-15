@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2973090081177940949}
   - component: {fileID: 2896294988121962984}
   - component: {fileID: -2626932684042210518}
-  - component: {fileID: 3669785778912083448}
+  - component: {fileID: -6790856837391829375}
   m_Layer: 0
   m_Name: PizzaBox
   m_TagString: Untagged
@@ -112,8 +112,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3669785778912083448
-BoxCollider:
+--- !u!64 &-6790856837391829375
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -130,6 +130,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.32809037, y: 0.36177158, z: 0.04546387}
-  m_Center: {x: -0.00000007947286, y: -0.057921186, z: 0.022228785}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8070366893911107719, guid: e8951c0d7e096c24db2cebc01f3f302a, type: 3}

@@ -16,6 +16,7 @@ Material:
   - _DOUBLESIDED_ON
   - _ENABLE_FOG_ON_TRANSPARENT
   - _SURFACE_TYPE_TRANSPARENT
+  - _TRANSPARENT_WRITES_MOTION_VEC
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -26,11 +27,11 @@ Material:
     RenderType: Transparent
   disabledShaderPasses:
   - MOTIONVECTORS
-  - TransparentDepthPrepass
+  - DepthOnly
   - TransparentDepthPostpass
   - TransparentBackface
   - RayTracingPrepass
-  - DepthOnly
+  - TransparentDepthPrepass
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -95,7 +96,7 @@ Material:
     - _DepthOffsetEnable: 0
     - _DoubleSidedEnable: 1
     - _DoubleSidedGIMode: 0
-    - _DoubleSidedNormalMode: 0
+    - _DoubleSidedNormalMode: 1
     - _DstBlend: 10
     - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableFogOnTransparent: 1
@@ -125,7 +126,7 @@ Material:
     - _TransparentDepthPostpassEnable: 0
     - _TransparentDepthPrepassEnable: 0
     - _TransparentSortPriority: 0
-    - _TransparentWritingMotionVec: 0
+    - _TransparentWritingMotionVec: 1
     - _TransparentZWrite: 0
     - _UseShadowThreshold: 0
     - _ZTestDepthEqualForOpaque: 4
@@ -145,9 +146,9 @@ Material:
     - roughnessFactor: 0.6
     - transmissionFactor: 0
     m_Colors:
-    - _DoubleSidedConstants: {r: -1, g: -1, b: -1, a: 0}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - baseColorFactor: {r: 0.4415095, g: 0.4415095, b: 0.4415095, a: 0.34509805}
+    - baseColorFactor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0.3647059}
     - baseColorTexture_Rotation: {r: 0, g: 0, b: 0, a: 0}
     - emissiveFactor: {r: 0, g: 0, b: 0, a: 1}
     - emissiveTexture_Rotation: {r: 0, g: 0, b: 0, a: 0}

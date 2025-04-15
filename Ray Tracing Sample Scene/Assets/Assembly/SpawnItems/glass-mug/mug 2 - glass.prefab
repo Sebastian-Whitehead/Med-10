@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   labels:
-  - glass-mug
-  useAutoLabeling: 1
-  autoLabelingSchemeType: CurrentOrParentsFolderNameLabelingScheme
+  - glass-normal
+  useAutoLabeling: 0
+  autoLabelingSchemeType: 
 --- !u!54 &8282243594334571816
 Rigidbody:
   m_ObjectHideFlags: 0
