@@ -3,17 +3,25 @@ import supervision as sv
 from supervision.metrics import MeanAveragePrecision, Precision, Recall
 from utils.logger import log_results_to_json
 from utils.utilities import get_root_dir
+from utils.utilities import update_batch_id
 from ultralytics import YOLO
 import cv2
 import os
+import time
+from tqdm import tqdm
+import numpy as np
 
-batch_id = datetime.now().strftime("%m%d%H%M%S")
 
-def evaluate_batch_11(batch_path, log = False):
+def evaluate_batch_11(batch_path, log = False, std = False):
     print("")
     print("YOLO v11")
     print("")
+
+    import logging
+    logging.getLogger("ultralytics").setLevel(logging.WARNING)
+
     model_path = "weights.pt"
+    model_path = os.path.join(get_root_dir(), model_path)
 
     model = YOLO(model_path)
     precision_metric = Precision()
@@ -21,7 +29,7 @@ def evaluate_batch_11(batch_path, log = False):
     map_metric = MeanAveragePrecision()
 
     root_dir = get_root_dir()
-    batch_folder = os.path.join(root_dir, batch_folder)
+    batch_path = os.path.join(root_dir, batch_path)
 
     data_set = sv.DetectionDataset.from_yolo(
         images_directory_path=f'{batch_path}/images',
@@ -29,14 +37,18 @@ def evaluate_batch_11(batch_path, log = False):
         data_yaml_path=f'{batch_path}/data.yaml'
     )
 
+    print(f'image path: {batch_path}/images')
+    print(f'annotations path: {batch_path}/labels')
+    print(f'data yaml path: {batch_path}/data.yaml')
+
     image_paths = [data_set[idx][0] for idx in range(len(data_set))]
     annotations_list = [data_set[idx][2] for idx in range(len(data_set))]
 
     print(f"Evaluating batch of {len(image_paths)} images")
     results = []
-    p = 0
-    for path in image_paths:
-        print(path)
+    start_time = time.time()
+
+    for path in tqdm(image_paths, desc="Processing Images"):
         image = cv2.imread(path)
         result = model(image)
         xyxy = result[0].boxes.xyxy.cpu().numpy()  # Bounding boxes
@@ -44,6 +56,32 @@ def evaluate_batch_11(batch_path, log = False):
         class_ids = result[0].boxes.cls.cpu().numpy().astype(int)  # Class indices
         detections = sv.Detections(xyxy=xyxy, confidence=confidences, class_id=class_ids)
         results.append(detections)
+
+    end_time = time.time()
+    time_total = end_time - start_time
+    time_per_image = (end_time - start_time) / len(image_paths)
+    if std:
+        individual_map_values_50 = []  # List to store mAP@50 values for each image
+        individual_map_values_95 = []  # List to store mAP@50:95 values for each image
+        recall_values = []
+        precision_values = []
+        for idx, result in enumerate(results):
+            annotations = annotations_list[idx]
+            map_metric.update(result, [annotations])
+            precision_metric.update(result, [annotations])
+            recall_metric.update(result, [annotations])
+            eval_metric = map_metric.compute()
+            individual_map_values_50.append(eval_metric.map50) 
+            individual_map_values_95.append(eval_metric.map50_95) 
+            recall_values.append(recall_metric.compute().recall_at_50)
+            precision_values.append(precision_metric.compute().precision_at_50)
+            map_metric.reset()
+            recall_metric.reset()
+            precision_metric.reset()
+        std_dev_50 = np.std(individual_map_values_50)
+        std_dev_95 = np.std(individual_map_values_95)
+        std_recall = np.std(recall_values)
+        std_precision = np.std(precision_values)
 
     for idx, result in enumerate(results):
         annotations = annotations_list[idx]
@@ -54,12 +92,10 @@ def evaluate_batch_11(batch_path, log = False):
     eval_metric = map_metric.compute()
     pre = precision_metric.compute()
     rec = recall_metric.compute()
-    print(f"Precision: {pre.precision_at_50}")
-    print(f"Recall: {rec.recall_at_50}")
-    print(f"Mean Average Precision for batch: {eval_metric.map50}")
+    eval_metric.plot()
 
     if log:
-        log_results_to_json(batch_id, batch_path, eval_metric.map50, eval_metric.map50_95, pre.precision_at_50, rec.recall_at_50)
+        log_results_to_json(update_batch_id(), batch_path, "11", "Batch", eval_metric.map50, eval_metric.map50_95, pre.precision_at_50, rec.recall_at_50, eval_metric.matched_classes, eval_metric.ap_per_class, std_dev_50, std_dev_95, std_recall, std_precision, time_total, time_per_image)
 
     return eval_metric.map50
 

@@ -61,7 +61,7 @@ def evaluate_single_8(image_name, show_results = False, log=False):
     if show_results:
         annotate_and_display8(image, detections, ground_truth_detections)
     if log:
-        log_results_to_json(update_batch_id, image_name, eval_metric.map50, eval_metric.map50_95, None, None)
+        log_results_to_json(update_batch_id(), image_name, eval_metric.map50, eval_metric.map50_95, None, None)
     return eval_metric.map50_95
 
 if __name__ == "__main__":

@@ -1,19 +1,39 @@
 import json
 import os
 from utils.utilities import get_root_dir
-
-def log_results_to_json(batch_id, batch_path, map50, map50_95, precision, recall):
+def format_list_items(data):
+    if isinstance(data, list):
+        return [format_list_items(item) for item in data]  # Recursively format nested lists
+    elif isinstance(data, float):
+        return round(data, 4)  # Format floats to 2 decimal places
+    else:
+        return data  # Return non-float items as is
+    
+def log_results_to_json(batch_id, batch_path, model, test, map50, map50_95, precision, recall, matched_classes, AP_per_class, std_dev_50, std_dev_95, std_recall, std_precision, time_total, time_per_image):
     log_data = {
         "batch_id": batch_id,
         "batch_path": batch_path,
+        "model": model,
+        "test": test,
         "map50": map50,
         "map50_95": map50_95,
         "precision": precision,
-        "recall": recall
+        "recall": recall,
+        "matched_classes": matched_classes.tolist(),
+        "AP_per_class": AP_per_class.tolist(),
+        "std_recall": std_recall,
+        "std_precision": std_precision,
+        "std_dev_50": std_dev_50,
+        "std_dev_95": std_dev_95,
+
+        "time_total": time_total,
+        "time_per_image": time_per_image
     }
+    # Apply formatting to each item in log_data
+    log_data = {key: format_list_items(value) for key, value in log_data.items()}
 
     # Create the results directory if it doesn't exist
-    results_dir = os.path.join(get_root_dir, "results")
+    results_dir = os.path.join(get_root_dir(), "results")
     os.makedirs(results_dir, exist_ok=True)
 
     log_file = os.path.join(results_dir, f"ev_{batch_id}.json")

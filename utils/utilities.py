@@ -34,13 +34,17 @@ def annotate_and_display11(image, detections, ground_truth_detections):
     annotated_image_gt = box_annotator.annotate(image.copy(), ground_truth_detections)
     annotated_image_gt = label_annotator.annotate(annotated_image_gt, ground_truth_detections, labels_gt)
 
+    # Create a top-to-bottom comparison
     comparison_image = sv.create_tiles(
         [annotated_image_model, annotated_image_gt],
-        grid_size=(1, 2),
+        grid_size=(2, 1),  # Stack images vertically
         single_tile_size=(image.shape[1], image.shape[0]),
         tile_padding_color=sv.Color.WHITE,
         tile_margin_color=sv.Color.WHITE
     )
+
+    # Resize the comparison image to make it smaller
+    comparison_image = cv2.resize(comparison_image, None, fx=0.4, fy=0.4, interpolation=cv2.INTER_AREA)
 
     cv2.imshow("Comparison", comparison_image)
     cv2.waitKey(0)
@@ -64,12 +68,18 @@ def annotate_and_display8(image, detections, ground_truth_detections):
     comparison_image = sv.create_tiles(
         [annotated_image_model, annotated_image_gt],
         grid_size=(1, 2),
-        single_tile_size=(image.width, image.height),
+        single_tile_size=(image.shape[1], image.shape[0]),
         tile_padding_color=sv.Color.WHITE,
         tile_margin_color=sv.Color.WHITE
     )
-    comparison_image.show()
+
+    # Resize the comparison image to make it smaller
+    comparison_image = cv2.resize(comparison_image, None, fx=0.5, fy=0.5, interpolation=cv2.INTER_AREA)
+
+    cv2.imshow("Comparison", comparison_image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 def update_batch_id():
-    batch_id = datetime.now().strftime("%m%d%H%M%S")
+    batch_id = datetime.datetime.now().strftime("%m%d%H%M%S")
     return batch_id

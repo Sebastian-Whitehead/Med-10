@@ -1,43 +1,65 @@
+import sys
+import os
 from datetime import datetime
 import supervision as sv
 from supervision.metrics import MeanAveragePrecision, Precision, Recall
-from inference import get_model
-import os
 from utils.logger import log_results_to_json
 from utils.utilities import get_root_dir
 from utils.utilities import update_batch_id
+from ultralytics import YOLO
+import cv2
 import time
+from tqdm import tqdm
 import numpy as np
 
-def evaluate_batch_8(batch_path, log = False, std = False):
+#resize images to 640 640
+def resize_image(image, target_size=(640, 640)):
+    new_height, new_width = target_size
+    resized_image = cv2.resize(image, (new_width, new_height))
+
+    return resized_image
+
+
+def evaluate_batch_11(model, batch_path, log = False, std = False, set=None):
     print("")
-    print("YOLO v8")
+    print("YOLO v11")
     print("")
-    model = get_model(model_id="beverage-containers-3atxb/3", api_key="r5e027ZfsLmnqRVzqpYa")
+
+    import logging
+    logging.getLogger("ultralytics").setLevel(logging.WARNING)
+
+
     precision_metric = Precision()
     recall_metric = Recall()
     map_metric = MeanAveragePrecision()
 
     root_dir = get_root_dir()
     batch_path = os.path.join(root_dir, batch_path)
-
     data_set = sv.DetectionDataset.from_yolo(
         images_directory_path=f'{batch_path}/images',
         annotations_directory_path=f'{batch_path}/labels',
         data_yaml_path=f'{batch_path}/data.yaml'
-    )   
+    )
 
     image_paths = [data_set[idx][0] for idx in range(len(data_set))]
     annotations_list = [data_set[idx][2] for idx in range(len(data_set))]
 
     print(f"Evaluating batch of {len(image_paths)} images")
+    results = []
     start_time = time.time()
+    for path in tqdm(image_paths, desc="Processing Images"):
+        image = cv2.imread(path)
+        #image = resize_image(image)  # Resize the image to 640x640
+        result = model(image)
+        xyxy = result[0].boxes.xyxy.cpu().numpy()  # Bounding boxes
+        confidences = result[0].boxes.conf.cpu().numpy()  # Confidence scores
+        class_ids = result[0].boxes.cls.cpu().numpy().astype(int)  # Class indices
+        detections = sv.Detections(xyxy=xyxy, confidence=confidences, class_id=class_ids)
+        results.append(detections)
 
-    results = model.infer(image_paths)
     end_time = time.time()
     time_total = end_time - start_time
     time_per_image = (end_time - start_time) / len(image_paths)
-
     if std:
         individual_map_values_50 = []  # List to store mAP@50 values for each image
         individual_map_values_95 = []  # List to store mAP@50:95 values for each image
@@ -45,10 +67,9 @@ def evaluate_batch_8(batch_path, log = False, std = False):
         precision_values = []
         for idx, result in enumerate(results):
             annotations = annotations_list[idx]
-            detections = sv.Detections.from_inference(result)
-            map_metric.update(detections, [annotations])
-            precision_metric.update(detections, [annotations])
-            recall_metric.update(detections, [annotations])
+            map_metric.update(result, [annotations])
+            precision_metric.update(result, [annotations])
+            recall_metric.update(result, [annotations])
             eval_metric = map_metric.compute()
             individual_map_values_50.append(eval_metric.map50) 
             individual_map_values_95.append(eval_metric.map50_95) 
@@ -63,23 +84,27 @@ def evaluate_batch_8(batch_path, log = False, std = False):
         std_precision = np.std(precision_values)
 
     for idx, result in enumerate(results):
-        detections = sv.Detections.from_inference(result)
         annotations = annotations_list[idx]
-        map_metric.update(detections, [annotations])
-        precision_metric.update(detections, [annotations])
-        recall_metric.update(detections, [annotations])
+        map_metric.update(result, [annotations])
+        precision_metric.update(result, [annotations])
+        recall_metric.update(result, [annotations])
 
     eval_metric = map_metric.compute()
     pre = precision_metric.compute()
     rec = recall_metric.compute()
 
     if log:
-        #log_results_to_json(update_batch_id(), batch_path, eval_metric.map50, eval_metric.map50_95, pre.precision_at_50, rec.recall_at_50)
-        log_results_to_json(update_batch_id(), batch_path, "8", "Batch", eval_metric.map50, eval_metric.map50_95, pre.precision_at_50, rec.recall_at_50, eval_metric.matched_classes, eval_metric.ap_per_class, std_dev_50, std_dev_95, std_recall, std_precision, time_total, time_per_image)
+        log_results_to_json(update_batch_id(), batch_path, "11", set, eval_metric.map50, eval_metric.map50_95, pre.precision_at_50, rec.recall_at_50, eval_metric.matched_classes, eval_metric.ap_per_class, std_dev_50, std_dev_95, std_recall, std_precision, time_total, time_per_image)
 
     return eval_metric.map50
 
 if __name__ == "__main__":
-    batch_folder = "batch_images/test_set"
-    
-    evaluate_batch_8(batch_folder, log=False)
+    model_path = "weights.pt"
+    model_path = os.path.join(get_root_dir(), model_path)
+    model = YOLO(model_path)
+
+    batch_folder = "batch_images"
+    for set in os.listdir(batch_folder):
+        set_folder = os.path.join(batch_folder, set)
+        print(set)
+        #evaluate_batch_11(model, set_folder, log=True, std=True, set=set)
