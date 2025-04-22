@@ -8,9 +8,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5209213913631380380, guid: 6cc1ca92e933bfe4aa6f9a8db3fd1a4b, type: 3}
+      propertyPath: useAutoLabeling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209213913631380380, guid: 6cc1ca92e933bfe4aa6f9a8db3fd1a4b, type: 3}
+      propertyPath: labels.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209213913631380380, guid: 6cc1ca92e933bfe4aa6f9a8db3fd1a4b, type: 3}
+      propertyPath: labels.Array.data[0]
+      value: glass-normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209213913631380380, guid: 6cc1ca92e933bfe4aa6f9a8db3fd1a4b, type: 3}
+      propertyPath: autoLabelingSchemeType
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8750713459583974627, guid: 6cc1ca92e933bfe4aa6f9a8db3fd1a4b, type: 3}
       propertyPath: m_Name
-      value: White Disp Cup (1) Variant
+      value: White Disp Cup Glass
       objectReference: {fileID: 0}
     - target: {fileID: 9030402521584886970, guid: 6cc1ca92e933bfe4aa6f9a8db3fd1a4b, type: 3}
       propertyPath: m_LocalPosition.x
