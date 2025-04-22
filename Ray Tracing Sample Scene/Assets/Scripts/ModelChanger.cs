@@ -38,4 +38,13 @@ public class ModelChanger : MonoBehaviour
         int randomIndex = Random.Range(0, modelPrefabs.Count);
         ChangeModel(randomIndex);
     }
+
+    // if m is pressed, change the model to a random one
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            RandomModel();
+        }
+    }
 }

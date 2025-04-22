@@ -11,6 +11,8 @@ public class HDRPAssetSwitcher : MonoBehaviour
 
     public bool useSigmoid = true;
 
+    
+
     public void SetHDRPAsset(int index)
     {
         if (index < 0 || index >= hdrpAssets.Length || hdrpAssets[index] == null)

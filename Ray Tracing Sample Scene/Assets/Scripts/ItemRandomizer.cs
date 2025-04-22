@@ -24,6 +24,7 @@ public class ItemRandomizer : MonoBehaviour
 
     [Header("Capture Settings")]
     public PerceptionCamera perceptionCamera;
+    public bool restrainCameraPositions = true;
 
     public Volume PTvolume;
     [Tooltip("Ensure to adjust the corresponding variable in the PathTracing camera as well.")] public int sample = 512;
@@ -238,7 +239,14 @@ public class ItemRandomizer : MonoBehaviour
     private void HandleRandomization()
     {
         randomTeleport?.Teleport();
-        perceptionCamera.GetComponent<CameraRandomizer>()?.MoveCameraRandomly();
+        if(restrainCameraPositions)
+        {
+            perceptionCamera.GetComponent<RestCamRandom>()?.MoveCameraRandomly();
+        } else 
+        {
+            perceptionCamera.GetComponent<CameraRandomizer>()?.MoveCameraRandomly();
+        }
+
         tableChanger?.RandomModel();
         SpawnRandomObjects();
         foreach (ClientSpawner clientSpawner in clientSpawners)
