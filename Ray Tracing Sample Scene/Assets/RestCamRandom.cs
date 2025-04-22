@@ -8,6 +8,7 @@ public class RestCamRandom : MonoBehaviour
     public GameObject Lookie;
     public List<GameObject> positions = new List<GameObject>();
     public Vector3 l = new Vector3(10, 10, 10);
+    public float y_randomization = 0.05f;
 
 
 
@@ -42,8 +43,9 @@ public class RestCamRandom : MonoBehaviour
         // get a random gameobject from the list
         int randomIndex = Random.Range(0, positions.Count);
         GameObject randomPosition = positions[randomIndex];
-        // set the camera position to the random gameobject
-        Cam.transform.position = randomPosition.transform.position;
+        // set the camera position to the random gameobject with a slight y offset
+        float y_rand = Random.Range(-y_randomization, y_randomization);
+        Cam.transform.position = new Vector3(randomPosition.transform.position.x, randomPosition.transform.position.y + y_rand, randomPosition.transform.position.z);
     }
 
     Vector3 ObjectPosition()
