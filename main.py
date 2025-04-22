@@ -28,6 +28,7 @@ if __name__ == "__main__":
     image = "2dark5_jpg.rf.195ff3de514bdb9771d4100d2e00f7ce.jpg"
     #image = "09a245b6-498e-4169-9acd-73f09ac4e04b_jpeg_jpg.rf.4a1a07dc1571709c7e7995f48ac6804e.jpg"
     batch_folder = "batch_images/test_set"
+    batch_folder = "data/3"
 
     image = "551cb335-dfff-4516-9070-b2a3fadfe28b_jpeg_jpg.rf.2188f2c02fca6fa14c6f851f89c1ac5e.jpg"
     image = "camera_103.png"

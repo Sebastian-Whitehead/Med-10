@@ -30,7 +30,7 @@ def log_results_to_json(batch_id, batch_path, model, test, map50, map50_95, prec
         "time_per_image": time_per_image
     }
     # Apply formatting to each item in log_data
-    log_data = {key: format_list_items(value) for key, value in log_data.items()}
+    #log_data = {key: format_list_items(value) for key, value in log_data.items()}
 
     # Create the results directory if it doesn't exist
     results_dir = os.path.join(get_root_dir(), "results")

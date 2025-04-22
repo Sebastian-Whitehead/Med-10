@@ -1,6 +1,7 @@
 import sys
 import os
 from datetime import datetime
+from networkx import bidirectional_dijkstra
 import supervision as sv
 from supervision.metrics import MeanAveragePrecision, Precision, Recall
 from utils.logger import log_results_to_json
@@ -12,13 +13,16 @@ import time
 from tqdm import tqdm
 import numpy as np
 
-#resize images to 640 640
-def resize_image(image, target_size=(640, 640)):
-    new_height, new_width = target_size
-    resized_image = cv2.resize(image, (new_width, new_height))
+def resize_it(image, size):
 
+    original_height, original_width = image.shape[:2]
+
+    aspect_ratio = original_width / original_height
+    new_width = int(size * aspect_ratio)
+
+    # Resize the image
+    resized_image = cv2.resize(image, (new_width, size), interpolation=cv2.INTER_AREA)
     return resized_image
-
 
 def evaluate_batch_11(model, batch_path, log = False, std = False, set=None):
     print("")
@@ -49,11 +53,12 @@ def evaluate_batch_11(model, batch_path, log = False, std = False, set=None):
     start_time = time.time()
     for path in tqdm(image_paths, desc="Processing Images"):
         image = cv2.imread(path)
-        #image = resize_image(image)  # Resize the image to 640x640
+        image = resize_it(image, 640)
         result = model(image)
         xyxy = result[0].boxes.xyxy.cpu().numpy()  # Bounding boxes
         confidences = result[0].boxes.conf.cpu().numpy()  # Confidence scores
         class_ids = result[0].boxes.cls.cpu().numpy().astype(int)  # Class indices
+        class_ids = np.zeros(len(class_ids), dtype=int)
         detections = sv.Detections(xyxy=xyxy, confidence=confidences, class_id=class_ids)
         results.append(detections)
 
@@ -67,6 +72,7 @@ def evaluate_batch_11(model, batch_path, log = False, std = False, set=None):
         precision_values = []
         for idx, result in enumerate(results):
             annotations = annotations_list[idx]
+            annotations.class_id = np.zeros(len(annotations.class_id), dtype=int)
             map_metric.update(result, [annotations])
             precision_metric.update(result, [annotations])
             recall_metric.update(result, [annotations])
@@ -82,13 +88,16 @@ def evaluate_batch_11(model, batch_path, log = False, std = False, set=None):
         std_dev_95 = np.std(individual_map_values_95)
         std_recall = np.std(recall_values)
         std_precision = np.std(precision_values)
-
+    t = 0
     for idx, result in enumerate(results):
+        if len(result.class_id) == 0:
+            t += 1
+            continue
         annotations = annotations_list[idx]
         map_metric.update(result, [annotations])
         precision_metric.update(result, [annotations])
         recall_metric.update(result, [annotations])
-
+    print(f"Number of images with no valid detections: {t}")
     eval_metric = map_metric.compute()
     pre = precision_metric.compute()
     rec = recall_metric.compute()
@@ -103,8 +112,13 @@ if __name__ == "__main__":
     model_path = os.path.join(get_root_dir(), model_path)
     model = YOLO(model_path)
 
-    batch_folder = "batch_images"
+    batch_folder = "data"
     for set in os.listdir(batch_folder):
-        set_folder = os.path.join(batch_folder, set)
+        set_folder = os.path.join(get_root_dir(), batch_folder, set)
         print(set)
-        #evaluate_batch_11(model, set_folder, log=True, std=True, set=set)
+        print(set_folder)
+        if set == "2":
+            evaluate_batch_11(model, set_folder, log=True, std=True, set=set)
+        else:
+            continue
+            evaluate_batch_11(model, set_folder, log=True, std=True, set=set)
