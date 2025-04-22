@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cup 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3978172382264447686, guid: 575bfabf889a63946ba0eba9784f9555, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cb70645871dc2f74981c86ec014a1cdf, type: 2}
     - target: {fileID: 6208011832545308669, guid: 575bfabf889a63946ba0eba9784f9555, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -732,6 +736,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 420385014}
     m_Modifications:
+    - target: {fileID: 2623341163862872365, guid: 84fc26593c9e3384cabf72f57bcb3543, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cb70645871dc2f74981c86ec014a1cdf, type: 2}
     - target: {fileID: 2938489485310294372, guid: 84fc26593c9e3384cabf72f57bcb3543, type: 3}
       propertyPath: m_Name
       value: Glass 2
@@ -29342,6 +29350,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7013627178917942808, guid: 80fea9bb1b2021747b8593daa688c251, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cb70645871dc2f74981c86ec014a1cdf, type: 2}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 7940710720415819618, guid: 80fea9bb1b2021747b8593daa688c251, type: 3}
