@@ -33,7 +33,10 @@ def annotate_and_display11(image, detections, ground_truth_detections):
 
     annotated_image_gt = box_annotator.annotate(image.copy(), ground_truth_detections)
     annotated_image_gt = label_annotator.annotate(annotated_image_gt, ground_truth_detections, labels_gt)
-
+    print("----------------------------")
+    print(detections)
+    print(ground_truth_detections)
+    print("----------------------------")
     # Create a top-to-bottom comparison
     comparison_image = sv.create_tiles(
         [annotated_image_model, annotated_image_gt],
@@ -44,7 +47,7 @@ def annotate_and_display11(image, detections, ground_truth_detections):
     )
 
     # Resize the comparison image to make it smaller
-    comparison_image = cv2.resize(comparison_image, None, fx=0.4, fy=0.4, interpolation=cv2.INTER_AREA)
+    comparison_image = cv2.resize(comparison_image, None, fx=0.6, fy=0.6, interpolation=cv2.INTER_AREA)
 
     cv2.imshow("Comparison", comparison_image)
     cv2.waitKey(0)
