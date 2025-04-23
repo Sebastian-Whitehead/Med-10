@@ -1,7 +1,6 @@
 import sys
 import os
 from datetime import datetime
-from networkx import bidirectional_dijkstra
 import supervision as sv
 from supervision.metrics import MeanAveragePrecision, Precision, Recall
 from utils.logger import log_results_to_json
@@ -34,6 +33,9 @@ def get_anno(annotation_path, image):
             y_min = (y_center - height / 2) * image.shape[0]
             x_max = (x_center + width / 2) * image.shape[1]
             y_max = (y_center + height / 2) * image.shape[0]
+            area = (x_max - x_min) * (y_max - y_min)
+            if area > 50: 
+                continue
             annotations.append([x_min, y_min, x_max, y_max, class_id])
 
     annotations = np.array(annotations)
@@ -152,7 +154,7 @@ def evaluate_batch_11(model, batch_path, log = False, std = False, set=None):
     print(f"mAP@50:95: {eval_metric.map50_95}")
     print(f"recall@50: {rec.recall_at_50}")
     print(pre.precision_at_50)
-
+    add amount of images to the log pless
     if log:
         log_results_to_json(update_batch_id(), batch_path, "11", set, (eval_metric.map50 * 1000000), eval_metric.map50_95, pre.precision_at_50, rec.recall_at_50, eval_metric.matched_classes, eval_metric.ap_per_class, std_dev_50, std_dev_95, std_recall, std_precision, time_total, time_per_image)
 

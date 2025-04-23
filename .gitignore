@@ -176,3 +176,4 @@ cython_debug/
 .vs
 
 /data/*
+/result_cls_bad/*
