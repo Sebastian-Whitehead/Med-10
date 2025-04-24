@@ -171,9 +171,11 @@ cython_debug/
 .pypirc
 
 
-/results/*
+/results*/*
 .idea/*
 .vs
-
+/old/*
 /data/*
 /result_cls_bad/*
+/results_cls/*
+/revised_data/*

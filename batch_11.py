@@ -1,6 +1,7 @@
 import sys
 import os
 from datetime import datetime
+from matplotlib.pylab import f
 import supervision as sv
 from supervision.metrics import MeanAveragePrecision, Precision, Recall
 from utils.logger import log_results_to_json
@@ -34,8 +35,10 @@ def get_anno(annotation_path, image):
             x_max = (x_center + width / 2) * image.shape[1]
             y_max = (y_center + height / 2) * image.shape[0]
             area = (x_max - x_min) * (y_max - y_min)
-            if area > 50: 
+            if area < 150: 
+                print(f"Skipping annotation with area {area} for image {annotation_path}")
                 continue
+            
             annotations.append([x_min, y_min, x_max, y_max, class_id])
 
     annotations = np.array(annotations)
@@ -44,14 +47,13 @@ def get_anno(annotation_path, image):
 
     xyxy = annotations[:, :4]
     class_id = annotations[:, 4].astype(int)
-    classes = np.zeros(len(class_id), dtype=int)
+    #class_id = np.zeros(len(class_id), dtype=int)
     confidence = np.ones(len(class_id))
 
     ground_truth_detections = sv.Detections(
         xyxy=xyxy,
         confidence=confidence,
-        #class_id=class_id
-        class_id=classes
+        class_id=class_id
     )
     return ground_truth_detections
 
@@ -84,9 +86,9 @@ def evaluate_batch_11(model, batch_path, log = False, std = False, set=None):
     print(f"Evaluating batch of {len(image_paths)} images")
     results = []
     start_time = time.time()
-    for path in tqdm(image_paths, desc="Processing Images"):
+    #for path in tqdm(image_paths, desc="Processing Images"):
 
-    #for path in image_paths:
+    for path in image_paths:
         image = cv2.imread(path)
         image = resize_it(image, 640)
         #cv2.imshow("Image", image)
@@ -98,7 +100,8 @@ def evaluate_batch_11(model, batch_path, log = False, std = False, set=None):
         xyxy = result[0].boxes.xyxy.cpu().numpy()  # Bounding boxes
         confidences = result[0].boxes.conf.cpu().numpy()  # Confidence scores
         class_ids = result[0].boxes.cls.cpu().numpy().astype(int)  # Class indices
-        class_ids = np.zeros(len(class_ids), dtype=int)
+        class_ids[class_ids == 4]  = 5
+        #class_ids = np.zeros(len(class_ids), dtype=int)
         detections = sv.Detections(xyxy=xyxy, confidence=confidences, class_id=class_ids)
         results.append(detections)
 
@@ -115,7 +118,6 @@ def evaluate_batch_11(model, batch_path, log = False, std = False, set=None):
         precision_values = []
         for idx, result in enumerate(results):
             annotations = annotations_list[idx]
-            annotations.class_id = np.zeros(len(annotations.class_id), dtype=int)
             map_metric.update(result, [annotations])
             precision_metric.update(result, [annotations])
             recall_metric.update(result, [annotations])
@@ -127,7 +129,6 @@ def evaluate_batch_11(model, batch_path, log = False, std = False, set=None):
             map_metric.reset()
             recall_metric.reset()
             precision_metric.reset()
-            #annotate_and_display11(image, result, annotations)
 
         std_dev_50 = np.std(individual_map_values_50)
         std_dev_95 = np.std(individual_map_values_95)
@@ -154,9 +155,8 @@ def evaluate_batch_11(model, batch_path, log = False, std = False, set=None):
     print(f"mAP@50:95: {eval_metric.map50_95}")
     print(f"recall@50: {rec.recall_at_50}")
     print(pre.precision_at_50)
-    add amount of images to the log pless    add amount of images to the log pless    add amount of images to the log pless
     if log:
-        log_results_to_json(update_batch_id(), batch_path, "11", set, (((eval_metric.map50 * 1000000)*1000000)*1000000), eval_metric.map50_95, pre.precision_at_50, rec.recall_at_50, eval_metric.matched_classes, eval_metric.ap_per_class, std_dev_50, std_dev_95, std_recall, std_precision, time_total, time_per_image)
+        log_results_to_json(update_batch_id(), batch_path, "11", set, eval_metric.map50, eval_metric.map50_95, pre.precision_at_50, rec.recall_at_50, eval_metric.matched_classes, eval_metric.ap_per_class, std_dev_50, std_dev_95, std_recall, std_precision, time_total, time_per_image, len(image_paths))
 
     return eval_metric.map50
 
@@ -165,14 +165,13 @@ if __name__ == "__main__":
     model_path = os.path.join(get_root_dir(), model_path)
     model = YOLO(model_path)
 
-    batch_folder = "data"
+    batch_folder = "revised_data"
     #batch_folder = "batch_images/test_set"
     #evaluate_batch_11(model, batch_folder, log=False, std=True, set=set)
     for set in os.listdir(batch_folder):
         set_folder = os.path.join(get_root_dir(), batch_folder, set)
         print(set)
-        if set == "2":
-            evaluate_batch_11(model, set_folder, log=False, std=True, set=set)
+        if set == "10":
+            evaluate_batch_11(model, set_folder, log=True, std=True, set=set)
         else:
-            continue
             evaluate_batch_11(model, set_folder, log=True, std=True, set=set)

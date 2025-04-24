@@ -9,7 +9,7 @@ def format_list_items(data):
     else:
         return data  # Return non-float items as is
     
-def log_results_to_json(batch_id, batch_path, model, test, map50, map50_95, precision, recall, matched_classes, AP_per_class, std_dev_50, std_dev_95, std_recall, std_precision, time_total, time_per_image):
+def log_results_to_json(batch_id, batch_path, model, test, map50, map50_95, precision, recall, matched_classes, AP_per_class, std_dev_50, std_dev_95, std_recall, std_precision, time_total, time_per_image, image_count):
     log_data = {
         "batch_id": batch_id,
         "batch_path": batch_path,
@@ -27,13 +27,14 @@ def log_results_to_json(batch_id, batch_path, model, test, map50, map50_95, prec
         "std_dev_95": std_dev_95,
 
         "time_total": time_total,
-        "time_per_image": time_per_image
+        "time_per_image": time_per_image,
+        "image_count": image_count
     }
     # Apply formatting to each item in log_data
     #log_data = {key: format_list_items(value) for key, value in log_data.items()}
 
     # Create the results directory if it doesn't exist
-    results_dir = os.path.join(get_root_dir(), "results")
+    results_dir = os.path.join(get_root_dir(), "results_rev_cls")
     os.makedirs(results_dir, exist_ok=True)
 
     log_file = os.path.join(results_dir, f"ev_{batch_id}.json")
