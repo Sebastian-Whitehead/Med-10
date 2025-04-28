@@ -179,3 +179,5 @@ cython_debug/
 /result_cls_bad/*
 /results_cls/*
 /revised_data/*
+*.json
+.json

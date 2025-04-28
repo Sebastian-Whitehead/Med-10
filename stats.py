@@ -28,55 +28,91 @@ def make_result_file(folder):
     df.drop(['batch_path', 'model', 'time_per_image', 'time_total'], axis=1, inplace=True, errors='ignore')
     df.to_csv(os.path.join(file_folder, 'result.csv'), index=False)
 
-def calc_p(results_file):
+def get_p(row, reference_row, res, std):
+    columns_to_compare = [res, std]
+    n = 201
+    # Iterate and compare
+    for col in columns_to_compare:
+        if col == res:
+            ref_map = reference_row[col]
+            row_map = row[col]
+        if col == std:
+            ref_std = reference_row[col]
+            row_std = row[col]
 
+
+    t_stat, p_value = ttest_ind_from_stats(
+        mean1=ref_map,
+        std1=ref_std,
+        nobs1=n,
+        mean2=row_map,
+        std2=row_std,
+        nobs2=n
+    )
+    '''
+    print(f"Comparing {col}:")
+    print(f'map50: {ref_map} vs {row_map}')
+    print(f'std_dev_50: {ref_std} vs {row_std}')
+    print(f"t-statistic: {t_stat}, p-value: {p_value}")
+    print()
+    '''
+    return t_stat, p_value
+
+
+def calc_p(folder, results_file):
+    print(folder)
+    if 'rev' in folder:
+        print('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
     # Load the CSV file
     df = pd.read_csv(results_file)  # Replace with your actual file path
 
-    # Extract the row where test == 2
-    reference_row = df[df["test"] == 2]
+    reference_row = df[df["test"] == 0]
     if reference_row.empty:
         raise ValueError("No row found where test == 2")
 
     # Extract the first (and assuming only) reference row
     reference_row = reference_row.iloc[0]
 
-    # Drop the test == 2 row from comparison
-    comparison_rows = df[df["test"] != 2]
+    # Add new columns for p-values
+    df["p_stat_map50"] = None
+    df["p_stat_recall"] = None
+    df["p_stat_precision"] = None
 
-    # Specify the columns you want to compare
-    columns_to_compare = ["map50", "std_dev_50"]
-    n = 201
     # Iterate and compare
-    for index, row in comparison_rows.iterrows():
+    for index, row in df.iterrows():
         print(f"Comparing test == {row['test']}:")
-        for col in columns_to_compare:
-            if col == "map50":
-                ref_map = reference_row[col]
-                row_map = row[col]
-            if col == "std_dev_50":
-                ref_std = reference_row[col]
-                row_std = row[col]
+        
+        # Calculate p-value for map50
+        res = 'map50'
+        std = 'std_dev_50'
+        _, p_stat_50 = get_p(row, reference_row, res, std)
+        df.at[index, "p_stat_map50"] = p_stat_50
 
+        # Calculate p-value for recall
+        res = 'recall'
+        std = 'std_recall'
+        _, p_stat_r = get_p(row, reference_row, res, std)
+        df.at[index, "p_stat_recall"] = p_stat_r
 
-        t_stat, p_value = ttest_ind_from_stats(
-            mean1=ref_map,
-            std1=ref_std,
-            nobs1=n,
-            mean2=row_map,
-            std2=row_std,
-            nobs2=n
-        )
-        print(f"Comparing {col}:")
-        print(f'map50: {ref_map} vs {row_map}')
-        print(f'std_dev_50: {ref_std} vs {row_std}')
-        print(f"t-statistic: {t_stat}, p-value: {p_value}")
-        print()
+        # Calculate p-value for precision
+        res = 'precision'
+        std = 'std_precision'
+        _, p_stat_p = get_p(row, reference_row, res, std)
+        df.at[index, "p_stat_precision"] = p_stat_p
+    df = df.sort_values(by="test", ascending=True)
+
+    # Save the updated DataFrame back to the CSV file
+    df.to_csv(results_file, index=False)
+    print(f"Updated results saved to {results_file}")
 
 
 if __name__ == "__main__":
-    folder = 'result_cls_bad'
-    #make_result_file(folder)
-    #print(f"Result file created in {folder} folder.")
-    results_file = os.path.join(folder, 'result.csv')
-    calc_p(results_file)
+    path = os.path.join(get_root_dir(), 'result')
+    print(f"Path: {path}")
+    for folder in os.listdir(path):
+        folder = os.path.join('result', folder)
+        print(f"Processing folder: {folder}")
+        make_result_file(folder)
+        print(f"Result file created in {folder} folder.")
+        results_file = os.path.join(folder, 'result.csv')
+        calc_p(folder, results_file)
