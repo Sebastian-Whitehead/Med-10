@@ -30,9 +30,9 @@ def resize_it(image, size):
 
 def get_image_anno_path_x(image_name):
     root_dir = get_root_dir()
-    image_path = os.path.join(root_dir, "data", "select", "images", image_name)
+    image_path = os.path.join(root_dir, "batch_images", "test_set", "images", image_name)
     base_name, _ = os.path.splitext(image_name)
-    annotation_path = os.path.join(root_dir, "data", "select", "labels", f"{base_name}.txt")
+    annotation_path = os.path.join(root_dir, "batch_images", "test_set", "labels", f"{base_name}.txt")
     return image_path, annotation_path
 
 def evaluate_single_11(image_name, show_results=False, log=False, sali=False, model_path=None, model = None):
@@ -59,12 +59,12 @@ def evaluate_single_11(image_name, show_results=False, log=False, sali=False, mo
         xyxy = results[0].boxes.xyxy.cpu().numpy()
         confidences = results[0].boxes.conf.cpu().numpy()
         class_ids = results[0].boxes.cls.cpu().numpy().astype(int)
-        classes = np.zeros(len(class_ids), dtype=int)
+        #class_ids = np.zeros(len(class_ids), dtype=int)
 
         #print(f"Class IDs: {class_ids}")
         #print(f"Classes: {classes}")
         #detections = sv.Detections(xyxy=xyxy, confidence=confidences, class_id=class_ids)
-        detections = sv.Detections(xyxy=xyxy, confidence=confidences, class_id=classes)
+        detections = sv.Detections(xyxy=xyxy, confidence=confidences, class_id=class_ids)
     else:
         print(results[0].boxes)
         print("No valid detections found.")
@@ -84,16 +84,15 @@ def evaluate_single_11(image_name, show_results=False, log=False, sali=False, mo
     annotations = np.array(annotations)
     xyxy = annotations[:, :4]
     class_id = annotations[:, 4].astype(int)
-    classes = np.zeros(len(class_id), dtype=int)
+    #class_id = np.zeros(len(class_id), dtype=int)
     print(f"Class IDs: {class_id}")
-    print(f"Classes: {classes}")
     confidence = np.ones(len(class_id))
 
     ground_truth_detections = sv.Detections(
         xyxy=xyxy,
         confidence=confidence,
         #class_id=class_id
-        class_id=classes
+        class_id=class_id
     )
 
     #print(f"Detections: {detections}")
@@ -130,12 +129,13 @@ if __name__ == "__main__":
 
     script_dir = get_root_dir()
     model_path = "weights.pt"
+    model_path = "fine_tune_sets/0/0/weights/best.pt"
     model_path = os.path.join(script_dir, model_path)
     model = YOLO(model_path)
     m = 0
     map_50 = []
     map_95 = []
-    for image in os.listdir(os.path.join(script_dir, "data", "select", "images")):
+    for image in os.listdir(os.path.join(script_dir, "batch_images", "test_set", "images")):
         print(f'Image {m}')
         s, d = evaluate_single_11(image, show_results=True, log=False, sali=True, model = model)
         map_50.append(d)

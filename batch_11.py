@@ -26,6 +26,7 @@ def resize_it(image, size):
     return resized_image
 
 def get_anno(annotation_path, image):
+    print(annotation_path)
     with open(annotation_path, 'r') as file:
         annotations = []
         for line in file:
@@ -80,27 +81,27 @@ def evaluate_batch_11(model, batch_path, log = False, std = False, set=None):
     )
 
     image_paths = [data_set[idx][0] for idx in range(len(data_set))]
-    #annotations_list = [data_set[idx][2] for idx in range(len(data_set))]
-    annotations_list = []
+    annotations_list = [data_set[idx][2] for idx in range(len(data_set))]
+    #annotations_list = []
 
     print(f"Evaluating batch of {len(image_paths)} images")
     results = []
     start_time = time.time()
-    #for path in tqdm(image_paths, desc="Processing Images"):
+    for path in tqdm(image_paths, desc="Processing Images"):
 
-    for path in image_paths:
+    #for path in image_paths:
         image = cv2.imread(path)
         image = resize_it(image, 640)
         #cv2.imshow("Image", image)
         #cv2.waitKey(0)
         #cv2.destroyAllWindows()
-        annotation = get_anno(path.replace("images", "labels").replace(".png", ".txt").replace(".jpg", ".txt"), image)
-        annotations_list.append(annotation)
+        #annotation = get_anno(path.replace("images", "labels").replace(".png", ".txt").replace(".jpg", ".txt"), image)
+        #annotations_list.append(annotation)
         result = model(image)
         xyxy = result[0].boxes.xyxy.cpu().numpy()  # Bounding boxes
         confidences = result[0].boxes.conf.cpu().numpy()  # Confidence scores
         class_ids = result[0].boxes.cls.cpu().numpy().astype(int)  # Class indices
-        class_ids[class_ids == 4]  = 5
+        #class_ids[class_ids == 4]  = 5
         #class_ids = np.zeros(len(class_ids), dtype=int)
         detections = sv.Detections(xyxy=xyxy, confidence=confidences, class_id=class_ids)
         results.append(detections)
@@ -162,16 +163,14 @@ def evaluate_batch_11(model, batch_path, log = False, std = False, set=None):
 
 if __name__ == "__main__":
     model_path = "weights.pt"
+    model_path = "fine_tune_sets/0/0/weights/best.pt"
     model_path = os.path.join(get_root_dir(), model_path)
     model = YOLO(model_path)
 
-    batch_folder = "revised_data"
+    batch_folder = "batch_images"
     #batch_folder = "batch_images/test_set"
     #evaluate_batch_11(model, batch_folder, log=False, std=True, set=set)
     for set in os.listdir(batch_folder):
         set_folder = os.path.join(get_root_dir(), batch_folder, set)
         print(set)
-        if set == "10":
-            evaluate_batch_11(model, set_folder, log=True, std=True, set=set)
-        else:
-            evaluate_batch_11(model, set_folder, log=True, std=True, set=set)
+        evaluate_batch_11(model, set_folder, log=True, std=True, set=set)

@@ -30,7 +30,7 @@ def make_result_file(folder):
 
 def get_p(row, reference_row, res, std):
     columns_to_compare = [res, std]
-    n = 201
+    n = 653
     # Iterate and compare
     for col in columns_to_compare:
         if col == res:
@@ -66,7 +66,7 @@ def calc_p(folder, results_file):
     # Load the CSV file
     df = pd.read_csv(results_file)  # Replace with your actual file path
 
-    reference_row = df[df["test"] == 0]
+    reference_row = df[df["test"] == "test_set-og"]
     if reference_row.empty:
         raise ValueError("No row found where test == 2")
 
@@ -107,12 +107,13 @@ def calc_p(folder, results_file):
 
 
 if __name__ == "__main__":
-    path = os.path.join(get_root_dir(), 'result')
-    print(f"Path: {path}")
-    for folder in os.listdir(path):
-        folder = os.path.join('result', folder)
-        print(f"Processing folder: {folder}")
-        make_result_file(folder)
-        print(f"Result file created in {folder} folder.")
-        results_file = os.path.join(folder, 'result.csv')
-        calc_p(folder, results_file)
+    #path = os.path.join(get_root_dir(), 'result')
+    #print(f"Path: {path}")
+    #for folder in os.listdir(path):
+    folder = os.path.join(get_root_dir(), 'results_rev_cls')
+    #folder = os.path.join('result', folder)
+    print(f"Processing folder: {folder}")
+    make_result_file(folder)
+    print(f"Result file created in {folder} folder.")
+    results_file = os.path.join(folder, 'result.csv')
+    calc_p(folder, results_file)

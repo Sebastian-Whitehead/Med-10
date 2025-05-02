@@ -181,3 +181,5 @@ cython_debug/
 /revised_data/*
 *.json
 .json
+fine_tune_sets/*
+*.png

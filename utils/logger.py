@@ -34,7 +34,7 @@ def log_results_to_json(batch_id, batch_path, model, test, map50, map50_95, prec
     #log_data = {key: format_list_items(value) for key, value in log_data.items()}
 
     # Create the results directory if it doesn't exist
-    results_dir = os.path.join(get_root_dir(), "results_rev_cls")
+    results_dir = os.path.join(get_root_dir(), "various_test")
     os.makedirs(results_dir, exist_ok=True)
 
     log_file = os.path.join(results_dir, f"ev_{batch_id}.json")

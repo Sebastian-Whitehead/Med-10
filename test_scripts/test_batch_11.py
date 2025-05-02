@@ -95,7 +95,7 @@ def evaluate_batch_11(batch_path, log = False, std = False):
     eval_metric.plot()
 
     if log:
-        log_results_to_json(update_batch_id(), batch_path, "11", "Batch", eval_metric.map50, eval_metric.map50_95, pre.precision_at_50, rec.recall_at_50, eval_metric.matched_classes, eval_metric.ap_per_class, std_dev_50, std_dev_95, std_recall, std_precision, time_total, time_per_image)
+        log_results_to_json(update_batch_id(), batch_path, "11", "Batch", eval_metric.map50, eval_metric.map50_95, pre.precision_at_50, rec.recall_at_50, eval_metric.matched_classes, eval_metric.ap_per_class, std_dev_50, std_dev_95, std_recall, std_precision, time_total, time_per_image, len(image_paths))
 
     return eval_metric.map50
 
