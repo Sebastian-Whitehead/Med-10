@@ -133,7 +133,7 @@ def plot(results_file, folder, cls=None, result_type="Wild Class Agnostic"):
 # Big plot function
 def big_plot(results_file, folder, cls=None, result_type="Wild Class Agnostic"):
     df = pd.read_csv(results_file)
-    x = np.arange(1, len(df) + 1)
+    x = np.arange(0, len(df))
     y = get_class_data(df, cls) if cls is not None else df["map50"]
 
     fig, ax = plt.subplots(figsize=(8, 6))
@@ -172,56 +172,70 @@ def combined_plot(results_file, folder):
         "poly count ws": [0, 0.8, 0.6, 0.4, 0.2]
     }
 
-    # Define markers for each class
-    markers = ['o', 's', '^', 'v', 'D', 'p', '*', '+']
-
     df = pd.read_csv(results_file)
-    all_classes = sorted(set(cls for matched in df["matched_classes"] for cls in ast.literal_eval(matched)))
-    colors = plt.cm.tab20(np.linspace(0, 1, len(all_classes)))
+
+    # Collect all unique classes from the dataset
+    all_classes = set()
+    for matched in df["matched_classes"]:
+        all_classes.update(ast.literal_eval(matched))
+    all_classes = sorted(all_classes)  # Sort classes for consistency
+
+    # Assign a unique color and marker to each class
+    colors = plt.cm.tab20(np.linspace(0, 1, len(all_classes)))  # Use a colormap for distinguishable colors
+    markers = ['o', 's', 'D', '^', 'v', '>', '<', 'p']  # 8 most distinct markers
     class_color_map = {cls: colors[i] for i, cls in enumerate(all_classes)}
-    class_marker_map = {cls: markers[i % len(markers)] for i, cls in enumerate(all_classes)}
+    class_marker_map = {cls: markers[i % len(markers)] for i, cls in enumerate(all_classes)}  # Cycle through markers
 
+    # Get the result type for the title
+    result_type = get_result_type(folder)
+
+    # Create a figure with 4 subplots (2 rows, 2 columns)
     fig, axes = plt.subplots(2, 2, figsize=(14, 10))
-    axes = axes.flatten()
+    axes = axes.flatten()  # Flatten the 2D array of axes for easier iteration
 
+    # Iterate over each category and create a subplot
     for i, (category, test_numbers) in enumerate(plots.items()):
-        filtered_df = df[df["test"].isin(test_numbers)].sort_values(by="test")
-        x = np.arange(1, len(filtered_df) + 1)
+        # Filter the DataFrame for the current category's test numbers
+        filtered_df = df[df["test"].isin(test_numbers)]
 
+        # Sort by test numbers to ensure proper order
+        filtered_df = filtered_df.sort_values(by="test")
+
+        # Generate sequential x-values (0, 1, 2, ...)
+        x = np.arange(len(filtered_df))
+
+        # Plot a line and markers for each class
         for cls in all_classes:
-            y = get_class_data(filtered_df, cls)
+            y = []
+            for _, row in filtered_df.iterrows():
+                matched_classes = ast.literal_eval(row["matched_classes"])
+                ap_per_class = ast.literal_eval(row["AP_per_class"])
+                if cls in matched_classes:
+                    cls_index = matched_classes.index(cls)  # Find the index of the class in matched_classes
+                    y.append(ap_per_class[cls_index][0])  # Use the index to get the correct mAP@50 value
+                else:
+                    y.append(0)  # If the class is not matched, append 0
 
-            # Plot the line for the class
-            axes[i].plot(
-                x, y,
-                label=get_class_name(cls),
-                color=class_color_map[cls],
-                linewidth=1
-            )
+            # Plot the line and markers for the current class
+            class_name = get_class_name(cls)  # Get the class name using the helper function
+            axes[i].plot(x, y, label=f"{class_name}", color=class_color_map[cls], linewidth=1)
+            axes[i].scatter(x, y, color=class_color_map[cls], marker=class_marker_map[cls], s=30, alpha=0.7)  # Smaller markers with 0.7 transparency
 
-            # Add scatter points with unique markers
-            axes[i].scatter(
-                x, y,
-                color=class_color_map[cls],
-                marker=class_marker_map[cls],
-                s=50  # Marker size
-            )
-
-        # Set up the plot (only the category name as the title for each subplot)
+        # Set labels, title, and limits
         axes[i].set_xlabel("Degradation Amount")
         axes[i].set_ylabel("mAP@50")
-        axes[i].set_title(category)  # Only the category name as the title
-        axes[i].set_ylim(0, 1)
+        axes[i].set_title(f"{category}")  # Only the category name as the title
+        axes[i].set_ylim(0, 1)  # Set y-axis range from 0 to 1
         axes[i].set_xticks(x)
-        axes[i].set_xticklabels(label[category])
+        axes[i].set_xticklabels(label[category])  # Use the labels from the `label` dictionary
         axes[i].grid(axis='y', linestyle='--', alpha=0.7)
 
     # Add a single title for the entire figure
-    fig.suptitle(f"Combined Plot - {folder}", fontsize=16, fontweight="bold")
+    fig.suptitle(f"{result_type} - {folder}", fontsize=16, fontweight="bold")
 
     plt.tight_layout(rect=[0, 0, 1, 0.95])  # Adjust layout to make space for the suptitle
     handles = [
-        plt.Line2D([0], [0], color=class_color_map[cls], marker=class_marker_map[cls], markersize=8, label=get_class_name(cls))
+        plt.Line2D([0], [0], color=class_color_map[cls], marker=class_marker_map[cls], markersize=6, linewidth=0, label=get_class_name(cls))
         for cls in all_classes
     ]
     fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, 1.05), ncol=4, fontsize=10)
