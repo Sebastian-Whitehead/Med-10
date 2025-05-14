@@ -40,10 +40,12 @@ The vision system relies on a self-trained **YOLOv11** model, which uses a datas
    The testing program uses a YOLOv11 model pretrained on real data to evaluate the synthetic test sets, comparing their performance using the defined metrics.
 
 **Diagram: Unity Data Generation Flow**  
-(Insert Unity flowchart here)
+![Unity Flow](https://github.com/Sebastian-Whitehead/Med-10/blob/main/Data%20generator%20flow%20diagram.jpg?raw=true)
 
 **Diagram: Testing Program Flow**  
-(Insert Python testing program flowchart here)
+
+![Testing Flow](https://github.com/Sebastian-Whitehead/Med-10/blob/main/Testing%20program%20flow%20diagram%20.jpg?raw=true)
+
 
 ### Setup
 
