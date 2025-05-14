@@ -69,7 +69,7 @@ The vision system relies on a self-trained **YOLOv11** model, which uses a datas
   - The program will automatically stop when it has reached the frame limit
 - Access Generated Data in Solo format from "C:/Users/<username>/AppData/LocalLow/DefaultCompany/Ray Tracing Sample Scene/solo_n"
 
-3- Convert the synthetic data:
+3. Convert the synthetic data:
 This can be done through the use of the patch version of PySoloTools. See [GitHub - pysolo2yolo](https://github.com/Sebastian-Whitehead/pysolo2yolo)
 
 4. Run the Testing Program:
