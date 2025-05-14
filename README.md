@@ -51,7 +51,7 @@ The vision system relies on a self-trained **YOLOv11** model, which uses a datas
 
 #### Dependencies
 - **Unity**: Required to run the Unity environment and generate synthetic data.  
-- **Python 3.x**: For running the testing program.  
+- **Python 3.12**: For running the testing program.  
   - Required libraries: `torch`, `opencv`, `numpy`, etc. (List the exact versions if needed)
 
 #### Running the Project
