@@ -1,13 +1,14 @@
 import json
 import os
 from utils.utilities import get_root_dir
+
 def format_list_items(data):
     if isinstance(data, list):
-        return [format_list_items(item) for item in data]  # Recursively format nested lists
+        return [format_list_items(item) for item in data]
     elif isinstance(data, float):
-        return round(data, 4)  # Format floats to 2 decimal places
+        return round(data, 4) 
     else:
-        return data  # Return non-float items as is
+        return data 
     
 def log_results_to_json(batch_id, batch_path, model, test, map50, map50_95, precision, recall, matched_classes, AP_per_class, std_dev_50, std_dev_95, std_recall, std_precision, time_total, time_per_image, image_count):
     log_data = {
@@ -30,11 +31,8 @@ def log_results_to_json(batch_id, batch_path, model, test, map50, map50_95, prec
         "time_per_image": time_per_image,
         "image_count": image_count
     }
-    # Apply formatting to each item in log_data
-    #log_data = {key: format_list_items(value) for key, value in log_data.items()}
 
-    # Create the results directory if it doesn't exist
-    results_dir = os.path.join(get_root_dir(), "various_test")
+    results_dir = os.path.join(get_root_dir(), "fine_tune_sets", "results")
     os.makedirs(results_dir, exist_ok=True)
 
     log_file = os.path.join(results_dir, f"ev_{batch_id}.json")

@@ -170,7 +170,7 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-
+# Project specfic files
 /results*/*
 .idea/*
 .vs
@@ -183,3 +183,5 @@ cython_debug/
 .json
 fine_tune_sets/*
 *.png
+/result/*
+.testenv/*

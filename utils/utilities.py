@@ -9,7 +9,7 @@ def get_root_dir():
     root_dir = script_dir
     while not os.path.exists(os.path.join(root_dir, "main.py")):
         parent_dir = os.path.dirname(root_dir)
-        if parent_dir == root_dir:  # Stop if we reach the filesystem root
+        if parent_dir == root_dir: 
             raise FileNotFoundError("Root directory with 'main.py' not found.")
         root_dir = parent_dir
     return root_dir
@@ -37,16 +37,16 @@ def annotate_and_display11(image, detections, ground_truth_detections):
     print(detections)
     print(ground_truth_detections)
     print("----------------------------")
+
     # Create a top-to-bottom comparison
     comparison_image = sv.create_tiles(
         [annotated_image_model, annotated_image_gt],
-        grid_size=(2, 1),  # Stack images vertically
+        grid_size=(2, 1), 
         single_tile_size=(image.shape[1], image.shape[0]),
         tile_padding_color=sv.Color.WHITE,
         tile_margin_color=sv.Color.WHITE
     )
 
-    # Resize the comparison image to make it smaller
     comparison_image = cv2.resize(comparison_image, None, fx=0.6, fy=0.6, interpolation=cv2.INTER_AREA)
 
     cv2.imshow("Comparison", comparison_image)

@@ -1,5 +1,12 @@
+numpy
+pandas
+matplotlib
+scipy
+opencv-python
+ultralytics
 supervision
 inference
 ttach
 roboflow
-ultralytics 
+tqdm
+pyyaml

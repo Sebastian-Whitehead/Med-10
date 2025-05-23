@@ -1,28 +1,16 @@
-# Med-10
+# MED 10 Thesis - Python Implementation
 
-git import Eigen_cam into a "yolo" folder. change imports in base_camp.py and eigen_cam.py from:
+This project includes the python files used for our master thesis, including training and running YOLO models, processing results and plotting them.
 
-#base_cam.py
-"
-from yolo_cam.activations_and_gradients import ActivationsAndGradients
-from yolo_cam.utils.svd_on_activations import get_2d_projection
-from yolo_cam.utils.image import scale_cam_image
-from yolo_cam.utils.model_targets import ClassifierOutputTarget
-"
-to
-"
-from yolo.yolo_cam.activations_and_gradients import ActivationsAndGradients
-from yolo.yolo_cam.utils.svd_on_activations import get_2d_projection
-from yolo.yolo_cam.utils.image import scale_cam_image
-from yolo.yolo_cam.utils.model_targets import ClassifierOutputTarget
-"
-#eigen_cam.py
-"
-from yolo_cam.base_cam import BaseCAM
-from yolo_cam.utils.svd_on_activations import get_2d_projection
-"
-to
-"
-from yolo.yolo_cam.base_cam import BaseCAM
-from yolo.yolo_cam.utils.svd_on_activations import get_2d_projection
-"
+## Setup
+- Create an environment of your choice.
+- Install dependencies from *"requirements.txt"*
+- Use terminal to excecute scripts
+
+## Structure
+- *main.py* uses two arguments: *single* or *batch* - Insert folder or image placement in the script under *"image_name"* or *"batch_folder"*. To view images for *single*, include *"verbose"* as an argument. 
+- *stats.py* calculates std for mAP, precision and recall, and adds them into the results file.
+- *"plot_scripts"* folder contains two scripts for making plots. *plots.py* has 3 methods: *normal* (no argument), *big* and *combined*. *"table.py"* takes a results file and converts it into a *latex* table.
+- *train.py* finetunes a model on a selected dataset. 
+- *"utils"* folder contains a *logger.py* script to log results, and *utilities.py* with general utility functions used in various scripts. 
+- *main_old.py* has functions for running both v8 and v11 models for both batch and single. 
