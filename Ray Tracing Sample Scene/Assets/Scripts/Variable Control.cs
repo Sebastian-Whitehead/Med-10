@@ -10,7 +10,7 @@ public class VariableControl : MonoBehaviour
 
     [Header("Lighting Quality Settings")]
     [Tooltip("The current lighting level for the scene.")]
-    public HDRPAssetSwitcher.Lighting lightingLevel = HDRPAssetSwitcher.Lighting.Medium;
+    public LightingLevelController.Lighting lightingLevel = LightingLevelController.Lighting.Medium;
 
     [Tooltip("Number of samples used for path tracing. Only applicable if lightingLevel is set to Pathtracing.")]
     public int PathtracingSamples = 256;
@@ -44,19 +44,21 @@ public class VariableControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         itemRandomizer = FindObjectOfType<ItemRandomizer>();
         itemRandomizer.captureLimit = CaptureLimit;
 
         // Set initial lighting level
-        HDRPAssetSwitcher lightingControler = this.GetComponent<HDRPAssetSwitcher>();
+        LightingLevelController lightingControler = this.GetComponent<LightingLevelController>();
         lightingControler.SetLightingLevel(lightingLevel);
-        
+
         // Set initial texture quality
         SetTextureQuality(TextureQuality);
-        
+
         // Set initial decimation strength
         SetCurrentDecimateStrength(DecimationStrength);
+        
+        Debug.Log("All setting applied: Press space to star generating!");
     }
 
     // Update is called once per frame

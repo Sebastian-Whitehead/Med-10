@@ -1,12 +1,14 @@
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 
-public class HDRPAssetSwitcher : MonoBehaviour
+public class LightingLevelController : MonoBehaviour
 {
     public enum Lighting
     {
         Off,
+        Custom, 
         Low,
         Medium,
         High,
@@ -14,7 +16,15 @@ public class HDRPAssetSwitcher : MonoBehaviour
         Pathtracing
     }
 
+    [Tooltip("Do Not Modify this array")]
     public HDRenderPipelineAsset[] hdrpAssets; // Assign different HDRP Assets in the Inspector
+
+    [Tooltip("Custom HDRP Assets for different lighting levels. ")]
+    public HDRenderPipelineAsset[] CustomHDRPAssets; // Custom HDRP Assets for different lighting levels
+
+    [Tooltip("If a \"Custom\" HDRP Asset is selected, this index will be used to determine which asset from the customHDRPAssets Array to apply.")]
+    public int CustomAssetIndex = 0;
+
     public void SetLightingLevel(Lighting level)
     {
         // Switch case for each lighting level
@@ -22,6 +32,9 @@ public class HDRPAssetSwitcher : MonoBehaviour
         {
             case Lighting.Off:
                 print("Lighting Level Not Implemented");
+                break;
+            case Lighting.Custom:
+                GraphicsSettings.renderPipelineAsset = hdrpAssets[CustomAssetIndex];
                 break;
             case Lighting.Low:
                 GraphicsSettings.renderPipelineAsset = hdrpAssets[3];
