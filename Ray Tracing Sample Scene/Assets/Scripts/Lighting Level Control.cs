@@ -2,13 +2,15 @@ using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
+using UnityEngine.Perception.GroundTruth;
+using System.Runtime.CompilerServices;
 
 public class LightingLevelController : MonoBehaviour
 {
     public enum Lighting
     {
         Off,
-        Custom, 
+        Custom,
         Low,
         Medium,
         High,
@@ -24,17 +26,21 @@ public class LightingLevelController : MonoBehaviour
 
     [Tooltip("If a \"Custom\" HDRP Asset is selected, this index will be used to determine which asset from the customHDRPAssets Array to apply.")]
     public int CustomAssetIndex = 0;
+    public Volume PtVolume;
+    public PerceptionCamera perceptionCamera;
 
     public void SetLightingLevel(Lighting level)
     {
-        // Switch case for each lighting level
+        bool PT_Enabled = false;
+        int pts = 0;
+
         switch (level)
         {
             case Lighting.Off:
                 print("Lighting Level Not Implemented");
                 break;
             case Lighting.Custom:
-                GraphicsSettings.renderPipelineAsset = hdrpAssets[CustomAssetIndex];
+                GraphicsSettings.renderPipelineAsset = CustomHDRPAssets[CustomAssetIndex];
                 break;
             case Lighting.Low:
                 GraphicsSettings.renderPipelineAsset = hdrpAssets[3];
@@ -50,10 +56,32 @@ public class LightingLevelController : MonoBehaviour
                 break;
             case Lighting.Pathtracing:
                 GraphicsSettings.renderPipelineAsset = hdrpAssets[0];
-                print("Lighting Level Not Implemented");
+                PtVolume.profile.TryGet(out PathTracing pathTracingVolume);
+                pts = FindObjectOfType<VariableControl>().PathtracingSamples;
+                pathTracingVolume.maximumSamples.Override(pts);
+                PT_Enabled = true;
                 break;
         }
-
+        PtVolume.gameObject.SetActive(PT_Enabled);
+        perceptionCamera.useAccumulation = PT_Enabled;
+        FindObjectOfType<ItemRandomizer>().SetPathTracingSamples(pts, PT_Enabled);
+        
         Debug.Log($"Switched HDRP Asset to: {GraphicsSettings.currentRenderPipeline.name}");
+    }
+    
+        public int GetAccumulationSamples()
+    {
+        // Access the active volume stack
+        var volumeStack = VolumeManager.instance.stack;
+
+        // Retrieve the PathTracing component from the volume stack
+        PathTracing pathTracing = volumeStack.GetComponent<PathTracing>();
+        if (pathTracing != null && pathTracing.active)
+        {
+            return pathTracing.maximumSamples.value; // Access the maximum samples value
+        }
+
+        Debug.LogWarning("PathTracing component not found or not active in the volume stack.");
+        return 0; // Default value if not found
     }
 }

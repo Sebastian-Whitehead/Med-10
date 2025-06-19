@@ -15,7 +15,7 @@ public class ItemRandomizer : MonoBehaviour
     public ModelChanger tableChanger;
 
     [Header("Spawn Settings")]
-    public List<GameObject> spawnList = new List<GameObject>();
+    private List<GameObject> spawnList = new List<GameObject>();
     public int min_spawn_count = 1;
     public int max_spawn_count = 5;
     public Vector3 spawnRange = new Vector3(10, 0, 10);
@@ -24,10 +24,9 @@ public class ItemRandomizer : MonoBehaviour
 
     [Header("Capture Settings")]
     public PerceptionCamera perceptionCamera;
-    public bool restrainCameraPositions = true;
+    private bool restrainCameraPositions;
 
-    public Volume PTvolume;
-    [Tooltip("Ensure to adjust the corresponding variable in the PathTracing camera as well.")] public int sample = 512;
+    [Tooltip("Ensure to adjust the corresponding variable in the PathTracing camera as well.")] private int sample = 512;
     private bool PT_Enabled = false;
     public int captureCount = 0;
     public int captureLimit = 100;
@@ -42,16 +41,15 @@ public class ItemRandomizer : MonoBehaviour
     private bool hasMoved = false;
     private bool hasCaptured = true;
 
-    public void Start()
+    void Start()
     {
-        PTvolume.profile.TryGet(out PathTracing pathTracingVolume);
-
-        PT_Enabled = sample != -1;
-        
-        pathTracingVolume.maximumSamples.Override(sample);
-        PTvolume.gameObject.SetActive(PT_Enabled );
-        perceptionCamera.useAccumulation = PT_Enabled;
-        print($"Path Tracing Enabled: {PT_Enabled}");
+        spawnList = FindObjectOfType<Catalouge>().spawnList;
+        restrainCameraPositions = FindObjectOfType<VariableControl>().restrainCameraPositions;
+    }
+    public void SetPathTracingSamples(int samples, bool enabled)
+    {
+        PT_Enabled = enabled;
+        sample = samples;
     }
 
     // Update is called once per frame
@@ -94,7 +92,7 @@ public class ItemRandomizer : MonoBehaviour
     /// <summary>
     /// Spawns a random number of objects within the defined spawn range.
     /// </summary>
-    public void SpawnRandomObjects()
+    private void SpawnRandomObjects()
     {
         DestroySpawnedObjects();
         
@@ -118,7 +116,7 @@ public class ItemRandomizer : MonoBehaviour
     /// <summary>
     /// Destroys all currently spawned objects.
     /// </summary>
-    public void DestroySpawnedObjects()
+    private void DestroySpawnedObjects()
     {
         foreach (GameObject obj in spawnedObjects)
         {
@@ -150,82 +148,56 @@ public class ItemRandomizer : MonoBehaviour
         }
     }
 
-    public int GetAccumulationSamples()
-{
-    // Access the active volume stack
-    var volumeStack = VolumeManager.instance.stack;
-
-    // Retrieve the PathTracing component from the volume stack
-    PathTracing pathTracing = volumeStack.GetComponent<PathTracing>();
-    if (pathTracing != null && pathTracing.active)
-    {
-        return pathTracing.maximumSamples.value; // Access the maximum samples value
-    }
-
-    Debug.LogWarning("PathTracing component not found or not active in the volume stack.");
-    return 0; // Default value if not found
-}
 
     /// <summary>
     /// Checks the speed of spawned objects and triggers capture if conditions are met.
     /// </summary>
     private void CheckSpeedOfSpawnedObjects()
-{
-    totalSpeed = 0;
-
-    foreach (GameObject obj in spawnedObjects)
     {
-        Rigidbody rb = obj.GetComponent<Rigidbody>();
-        if (rb != null)
+        totalSpeed = 0;
+
+        foreach (GameObject obj in spawnedObjects)
         {
-            totalSpeed += rb.velocity.magnitude;
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                totalSpeed += rb.velocity.magnitude;
+            }
+        }
+
+        foreach (ClientSpawner clientSpawner in clientSpawners)
+        {
+            totalSpeed += clientSpawner.CheckSpeedOfSpawnedObjects();
+        }
+
+        if (totalSpeed > speedThreshold)
+        {
+            hasMoved = true;
+            hasCaptured = false;
+        }
+        else if (totalSpeed < speedThreshold && hasMoved && !hasCaptured)
+        {
+            hasCaptured = true;
+            hasMoved = false;
+
+            perceptionCamera?.RequestCapture(); // Request a capture from the PerceptionCamera
+            captureCount++;
+
+            respawn = true;
+        }
+
+        //if arrowkey down is pressed force capture frame
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            hasCaptured = true;
+            hasMoved = false;
+
+            perceptionCamera?.RequestCapture(); // Request a capture from the PerceptionCamera
+            captureCount++;
+
+            respawn = true;
         }
     }
-
-    foreach (ClientSpawner clientSpawner in clientSpawners)
-    {
-        totalSpeed += clientSpawner.CheckSpeedOfSpawnedObjects();
-    }
-
-    if (totalSpeed > speedThreshold)
-    {
-        hasMoved = true;
-        hasCaptured = false;
-    }
-    else if (totalSpeed < speedThreshold && hasMoved && !hasCaptured)
-    {
-        hasCaptured = true;
-        hasMoved = false;
-        
-        perceptionCamera?.RequestCapture(); // Request a capture from the PerceptionCamera
-        captureCount++;
-        
-        respawn = true;
-    }
-    
-    //if arrowkey down is pressed force capture frame
-    if (Input.GetKeyDown(KeyCode.DownArrow))
-    {
-        hasCaptured = true;
-        hasMoved = false;
-        
-        perceptionCamera?.RequestCapture(); // Request a capture from the PerceptionCamera
-        captureCount++;
-        
-        respawn = true;
-    }
-
-    // if arrowkey right is placed add 1 to capture count
-    if (Input.GetKeyDown(KeyCode.RightArrow))
-    {
-        captureCount++;
-    }
-    // if arrowkey left is placed subtract 1 to capture count
-    if (Input.GetKeyDown(KeyCode.LeftArrow))
-    {
-        captureCount--;
-    }
-}
 
     /// <summary>
     /// Draws the spawn area in the Unity Editor for visualization.

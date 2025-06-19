@@ -37,6 +37,8 @@ public class VariableControl : MonoBehaviour
     [Tooltip("Current number of captures (read-only).")]
     public int CaptureCount = 0;
 
+    public bool restrainCameraPositions = true;
+
     private float currentDecimateStrength = 1.0f;
 
     private ItemRandomizer itemRandomizer;
@@ -51,6 +53,10 @@ public class VariableControl : MonoBehaviour
         // Set initial lighting level
         LightingLevelController lightingControler = this.GetComponent<LightingLevelController>();
         lightingControler.SetLightingLevel(lightingLevel);
+        if(lightingLevel != LightingLevelController.Lighting.Pathtracing)
+        {
+            PathtracingSamples = -1; // Disable path tracing samples if not using Pathtracing
+        }
 
         // Set initial texture quality
         SetTextureQuality(TextureQuality);
