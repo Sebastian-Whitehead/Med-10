@@ -5,6 +5,8 @@ public class SimplifyMesh : MonoBehaviour
 {
     public float currentQuality = 0.5f;
     public MeshFilter meshFilter;
+
+    [ReadOnly]
     public int triCount = 0;
 
     private bool useSigmoid = true;
@@ -23,13 +25,13 @@ public class SimplifyMesh : MonoBehaviour
             return;
         }
         // Find the single instance of LightingLevelControl in the scene
-        HDRPAssetSwitcher lightingControl = FindObjectOfType<HDRPAssetSwitcher>();
+        VariableControl lightingControl = FindObjectOfType<VariableControl>();
         useSigmoid = lightingControl.useSigmoid;
 
         if (lightingControl != null)
         {
             // Use the currentDecimateStrength value to determine the base quality
-            float baseQuality = Mathf.Clamp01(lightingControl.currentDecimateStrength);
+            float baseQuality = Mathf.Clamp01(lightingControl.DecimationStrength);
             
             if (baseQuality == 1f) {
                 currentQuality = 1f;

@@ -4,41 +4,43 @@ using UnityEngine.Rendering.HighDefinition;
 
 public class HDRPAssetSwitcher : MonoBehaviour
 {
-    public HDRenderPipelineAsset[] hdrpAssets; // Assign different HDRP Assets in the Inspector
-    public int currentHDRPAssetIndex = 0;
-    public int currentMipMap = 0;
-    public float currentDecimateStrength = 1;
-
-    public bool useSigmoid = true;
-
-    
-
-    public void SetHDRPAsset(int index)
+    public enum Lighting
     {
-        if (index < 0 || index >= hdrpAssets.Length || hdrpAssets[index] == null)
+        Off,
+        Low,
+        Medium,
+        High,
+        Raytracing,
+        Pathtracing
+    }
+
+    public HDRenderPipelineAsset[] hdrpAssets; // Assign different HDRP Assets in the Inspector
+    public void SetLightingLevel(Lighting level)
+    {
+        // Switch case for each lighting level
+        switch (level)
         {
-            Debug.LogError("Invalid HDRP asset index.");
-            return;
+            case Lighting.Off:
+                print("Lighting Level Not Implemented");
+                break;
+            case Lighting.Low:
+                GraphicsSettings.renderPipelineAsset = hdrpAssets[3];
+                break;
+            case Lighting.Medium:
+                GraphicsSettings.renderPipelineAsset = hdrpAssets[2];
+                break;
+            case Lighting.High:
+                GraphicsSettings.renderPipelineAsset = hdrpAssets[1];
+                break;
+            case Lighting.Raytracing:
+                GraphicsSettings.renderPipelineAsset = hdrpAssets[0];
+                break;
+            case Lighting.Pathtracing:
+                GraphicsSettings.renderPipelineAsset = hdrpAssets[0];
+                print("Lighting Level Not Implemented");
+                break;
         }
 
-        GraphicsSettings.renderPipelineAsset = hdrpAssets[index];
         Debug.Log($"Switched HDRP Asset to: {GraphicsSettings.currentRenderPipeline.name}");
-    }
-
-    public void SetTextureQuality(int mipMap)
-    {
-        QualitySettings.globalTextureMipmapLimit = currentMipMap;
-    }
-
-    public void SetCurrentDecimateStrength(float strength)
-    {
-        currentDecimateStrength = strength;
-    }
-
-    void Start()
-    {
-        SetHDRPAsset(currentHDRPAssetIndex);
-        SetTextureQuality(currentMipMap);
-        SetCurrentDecimateStrength(currentDecimateStrength);
     }
 }

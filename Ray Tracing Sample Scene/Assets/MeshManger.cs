@@ -27,6 +27,7 @@ public class MeshManager : MonoBehaviour
         {
             CalculateSceneComplexityThreshold();
         }
+        Debug.Log($"Complexity threshold: {complexityThreshold}");
         return complexityThreshold;
     }
 
@@ -76,9 +77,9 @@ public class MeshManager : MonoBehaviour
         int maxTriangleCount = triCounts.Max();
         int minTriangleCount = triCounts.Min();
 
-        print($"Total Models {triCounts.Count}, Average triangles: {averageTriangleCount}, Median Triangles: {medianTriangleCount}, Max triangles: {maxTriangleCount} for {maxObject}, Min triangles: {minTriangleCount} for object: {minObject}");
+        Debug.Log($"Total Models {triCounts.Count}, Average triangles: {averageTriangleCount}, Median Triangles: {medianTriangleCount}, Max triangles: {maxTriangleCount} for {maxObject}, Min triangles: {minTriangleCount} for object: {minObject}");
         //print triCounts as a comma separated string   
-        print(string.Join(", ", triCounts));
+        //print(string.Join(", ", triCounts));
 
         // Calculate average triangle count
         //int averageTriangles = totalTriangles / simplifyMeshObjects.Length;

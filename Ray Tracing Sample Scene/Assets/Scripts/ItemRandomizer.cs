@@ -79,7 +79,7 @@ public class ItemRandomizer : MonoBehaviour
     {
         if (captureCount == -1) return;
 
-        if (captureCount > captureLimit)
+        if (captureCount >= captureLimit)
         {
             Debug.Log("Capture limit reached. Exiting...");
 
