@@ -15,7 +15,7 @@ public class ItemRandomizer : MonoBehaviour
     public ModelChanger tableChanger;
 
     [Header("Spawn Settings")]
-    private List<GameObject> spawnList = new List<GameObject>();
+    public Catalouge ObjCatalouge;
     public int min_spawn_count = 1;
     public int max_spawn_count = 5;
     public Vector3 spawnRange = new Vector3(10, 0, 10);
@@ -26,7 +26,7 @@ public class ItemRandomizer : MonoBehaviour
     public PerceptionCamera perceptionCamera;
     private bool restrainCameraPositions;
 
-    [Tooltip("Ensure to adjust the corresponding variable in the PathTracing camera as well.")] private int sample = 512;
+    private int sample = 512;
     private bool PT_Enabled = false;
     public int captureCount = 0;
     public int captureLimit = 100;
@@ -43,7 +43,6 @@ public class ItemRandomizer : MonoBehaviour
 
     void Start()
     {
-        spawnList = FindObjectOfType<Catalouge>().spawnList;
         restrainCameraPositions = FindObjectOfType<VariableControl>().restrainCameraPositions;
     }
     public void SetPathTracingSamples(int samples, bool enabled)
@@ -99,8 +98,8 @@ public class ItemRandomizer : MonoBehaviour
         int spawnCount = Random.Range(min_spawn_count, max_spawn_count + 1);
         for (int i = 0; i < spawnCount; i++)
         {
-            int randomIndex = Random.Range(0, spawnList.Count);
-            GameObject prefab = spawnList[randomIndex];
+            int randomIndex = Random.Range(0, ObjCatalouge.spawnList.Count);
+            GameObject prefab = ObjCatalouge.spawnList[randomIndex];
 
             Vector3 spawnPosition = new Vector3(
                 transform.position.x + Random.Range(-spawnRange.x, spawnRange.x),
@@ -147,7 +146,6 @@ public class ItemRandomizer : MonoBehaviour
             respawn = false;
         }
     }
-
 
     /// <summary>
     /// Checks the speed of spawned objects and triggers capture if conditions are met.

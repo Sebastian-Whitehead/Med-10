@@ -65,11 +65,11 @@ public class LightingLevelController : MonoBehaviour
         PtVolume.gameObject.SetActive(PT_Enabled);
         perceptionCamera.useAccumulation = PT_Enabled;
         FindObjectOfType<ItemRandomizer>().SetPathTracingSamples(pts, PT_Enabled);
-        
+
         Debug.Log($"Switched HDRP Asset to: {GraphicsSettings.currentRenderPipeline.name}");
     }
     
-        public int GetAccumulationSamples()
+    public int GetAccumulationSamples()
     {
         // Access the active volume stack
         var volumeStack = VolumeManager.instance.stack;

@@ -18430,7 +18430,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 50
     distanceFadeEnd: 60
-    textureOffset: {x: -0, y: -26971.963, z: -0}
+    textureOffset: {x: -0, y: -27129.453, z: -0}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -32481,8 +32481,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 168a2336534e4e043b2a210b6f8d379a, type: 2}
   CustomHDRPAssets: []
   CustomAssetIndex: 0
-  PtVolume: {fileID: 0}
-  perceptionCamera: {fileID: 0}
+  PtVolume: {fileID: 17585288}
+  perceptionCamera: {fileID: 233823489490824954}
 --- !u!114 &6682357391807468823
 MonoBehaviour:
   m_ObjectHideFlags: 0
