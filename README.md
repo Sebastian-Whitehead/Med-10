@@ -21,7 +21,7 @@ The following metrics are used to evaluate the model's performance on synthetic 
 - **Recall**
 - **Standard Deviation (std)**
 
-### Unity Environment (`Final-Unity-Environment` branch)
+### Unity Environment (`Main` branch)
 The Unity environment in the `Final-Unity-Environment` branch simulates a controlled environment where synthetic data is generated. This data is then used to evaluate the performance of the vision model in the testing program.
 
 - **Lighting**: Controlled to vary across test sets.
