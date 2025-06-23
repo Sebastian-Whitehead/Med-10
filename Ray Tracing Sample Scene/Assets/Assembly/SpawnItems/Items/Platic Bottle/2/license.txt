@@ -1,0 +1,11 @@
+Model Information:
+* title:	coca-cola bottle
+* source:	https://sketchfab.com/3d-models/coca-cola-bottle-ecacc2f593da4341ac90caac84386511
+* author:	Prakash.G (https://sketchfab.com/Prakash.G)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "coca-cola bottle" (https://sketchfab.com/3d-models/coca-cola-bottle-ecacc2f593da4341ac90caac84386511) by Prakash.G (https://sketchfab.com/Prakash.G) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

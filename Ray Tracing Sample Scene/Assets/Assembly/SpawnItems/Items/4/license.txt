@@ -1,0 +1,11 @@
+Model Information:
+* title:	Coffe Cup
+* source:	https://sketchfab.com/3d-models/coffe-cup-42e3296a290843819b437df123569a09
+* author:	pavito (https://sketchfab.com/pavito)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Coffe Cup" (https://sketchfab.com/3d-models/coffe-cup-42e3296a290843819b437df123569a09) by pavito (https://sketchfab.com/pavito) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

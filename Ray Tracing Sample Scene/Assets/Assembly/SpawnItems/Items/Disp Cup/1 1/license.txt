@@ -1,0 +1,11 @@
+Model Information:
+* title:	McDonald's Cup
+* source:	https://sketchfab.com/3d-models/mcdonalds-cup-3d9f4b081ffb409084eda00ef9aeeec7
+* author:	quentin.cdt (https://sketchfab.com/quentin.cdt)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "McDonald's Cup" (https://sketchfab.com/3d-models/mcdonalds-cup-3d9f4b081ffb409084eda00ef9aeeec7) by quentin.cdt (https://sketchfab.com/quentin.cdt) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

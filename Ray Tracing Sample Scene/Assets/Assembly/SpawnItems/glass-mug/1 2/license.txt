@@ -1,0 +1,11 @@
+Model Information:
+* title:	Empty Beer Mug (glass)
+* source:	https://sketchfab.com/3d-models/empty-beer-mug-glass-3ae593f8ec2d48e79618063fc188f178
+* author:	Lonit (https://sketchfab.com/Lonit)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Empty Beer Mug (glass)" (https://sketchfab.com/3d-models/empty-beer-mug-glass-3ae593f8ec2d48e79618063fc188f178) by Lonit (https://sketchfab.com/Lonit) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

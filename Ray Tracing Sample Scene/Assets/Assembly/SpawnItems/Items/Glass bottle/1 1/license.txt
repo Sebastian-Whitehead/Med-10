@@ -1,0 +1,8 @@
+Model Information:
+* title:	JACK_DANIELS
+* source:	https://sketchfab.com/3d-models/jack-daniels-f752d4158fa947b597ea38885a1ea23a
+* author:	Biankk_ (https://sketchfab.com/monica.2602.bianca)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

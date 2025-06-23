@@ -1,0 +1,11 @@
+Model Information:
+* title:	Soda Cup
+* source:	https://sketchfab.com/3d-models/soda-cup-e2d8e10342b54d47a6f13c9aa10fddcc
+* author:	Callum_Alcock (https://sketchfab.com/Callum_Alcock)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Soda Cup" (https://sketchfab.com/3d-models/soda-cup-e2d8e10342b54d47a6f13c9aa10fddcc) by Callum_Alcock (https://sketchfab.com/Callum_Alcock) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

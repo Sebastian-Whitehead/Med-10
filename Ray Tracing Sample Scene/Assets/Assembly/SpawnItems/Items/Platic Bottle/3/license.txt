@@ -1,0 +1,11 @@
+Model Information:
+* title:	Soda Bottle Orange Liquid
+* source:	https://sketchfab.com/3d-models/soda-bottle-orange-liquid-c9eb3ec6a97544babd5597129c2adc03
+* author:	smart61 (https://sketchfab.com/smart61)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Soda Bottle Orange Liquid" (https://sketchfab.com/3d-models/soda-bottle-orange-liquid-c9eb3ec6a97544babd5597129c2adc03) by smart61 (https://sketchfab.com/smart61) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

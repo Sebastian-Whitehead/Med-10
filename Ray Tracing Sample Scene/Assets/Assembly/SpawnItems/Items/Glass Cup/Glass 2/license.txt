@@ -1,0 +1,11 @@
+Model Information:
+* title:	Glass cup
+* source:	https://sketchfab.com/3d-models/glass-cup-5924ddb59c894d37b74368ae56ae3501
+* author:	ale3Dartist (https://sketchfab.com/alek492)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Glass cup" (https://sketchfab.com/3d-models/glass-cup-5924ddb59c894d37b74368ae56ae3501) by ale3Dartist (https://sketchfab.com/alek492) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,130 @@
+# 
+# Wavefront material file
+# Created with Kaydara FBX
+# 
+
+newmtl Table_Baked01
+map_Kd Table-001CompleteMap.jpg
+Ka 0.200000 0.200000 0.200000
+Kd 0.588235 0.588235 0.588235
+Ks 0.000000 0.000000 0.000000
+illum 2
+Ns 1.000000
+Tr 1.000000
+
+newmtl Sedia_Baked001
+map_Kd Sedia-001CompleteMap.jpg
+Ka 0.200000 0.200000 0.200000
+Kd 0.588235 0.588235 0.588235
+Ks 0.020177 0.020177 0.020177
+illum 2
+Ns 1.000000
+Tr 1.000000
+
+newmtl Sedia_Baked001_ncl1_1
+map_Kd Sedia-001CompleteMap.jpg
+Ka 0.200000 0.200000 0.200000
+Kd 0.588235 0.588235 0.588235
+Ks 0.020177 0.020177 0.020177
+illum 2
+Ns 1.000000
+Tr 1.000000
+
+newmtl Sedia_Baked001_ncl1_2
+map_Kd Sedia-001CompleteMap.jpg
+Ka 0.200000 0.200000 0.200000
+Kd 0.588235 0.588235 0.588235
+Ks 0.020177 0.020177 0.020177
+illum 2
+Ns 1.000000
+Tr 1.000000
+
+newmtl Sedia_Baked001_ncl1_3
+map_Kd Sedia-001CompleteMap.jpg
+Ka 0.200000 0.200000 0.200000
+Kd 0.588235 0.588235 0.588235
+Ks 0.020177 0.020177 0.020177
+illum 2
+Ns 1.000000
+Tr 1.000000
+
+newmtl Sedia_Baked001_ncl1_4
+map_Kd Sedia-001CompleteMap.jpg
+Ka 0.200000 0.200000 0.200000
+Kd 0.588235 0.588235 0.588235
+Ks 0.020177 0.020177 0.020177
+illum 2
+Ns 1.000000
+Tr 1.000000
+
+newmtl Sedia_Baked001_ncl1_5
+map_Kd Sedia-001CompleteMap.jpg
+Ka 0.200000 0.200000 0.200000
+Kd 0.588235 0.588235 0.588235
+Ks 0.020177 0.020177 0.020177
+illum 2
+Ns 1.000000
+Tr 1.000000
+
+newmtl HR01_Lowato01
+map_Kd Layer_HR01_Lowato01_Diffuse_Map #3.png
+Ka 0.200000 0.200000 0.200000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+illum 2
+Ns 0.777228
+Tr 1.000000
+
+newmtl CL_ZBrush_defualt_group_1
+map_Kd CL_ZBrush_defualt_group_1DiffuseMap.jpg
+Ka 0.200000 0.200000 0.200000
+Kd 0.588235 0.588235 0.588235
+Ks 0.001969 0.001969 0.001969
+illum 2
+Ns 0.089109
+Tr 1.000000
+
+newmtl End_Pear_A1
+map_Kd Low1_1CompleteMap.jpg
+Ka 0.200000 0.200000 0.200000
+Kd 0.588235 0.588235 0.588235
+Ks 0.000000 0.000000 0.000000
+illum 2
+Ns 0.050000
+Tr 1.000000
+
+newmtl Group56856
+map_Kd Group56856DiffuseMap.jpg
+Ka 0.200000 0.200000 0.200000
+Kd 0.550000 0.550000 0.550000
+Ks 0.000000 0.000000 0.000000
+illum 2
+Ns 0.150000
+Tr 1.000000
+
+newmtl Mat_Cesta1
+map_Kd Cesta_LR_1CompleteMap.jpg
+Ka 0.200000 0.200000 0.200000
+Kd 0.588235 0.588235 0.588235
+Ks 0.001424 0.001424 0.001424
+illum 2
+Ns 1.000000
+Tr 1.000000
+
+newmtl default1
+map_Kd Orange_02_DIFF.png
+Ka 0.200000 0.200000 0.200000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+illum 2
+Ns 0.050000
+Tr 1.000000
+
+newmtl default43
+map_Kd default43DiffuseMap.jpg
+Ka 0.200000 0.200000 0.200000
+Kd 0.588235 0.588235 0.588235
+Ks 0.047250 0.047250 0.047250
+illum 2
+Ns 0.115000
+Tr 1.000000
