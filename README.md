@@ -1,4 +1,4 @@
-# Med-10 Project
+# Testing digital twin synthetic data quality through pretrained models trained on natural data.
 
 ### Overview
 The **Med-10** project is developed in connection with a Medialogy master thesis project. It aims to test a pretrained model's ability to assess the quality of synthetic data generated in Unity using performance metrics. This project serves as a baseline implementation for evaluating the performance of models when exposed to synthetic data, without needing dedicated systems for quality assessment. The core hypothesis is that the model’s performance on new synthetic data correlates with the similarity to data it was trained on, implying that high performance on synthetic data indicates good data quality.
