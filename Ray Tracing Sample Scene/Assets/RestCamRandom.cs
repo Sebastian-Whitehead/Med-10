@@ -51,7 +51,7 @@ public class RestCamRandom : MonoBehaviour
     Vector3 ObjectPosition()
     {
         Vector3 center = Lookie.transform.position;
-        Debug.Log(center);
+        //Debug.Log(center);
 
         // Generate random offsets within the bounds
         float randomX = Random.Range(-l.x, l.x);

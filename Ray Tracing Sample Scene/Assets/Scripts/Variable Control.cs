@@ -12,13 +12,13 @@ public class VariableControl : MonoBehaviour
     [Tooltip("The current lighting level for the scene.")]
     public LightingLevelController.Lighting lightingLevel = LightingLevelController.Lighting.Medium;
 
-    [Tooltip("Number of samples used for path tracing. Only applicable if lightingLevel is set to Pathtracing.")]
+    [Tooltip("Number of samples used for path tracing. Only applicable if lightingLevel is set to Pathtracing. Adjust this value in the global accumulation perception settings aswell.")]
     public int PathtracingSamples = 256;
 
     [Header("Polygon Decimation Settings")]
     [Tooltip("Strength of the decimation applied to the scene.")]
     [Range(0f, 1f)]
-    public float DecimationStrength = 0.1f;
+    public float TargetModelQuality = 0.1f;
 
     [Tooltip("Applies a sigmoid function to the decimation strength to equalize the poly crush effect across models")]
     public bool useSigmoid = true;
@@ -62,7 +62,7 @@ public class VariableControl : MonoBehaviour
         SetTextureQuality(TextureQuality);
 
         // Set initial decimation strength
-        SetCurrentDecimateStrength(DecimationStrength);
+        SetCurrentDecimateStrength(TargetModelQuality);
         
         Debug.Log("All setting applied: Press space to star generating!");
     }
@@ -76,10 +76,12 @@ public class VariableControl : MonoBehaviour
     private void SetTextureQuality(int mipMap)
     {
         QualitySettings.globalTextureMipmapLimit = mipMap;
+        print($"Texture quality set to: {mipMap}");
     }
-    
+
     public void SetCurrentDecimateStrength(float strength)
     {
         currentDecimateStrength = strength;
+        print($"Model Quality set to: {strength}");
     }
 }

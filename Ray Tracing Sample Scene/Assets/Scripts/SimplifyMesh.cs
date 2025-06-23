@@ -31,7 +31,7 @@ public class SimplifyMesh : MonoBehaviour
         if (lightingControl != null)
         {
             // Use the currentDecimateStrength value to determine the base quality
-            float baseQuality = Mathf.Clamp01(lightingControl.DecimationStrength);
+            float baseQuality = Mathf.Clamp01(lightingControl.TargetModelQuality);
             
             if (baseQuality == 1f) {
                 currentQuality = 1f;

@@ -5,6 +5,8 @@ using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.Perception.GroundTruth;
 using System.Runtime.CompilerServices;
 using GLTFast;
+using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class LightingLevelController : MonoBehaviour
 {
@@ -18,12 +20,9 @@ public class LightingLevelController : MonoBehaviour
         Raytracing,
         Pathtracing
     }
-
-    [Tooltip("Do Not Modify this array")]
-    public HDRenderPipelineAsset[] hdrpAssets; // Assign different HDRP Assets in the Inspector
-
-    [Tooltip("Custom HDRP Assets for different lighting levels. ")]
-    public HDRenderPipelineAsset[] CustomHDRPAssets; // Custom HDRP Assets for different lighting levels
+    [Header("Lighting Quality Settings")]
+    [Tooltip("Custom Index of HDRP Assets in the Graphics settings menu.")]
+    public int customHDRPAssetsIndex = 0;
 
     [Tooltip("If a \"Custom\" HDRP Asset is selected, this index will be used to determine which asset from the customHDRPAssets Array to apply.")]
     public int CustomAssetIndex = 0;
@@ -36,7 +35,7 @@ public class LightingLevelController : MonoBehaviour
     {
         bool PT_Enabled = false;
         int pts = 0;
-
+        Debug.Log($"Setting lighting level to: {level}");
         switch (level)
         {
             case Lighting.Off:
@@ -44,24 +43,25 @@ public class LightingLevelController : MonoBehaviour
                 {
                     obj.SetActive(false);
                 }
+                print("Lighting is turned off.");
                 break;
             case Lighting.Custom:
-                GraphicsSettings.renderPipelineAsset = CustomHDRPAssets[CustomAssetIndex];
+                QualitySettings.SetQualityLevel(customHDRPAssetsIndex, true);
                 break;
             case Lighting.Low:
-                GraphicsSettings.renderPipelineAsset = hdrpAssets[3];
+                QualitySettings.SetQualityLevel(0, true);
                 break;
             case Lighting.Medium:
-                GraphicsSettings.renderPipelineAsset = hdrpAssets[2];
+                QualitySettings.SetQualityLevel(1, true);
                 break;
             case Lighting.High:
-                GraphicsSettings.renderPipelineAsset = hdrpAssets[1];
+                QualitySettings.SetQualityLevel(2, true);
                 break;
             case Lighting.Raytracing:
-                GraphicsSettings.renderPipelineAsset = hdrpAssets[0];
+                QualitySettings.SetQualityLevel(3, true);
                 break;
             case Lighting.Pathtracing:
-                GraphicsSettings.renderPipelineAsset = hdrpAssets[0];
+                QualitySettings.SetQualityLevel(4, true);
                 PtVolume.profile.TryGet(out PathTracing pathTracingVolume);
                 pts = FindObjectOfType<VariableControl>().PathtracingSamples;
                 pathTracingVolume.maximumSamples.Override(pts);
@@ -72,9 +72,9 @@ public class LightingLevelController : MonoBehaviour
         perceptionCamera.useAccumulation = PT_Enabled;
         FindObjectOfType<ItemRandomizer>().SetPathTracingSamples(pts, PT_Enabled);
 
-        Debug.Log($"Switched HDRP Asset to: {GraphicsSettings.currentRenderPipeline.name}");
+        //Debug.Log($"Switched HDRP Asset to: {GraphicsSettings.currentRenderPipeline.name}");
     }
-    
+
     public int GetAccumulationSamples()
     {
         // Access the active volume stack

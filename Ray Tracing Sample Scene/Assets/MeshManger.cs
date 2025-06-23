@@ -27,7 +27,7 @@ public class MeshManager : MonoBehaviour
         {
             CalculateSceneComplexityThreshold();
         }
-        Debug.Log($"Complexity threshold: {complexityThreshold}");
+        //Debug.Log($"Complexity threshold: {complexityThreshold}");
         return complexityThreshold;
     }
 
