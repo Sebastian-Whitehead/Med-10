@@ -4,6 +4,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.Perception.GroundTruth;
 using System.Runtime.CompilerServices;
+using GLTFast;
 
 public class LightingLevelController : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class LightingLevelController : MonoBehaviour
     public Volume PtVolume;
     public PerceptionCamera perceptionCamera;
 
+    public GameObject[] lightingControlObjects;
+
     public void SetLightingLevel(Lighting level)
     {
         bool PT_Enabled = false;
@@ -37,7 +40,10 @@ public class LightingLevelController : MonoBehaviour
         switch (level)
         {
             case Lighting.Off:
-                print("Lighting Level Not Implemented");
+                foreach (GameObject obj in lightingControlObjects)
+                {
+                    obj.SetActive(false);
+                }
                 break;
             case Lighting.Custom:
                 GraphicsSettings.renderPipelineAsset = CustomHDRPAssets[CustomAssetIndex];
