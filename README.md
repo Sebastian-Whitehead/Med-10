@@ -22,7 +22,7 @@ The following metrics are used to evaluate the model's performance on synthetic 
 - **Standard Deviation (std)**
 
 ### Unity Environment (`Main` branch)
-The Unity environment in the `Final-Unity-Environment` branch simulates a controlled environment where synthetic data is generated. This data is then used to evaluate the performance of the vision model in the testing program.
+The Unity environment in the `Main` branch simulates a controlled environment where synthetic data is generated. This data is then used to evaluate the performance of the vision model in the testing program.
 
 - **Lighting**: Controlled to vary across test sets.
 - **Polycount**: Models are decimated to different levels, allowing the analysis of how polycount impacts data quality.
@@ -81,6 +81,9 @@ Since this is a proof-of-concept baseline, you are free to customize the Unity d
 ### Data and Results
 
 You can choose to use the pregenerated datasets through:[[Hugging Face Dataset](https://huggingface.co/datasets/P4rz1val/SyntheticBeverages)].  Or you can generate your own data through the generation tool provided.
+For further details on the results and findings, please refer to the report that this repository was created to support:
+[View the report on Google Drive](https://drive.google.com/file/d/14V5ezM5yzvBL_bDRwRgToO5x1KSzhLOu/view?usp=sharing)
+
 
 ### Sourced Models
 ### 🧾 3D Model Asset Attribution Table
